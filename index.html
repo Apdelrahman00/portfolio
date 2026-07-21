@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عبدالرحمن أيمن — شريكك في نمو البيزنس بالمحتوى</title>
+<meta name="description" content="عبدالرحمن أيمن — بساعد البيزنس ورواد الأعمال يكبروا ويزودوا دخلهم عن طريق صناعة المحتوى: استراتيجية، سكريبت، تصوير، مونتاج.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ======================================================
+   BRAND — Poster Red / Gold / Warm Ink
+   (لو ركّبت فونتات Thmanyah هتشتغل تلقائي — أول اختيار)
+   ====================================================== */
+:root{
+  --bg:#0e0906;
+  --bg-2:#150e08;
+  --card:#1c130c;
+  --card-hover:#241a11;
+  --border:rgba(251,246,233,.09);
+  --text:#FBF6E9;
+  --text-2:#B7A791;
+  --red:#A5342A;
+  --red-deep:#7A1E16;
+  --red-darkest:#5C160F;
+  --red-light:#C24A3B;
+  --gold:#C9A227;
+  --gold-light:#D9B94B;
+  --grad:linear-gradient(120deg,#7A1E16,#C24A3B);
+  --grad-gold:linear-gradient(120deg,#92721A,#D9B94B);
+  --radius:22px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font-sans:'Thmanyah Sans','IBM Plex Sans Arabic',sans-serif;
+  --font-serif:'Thmanyah Serif Display','Amiri','Playfair Display',serif;
+}
+html[lang="en"]{--font-serif:'Thmanyah Serif Display','Playfair Display',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--font-sans);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.75;
+}
+::selection{background:var(--red);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- background glow ---------- */
+.glow{position:fixed;border-radius:50%;filter:blur(140px);opacity:.2;pointer-events:none;z-index:0}
+.glow.g1{width:600px;height:600px;background:var(--red-deep);top:-200px;inset-inline-start:-150px}
+.glow.g2{width:500px;height:500px;background:var(--gold);top:40%;inset-inline-end:-220px;opacity:.1}
+.glow.g3{width:500px;height:500px;background:var(--red-darkest);bottom:-200px;inset-inline-start:30%;opacity:.25}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;inset-inline:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 6vw;transition:all .5s var(--ease);
+}
+nav.scrolled{
+  background:rgba(14,9,6,.75);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  padding:12px 6vw;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem}
+.logo .mark{
+  width:38px;height:38px;border-radius:10px;background:var(--grad);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.85rem;letter-spacing:-1px;font-style:italic;
+  box-shadow:0 6px 20px rgba(122,30,22,.5);
+}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:.92rem;color:var(--text-2);transition:color .3s}
+.nav-links a:hover{color:var(--text)}
+.lang-btn{
+  cursor:pointer;border:1px solid var(--border);background:rgba(251,246,233,.05);
+  color:var(--text);border-radius:999px;padding:8px 18px;font-size:.9rem;font-weight:700;
+  font-family:inherit;display:flex;align-items:center;gap:8px;
+  transition:all .4s var(--ease);
+}
+.lang-btn:hover{background:rgba(251,246,233,.12);transform:scale(1.05)}
+.lang-btn svg{width:16px;height:16px}
+.lang-wrap{position:relative}
+.lang-hint{
+  position:absolute;top:calc(100% + 12px);inset-inline-end:0;white-space:nowrap;
+  background:var(--grad);color:#fff;font-size:.8rem;font-weight:700;
+  padding:9px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(92,22,15,.5);
+  opacity:0;transform:translateY(-8px) scale(.9);pointer-events:none;
+  transition:opacity .4s var(--ease),transform .4s var(--ease);z-index:120;
+}
+.lang-hint::before{
+  content:"";position:absolute;bottom:100%;inset-inline-end:22px;
+  border:7px solid transparent;border-bottom-color:var(--red-deep);
+}
+.lang-hint.show{opacity:1;transform:none;animation:hint-bob 1.8s ease-in-out infinite}
+.lang-hint.gone{opacity:0!important;transform:translateY(-8px) scale(.9)!important;animation:none}
+@keyframes hint-bob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(max-width:600px){.lang-hint{font-size:.72rem;padding:7px 12px}}
+.burger{display:none;cursor:pointer;background:none;border:none;color:var(--text);font-size:1.6rem}
+
+/* ---------- sections ---------- */
+section{position:relative;z-index:1;padding:110px 6vw;max-width:1250px;margin:0 auto}
+.kicker{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;
+  color:var(--gold-light);text-transform:uppercase;margin-bottom:14px;
+  padding:6px 18px;border:1px solid rgba(201,162,39,.35);border-radius:999px;
+  background:rgba(201,162,39,.06);
+}
+h2.title{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;line-height:1.3;margin-bottom:14px}
+.sub{color:var(--text-2);max-width:640px;font-size:1.05rem}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.22s}.reveal.d3{transition-delay:.34s}.reveal.d4{transition-delay:.46s}
+
+/* ---------- hero (سينمائي: نص + شريط صور رأسي) ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:140px 6vw 70px;max-width:1250px;margin:0 auto;position:relative;z-index:1;
+}
+.hero-inner{
+  display:flex;flex-direction:column;align-items:center;gap:46px;width:100%;
+}
+.hero-text{text-align:center;max-width:820px;display:flex;flex-direction:column;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1.5px solid var(--red-light);color:var(--gold-light);
+  border-radius:999px;padding:7px 20px;font-size:.78rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;
+  background:rgba(165,52,42,.08);
+}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--red-light);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero h1{
+  font-family:var(--font-serif);
+  font-size:clamp(2.3rem,5.2vw,4.2rem);font-weight:700;line-height:1.25;letter-spacing:-.5px;
+}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(1.35)}
+.hero p{color:var(--text-2);font-size:clamp(1rem,1.6vw,1.18rem);max-width:620px;margin-top:24px}
+.hero .cta-row{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+
+/* شريط الصور — فوق بعرض الصفحة، صفين بيتحركوا في اتجاهين متعاكسين */
+.hero-strip{
+  order:-1;width:100%;
+  position:relative;display:flex;flex-direction:column;gap:16px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.hero-row{overflow:hidden;position:relative}
+.hero-rtrack{display:flex;flex-direction:row;gap:16px;width:max-content;will-change:transform}
+.hero-rtrack.left{animation:strip-left 40s linear infinite}
+.hero-rtrack.right{animation:strip-right 40s linear infinite}
+@keyframes strip-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes strip-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+html[dir="rtl"] .hero-rtrack.left{animation-name:strip-right}
+html[dir="rtl"] .hero-rtrack.right{animation-name:strip-left}
+.hero-strip:hover .hero-rtrack{animation-play-state:paused}
+.hframe{
+  border-radius:16px;overflow:hidden;border:1px solid var(--border);
+  width:clamp(140px,13vw,180px);aspect-ratio:3/4;position:relative;flex-shrink:0;
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+  background:linear-gradient(150deg,#241a11,#150e08);
+}
+.hframe img{width:100%;height:100%;object-fit:cover;display:block}
+.hframe::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 60%,rgba(14,9,6,.35));
+  box-shadow:inset 0 0 40px rgba(0,0,0,.35);
+}
+.hframe.ph::before{
+  content:"صورتك هنا";position:absolute;inset:0;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-2);font-size:.8rem;text-align:center;padding:12px;
+}
+.hframe.ph img{display:none}
+.hero-strip-stamp{
+  position:absolute;bottom:6%;inset-inline-start:50%;transform:translateX(-50%);z-index:3;
+  background:var(--red);color:#fff;font-size:.72rem;font-weight:700;
+  padding:7px 18px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 10px 26px rgba(92,22,15,.55);white-space:nowrap;
+}
+html[dir="ltr"] .hero-strip-stamp{transform:translateX(-50%)}
+.scroll-hint{margin-top:36px;color:var(--text-2);font-size:.85rem;animation:float 3s ease-in-out infinite}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 36px;border-radius:999px;font-weight:700;font-size:1rem;
+  transition:all .45s var(--ease);cursor:pointer;border:none;font-family:inherit;
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 10px 40px rgba(122,30,22,.45)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 55px rgba(165,52,42,.55)}
+.btn-ghost{background:rgba(251,246,233,.06);color:var(--text);border:1px solid var(--border)}
+.btn-ghost:hover{background:rgba(251,246,233,.12);transform:translateY(-3px)}
+.old-hero-hidden{display:none}
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;padding-top:0}
+.stat{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:34px 20px;text-align:center;transition:all .5s var(--ease);
+}
+.stat:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(165,52,42,.5)}
+.stat .num{
+  font-family:var(--font-serif);
+  font-size:2.6rem;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:brightness(1.4);
+}
+.stat .lbl{color:var(--text-2);font-size:.95rem;margin-top:4px}
+
+/* ---------- clients ---------- */
+.clients{padding-top:40px;padding-bottom:40px;text-align:center}
+.clients .c-label{
+  font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-2);margin-bottom:34px;
+}
+.marquee{
+  overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.marquee .track{
+  display:flex;gap:18px;width:max-content;
+  animation:marquee 32s linear infinite;
+}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
+@keyframes marquee-rtl{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.client-logo{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:10px;
+  min-width:190px;height:78px;padding:0 30px;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  color:var(--text-2);font-weight:700;font-size:1rem;
+  transition:all .4s var(--ease);
+  filter:grayscale(1);opacity:.75;
+}
+.client-logo:hover{
+  filter:grayscale(0);opacity:1;transform:translateY(-4px);
+  border-color:rgba(201,162,39,.45);color:var(--text);
+}
+.client-logo img{max-height:40px;width:auto}
+.client-logo .dot{width:7px;height:7px;border-radius:50%;background:var(--red-light);flex-shrink:0}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+.about-visual{
+  aspect-ratio:4/5;border-radius:var(--radius);position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#241a11,#150e08);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+}
+.about-visual::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(165,52,42,.3),transparent 60%),
+             radial-gradient(circle at 80% 80%,rgba(201,162,39,.15),transparent 60%);
+}
+.about-visual .ph{color:var(--text-2);font-size:.9rem;text-align:center;padding:20px;z-index:1;max-width:300px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{
+  padding:9px 20px;border-radius:999px;font-size:.88rem;font-weight:600;
+  background:rgba(251,246,233,.05);border:1px solid var(--border);color:var(--text-2);
+  transition:all .3s;
+}
+.chip:hover{border-color:var(--red-light);color:var(--text)}
+.chip.hot{background:var(--grad);border-color:transparent;color:#fff}
+.quote{
+  font-family:var(--font-serif);font-size:clamp(1.1rem,2.3vw,1.5rem);
+  color:var(--gold-light);margin-top:28px;line-height:1.8;
+  border-inline-start:3px solid var(--red);padding-inline-start:20px;
+}
+
+/* ---------- process ---------- */
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:50px}
+.step{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:34px 28px;transition:all .5s var(--ease);
+}
+.step:hover{transform:translateY(-6px);background:var(--card-hover);border-color:rgba(201,162,39,.4)}
+.step .n{
+  font-family:var(--font-serif);font-size:2.4rem;font-weight:700;color:var(--red-light);
+  line-height:1;opacity:.7;transition:all .4s;
+}
+.step:hover .n{opacity:1;color:var(--gold-light)}
+.step h3{font-size:1.12rem;font-weight:700;margin:16px 0 8px}
+.step p{color:var(--text-2);font-size:.92rem}
+
+/* ---------- work ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:50px}
+.work-card{
+  border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;
+  border:1px solid var(--border);background:var(--card);
+  transition:all .55s var(--ease);
+}
+.work-card:hover{transform:translateY(-8px);border-color:rgba(165,52,42,.6);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.work-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.work-thumb img.wt{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.work-card:hover .work-thumb img.wt{transform:scale(1.06)}
+.work-thumb::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(14,9,6,.55));
+}
+.work-thumb .play{
+  position:relative;z-index:2;
+  width:64px;height:64px;border-radius:50%;background:rgba(251,246,233,.13);
+  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+  transition:all .4s var(--ease);border:1px solid rgba(251,246,233,.2);
+}
+.work-card:hover .play{transform:scale(1.15);background:var(--red)}
+.work-thumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
+.t1{background:linear-gradient(150deg,#7A1E16,#241A11)}
+.t2{background:linear-gradient(150deg,#3A2A1C,#5C160F)}
+.t3{background:linear-gradient(150deg,#92721A,#241A11)}
+.t4{background:linear-gradient(150deg,#241A11,#8C2A1F)}
+.t5{background:linear-gradient(150deg,#55402C,#17110B)}
+.t6{background:linear-gradient(150deg,#5C160F,#92721A)}
+.work-info{padding:20px 22px}
+.work-info .tag{font-size:.72rem;font-weight:700;color:var(--gold-light);letter-spacing:.1em;text-transform:uppercase}
+.work-info h3{font-size:1.1rem;font-weight:700;margin-top:6px}
+.work-info p{color:var(--text-2);font-size:.88rem;margin-top:4px}
+
+/* ---------- work sub-sections & reels ---------- */
+.work-sub{
+  display:flex;align-items:center;gap:16px;
+  margin:64px 0 8px;
+}
+.work-sub:first-of-type{margin-top:50px}
+.work-sub h3{font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:800;white-space:nowrap}
+.work-sub .line{height:1px;flex:1;background:var(--border)}
+.work-sub .stamp{
+  background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;
+  padding:5px 14px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.work-sub .stamp.gold{background:var(--grad-gold);color:var(--bg)}
+.work-sub-note{color:var(--text-2);font-size:.92rem;margin-bottom:10px}
+.reels-strip{
+  display:flex;gap:18px;overflow-x:auto;padding:30px 0 16px;
+  scroll-snap-type:x mandatory;scrollbar-width:none;
+}
+.reels-strip::-webkit-scrollbar{display:none}
+.reel-card{
+  flex:0 0 235px;aspect-ratio:9/16;border-radius:var(--radius);scroll-snap-align:start;
+  position:relative;overflow:hidden;border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  transition:all .5s var(--ease);cursor:pointer;
+}
+.reel-card:hover{transform:translateY(-6px);border-color:rgba(165,52,42,.6);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.reel-card .play{
+  width:56px;height:56px;border-radius:50%;background:rgba(251,246,233,.13);
+  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(251,246,233,.2);transition:all .4s var(--ease);
+}
+.reel-card:hover .play{transform:scale(1.15);background:var(--red)}
+.reel-card .play svg{width:20px;height:20px;fill:#fff;margin-inline-start:3px}
+.reel-card .lbl{
+  font-size:.85rem;color:var(--text-2);text-align:center;padding:0 18px;z-index:1;
+}
+.reel-card .rtag{
+  position:absolute;top:14px;inset-inline-start:14px;
+  background:rgba(14,9,6,.6);backdrop-filter:blur(8px);
+  color:var(--gold-light);font-size:.68rem;font-weight:700;
+  padding:4px 12px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;
+}
+
+.reel-card .rimg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.reel-card:hover .rimg{transform:scale(1.06)}
+.reel-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(14,9,6,.1) 45%,rgba(14,9,6,.8));
+}
+.reel-card .play,.reel-card .rtag{position:relative;z-index:2}
+.reel-card .rtag{position:absolute}
+.reel-card .rtitle{
+  position:absolute;bottom:16px;inset-inline:16px;z-index:2;
+  font-weight:700;font-size:.95rem;line-height:1.5;
+}
+.reel-card{justify-content:center}
+
+/* ---------- video lightbox ---------- */
+.ytm{
+  position:fixed;inset:0;z-index:300;background:rgba(14,9,6,.94);
+  display:none;align-items:center;justify-content:center;padding:4vw;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.ytm.open{display:flex}
+.ytm .box{
+  position:relative;width:min(920px,94vw);aspect-ratio:16/9;background:#000;
+  border-radius:16px;overflow:hidden;border:1px solid var(--border);
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+}
+.ytm.vert .box{width:auto;height:min(86vh,760px);aspect-ratio:9/16}
+.ytm iframe{width:100%;height:100%;border:0;display:block}
+.ytm .x{
+  position:absolute;top:20px;inset-inline-end:24px;width:46px;height:46px;border-radius:50%;
+  background:rgba(251,246,233,.1);border:1px solid var(--border);color:var(--text);
+  font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .3s;z-index:2;
+}
+.ytm .x:hover{background:var(--red);transform:scale(1.1)}
+
+/* ---------- BTS ---------- */
+.bts-strip{
+  display:flex;gap:18px;overflow-x:auto;padding:40px 0 20px;
+  scroll-snap-type:x mandatory;scrollbar-width:none;
+}
+.bts-strip::-webkit-scrollbar{display:none}
+.bts-item{
+  flex:0 0 300px;aspect-ratio:3/4;border-radius:var(--radius);scroll-snap-align:start;
+  display:flex;align-items:flex-end;padding:22px;position:relative;overflow:hidden;
+  border:1px solid var(--border);transition:transform .5s var(--ease);
+}
+.bts-item:hover{transform:scale(1.03)}
+.bts-item span{
+  font-weight:700;font-size:.95rem;z-index:1;
+  background:rgba(14,9,6,.55);backdrop-filter:blur(8px);
+  padding:8px 16px;border-radius:12px;
+}
+
+/* ---------- services ---------- */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:50px}
+.plan{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:38px 30px;position:relative;transition:all .5s var(--ease);
+  display:flex;flex-direction:column;
+}
+.plan:hover{transform:translateY(-8px);border-color:rgba(201,162,39,.5)}
+.plan.featured{
+  border-color:var(--red);
+  background:linear-gradient(170deg,rgba(122,30,22,.28),var(--card) 55%);
+}
+.plan .badge{
+  position:absolute;top:-14px;inset-inline-start:30px;
+  background:var(--grad);color:#fff;font-size:.72rem;font-weight:700;
+  padding:6px 18px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 8px 24px rgba(92,22,15,.5);
+}
+.plan h3{font-size:1.25rem;font-weight:800}
+.plan .price{
+  font-family:var(--font-serif);font-size:1.9rem;font-weight:700;margin:14px 0 4px;
+  color:var(--gold-light);
+}
+.plan .price small{font-size:.85rem;color:var(--text-2);font-weight:400;font-family:var(--font-sans)}
+.plan ul{list-style:none;margin:22px 0;flex:1}
+.plan li{
+  color:var(--text-2);font-size:.93rem;padding:8px 0;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.plan li::before{content:"—";color:var(--gold);font-weight:700;flex-shrink:0}
+.plan .btn{justify-content:center;width:100%}
+
+/* ---------- testimonials ---------- */
+.testis{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:50px}
+.testi{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:32px;transition:all .5s var(--ease);position:relative;
+}
+.testi::before{
+  content:"\201C";position:absolute;top:10px;inset-inline-end:24px;
+  font-family:var(--font-serif);font-size:4.2rem;color:rgba(201,162,39,.25);line-height:1;
+}
+.testi:hover{transform:translateY(-6px);border-color:rgba(165,52,42,.5)}
+.testi .stars{color:var(--gold-light);letter-spacing:3px;margin-bottom:16px}
+.testi p{color:var(--text-2);font-size:.97rem}
+.testi .who{display:flex;align-items:center;gap:14px;margin-top:22px}
+.testi .who .av{
+  width:46px;height:46px;border-radius:50%;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;
+}
+.testi .who b{display:block;font-size:.95rem}
+.testi .who small{color:var(--text-2);font-size:.8rem}
+
+/* ---------- booking ---------- */
+.book-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;margin-top:50px;align-items:start}
+.book-cards{display:flex;flex-direction:column;gap:16px}
+.book-card{
+  display:flex;align-items:center;gap:18px;
+  background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:22px 24px;transition:all .45s var(--ease);cursor:pointer;
+}
+.book-card:hover{transform:translateX(-6px);border-color:rgba(165,52,42,.55);background:var(--card-hover)}
+html[dir="ltr"] .book-card:hover{transform:translateX(6px)}
+.book-card .ico{
+  width:52px;height:52px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.book-card .ico svg{width:24px;height:24px;fill:#fff}
+.ico.wa{background:linear-gradient(140deg,#22c55e,#15803d)}
+.ico.em{background:var(--grad)}
+.ico.ca{background:var(--grad-gold)}
+.book-card b{display:block;font-size:1.02rem}
+.book-card small{color:var(--text-2);font-size:.85rem}
+form.book-form{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:36px;display:flex;flex-direction:column;gap:16px;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+input,select,textarea{
+  width:100%;background:rgba(251,246,233,.05);border:1px solid var(--border);
+  border-radius:14px;padding:14px 18px;color:var(--text);font-family:inherit;font-size:.95rem;
+  transition:all .3s;outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--red-light);background:rgba(165,52,42,.08)}
+textarea{resize:vertical;min-height:110px}
+select option{background:var(--bg-2)}
+label{font-size:.85rem;color:var(--text-2);margin-bottom:-8px}
+.form-note{font-size:.8rem;color:var(--text-2);text-align:center}
+
+/* ---------- pain points (مشكلتك الحقيقية) ---------- */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:50px}
+.pain{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:32px 28px;transition:all .5s var(--ease);position:relative;overflow:hidden;
+}
+.pain::before{
+  content:"";position:absolute;top:0;inset-inline-start:0;width:3px;height:100%;
+  background:var(--grad);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease);
+}
+.pain:hover{transform:translateY(-6px);border-color:rgba(165,52,42,.4)}
+.pain:hover::before{transform:scaleY(1)}
+.pain .ic{
+  width:48px;height:48px;border-radius:12px;background:rgba(165,52,42,.14);
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.pain .ic svg{width:24px;height:24px;stroke:var(--red-light);fill:none;stroke-width:2}
+.pain h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.pain p{color:var(--text-2);font-size:.92rem}
+.pain-cta{
+  margin-top:40px;text-align:center;
+  font-family:var(--font-serif);font-size:clamp(1.2rem,2.6vw,1.7rem);color:var(--gold-light);
+}
+
+/* ---------- outcome (النتيجة) ---------- */
+.outcome-wrap{background:linear-gradient(170deg,rgba(122,30,22,.15),transparent 70%)}
+.out-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:50px}
+.out{
+  border:1px solid var(--border);border-radius:var(--radius);padding:30px 26px;
+  background:var(--card);transition:all .5s var(--ease);
+}
+.out:hover{transform:translateY(-6px);border-color:rgba(201,162,39,.5)}
+.out .chk{
+  width:42px;height:42px;border-radius:50%;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.out .chk svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.5}
+.out h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.out p{color:var(--text-2);font-size:.9rem}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:820px;margin:50px auto 0;display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;transition:border-color .4s;
+}
+.faq-item.open{border-color:rgba(201,162,39,.5)}
+.faq-q{
+  width:100%;text-align:start;background:none;border:none;color:var(--text);
+  font-family:inherit;font-size:1.02rem;font-weight:700;cursor:pointer;
+  padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.faq-q .qic{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:400;
+  transition:all .4s var(--ease);color:var(--gold-light);
+}
+.faq-item.open .qic{background:var(--grad);border-color:transparent;color:#fff;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{color:var(--text-2);font-size:.95rem;padding:0 24px 22px}
+
+/* ---------- floating WhatsApp ---------- */
+.wa-float{
+  position:fixed;bottom:26px;inset-inline-end:26px;z-index:200;
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(140deg,#25d366,#128c4b);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(18,140,75,.5);
+  transition:all .4s var(--ease);animation:wa-pop .5s var(--ease) both;
+}
+.wa-float:hover{transform:scale(1.1) translateY(-3px)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+.wa-float::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:2px solid #25d366;animation:wa-ring 2.2s ease-out infinite;
+}
+@keyframes wa-ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+@keyframes wa-pop{from{transform:scale(0)}to{transform:scale(1)}}
+.wa-float .wa-tip{
+  position:absolute;inset-inline-end:calc(100% + 14px);top:50%;transform:translateY(-50%);
+  background:var(--ink-900);color:var(--paper-50);font-size:.85rem;font-weight:600;
+  padding:9px 16px;border-radius:12px;white-space:nowrap;box-shadow:var(--sh-card,0 8px 24px rgba(0,0,0,.4));
+  opacity:0;pointer-events:none;transition:opacity .35s;border:1px solid var(--border);
+}
+.wa-float:hover .wa-tip{opacity:1}
+@media(max-width:600px){
+  .wa-float{width:54px;height:54px;bottom:18px;inset-inline-end:18px}
+  .wa-float svg{width:28px;height:28px}
+  .wa-float .wa-tip{display:none}
+}
+
+/* ---------- footer ---------- */
+footer{
+  position:relative;z-index:1;border-top:1px solid var(--border);
+  padding:60px 6vw 40px;text-align:center;background:var(--bg-2);
+}
+footer .flogo{
+  font-family:var(--font-serif);font-size:1.6rem;font-weight:700;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:brightness(1.4);
+}
+.socials{display:flex;gap:14px;justify-content:center;margin:26px 0}
+.socials a{
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(251,246,233,.04);transition:all .4s var(--ease);
+}
+.socials a:hover{transform:translateY(-5px) scale(1.08);background:var(--grad);border-color:transparent}
+.socials svg{width:20px;height:20px;fill:var(--text)}
+footer p{color:var(--text-2);font-size:.85rem}
+
+/* ---------- brief wizard ---------- */
+.wiz-head{display:flex;flex-direction:column;gap:12px;margin-bottom:8px}
+.wiz-steps{display:flex;justify-content:space-between;gap:8px}
+.wiz-step-lbl{
+  flex:1;text-align:center;font-size:.75rem;font-weight:700;color:var(--text-2);
+  padding-bottom:10px;position:relative;transition:color .4s;
+}
+.wiz-step-lbl.on{color:var(--gold-light)}
+.wiz-bar{height:4px;background:rgba(251,246,233,.08);border-radius:999px;overflow:hidden}
+.wiz-bar .fill{height:100%;width:25%;background:var(--grad);border-radius:999px;transition:width .5s var(--ease)}
+.wiz-panel{display:none;flex-direction:column;gap:16px;animation:wiz-in .5s var(--ease)}
+.wiz-panel.act{display:flex}
+@keyframes wiz-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wiz-nav{display:flex;gap:12px;margin-top:6px}
+.wiz-nav .btn{flex:1;justify-content:center}
+.btn-back{background:rgba(251,246,233,.06);color:var(--text-2);border:1px solid var(--border)}
+.btn-back:hover{color:var(--text);background:rgba(251,246,233,.1)}
+.pchips{display:flex;flex-wrap:wrap;gap:10px}
+.pchip{
+  cursor:pointer;padding:10px 20px;border-radius:999px;font-size:.88rem;font-weight:600;
+  background:rgba(251,246,233,.05);border:1px solid var(--border);color:var(--text-2);
+  transition:all .3s;user-select:none;
+}
+.pchip input{display:none}
+.pchip:has(input:checked){background:var(--grad);border-color:transparent;color:#fff}
+.wiz-err{color:var(--red-light);font-size:.82rem;display:none}
+.wiz-err.show{display:block}
+
+/* ---------- responsive (تابلت) ---------- */
+@media(max-width:900px){
+  .hero{padding-top:130px;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-text{text-align:center}
+  .hero .cta-row{justify-content:center}
+  .hero-strip{order:-1}
+  .about-grid,.book-wrap{grid-template-columns:1fr;gap:36px}
+  .nav-links{
+    position:fixed;top:0;inset-inline-end:-100%;height:100vh;width:min(75vw,320px);
+    background:rgba(14,9,6,.97);backdrop-filter:blur(30px);
+    flex-direction:column;justify-content:center;gap:34px;
+    transition:inset-inline-end .5s var(--ease);z-index:99;
+  }
+  .nav-links a{font-size:1.05rem}
+  .nav-links.open{inset-inline-end:0}
+  .burger{display:block;z-index:100}
+  .form-row{grid-template-columns:1fr}
+  .about-visual{max-width:420px;margin:0 auto}
+}
+
+/* ---------- responsive (موبايل) ---------- */
+@media(max-width:600px){
+  section{padding:70px 5vw}
+  .hero{padding:110px 5vw 50px}
+  .hero-strip{gap:12px}
+  .hframe{width:clamp(120px,38vw,160px)}
+  .hero p{font-size:1rem}
+  .btn{padding:14px 26px;font-size:.95rem;width:100%;justify-content:center}
+  .cta-row{width:100%}
+  .scroll-hint{margin-top:30px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .stat{padding:24px 12px}
+  .stat .num{font-size:2rem}
+  .stat .lbl{font-size:.82rem}
+  h2.title{font-size:1.7rem}
+  .sub{font-size:.97rem}
+  .work-grid{grid-template-columns:1fr}
+  .work-sub{flex-wrap:wrap;gap:10px;margin-top:50px}
+  .work-sub h3{white-space:normal;font-size:1.2rem}
+  .reel-card{flex-basis:200px}
+  .bts-item{flex-basis:240px}
+  .client-logo{min-width:150px;height:64px;padding:0 20px;font-size:.88rem}
+  .quote{font-size:1.05rem}
+  .chips{gap:8px}
+  .chip{padding:8px 14px;font-size:.8rem}
+  form.book-form{padding:24px 18px}
+  .book-card{padding:18px}
+  .plan{padding:30px 22px}
+  .testi{padding:26px 20px}
+  .ytm{padding:3vw}
+  .ytm .box{width:96vw}
+  .ytm.vert .box{height:min(78vh,640px)}
+  .ytm .x{top:14px;inset-inline-end:14px;width:40px;height:40px}
+  nav{padding:14px 4vw}
+  nav.scrolled{padding:10px 4vw}
+  .logo span:last-child{font-size:.95rem}
+  .lang-btn{padding:7px 14px;font-size:.82rem}
+  footer{padding:50px 5vw 32px}
+  .socials{flex-wrap:wrap}
+}
+
+/* لمسات لأجهزة اللمس: تكبير مناطق الضغط ومنع وميض اللمس */
+@media(hover:none){
+  a,button{-webkit-tap-highlight-color:transparent}
+  .work-card:hover,.reel-card:hover,.stat:hover,.step:hover,.plan:hover,.testi:hover,.book-card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+
+<!-- ==================== NAV ==================== -->
+<nav id="nav">
+  <a class="logo" href="#home">
+    <span class="mark">AA</span>
+    <span data-ar="عبدالرحمن أيمن" data-en="Abdelrahman Ayman">عبدالرحمن أيمن</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" data-ar="عني" data-en="About">عني</a>
+    <a href="#process" data-ar="إزاي بشتغل" data-en="How I work">إزاي بشتغل</a>
+    <a href="#work" data-ar="أعمالي" data-en="Work">أعمالي</a>
+    <a href="#bts" data-ar="كواليس" data-en="BTS">كواليس</a>
+    <a href="#services" data-ar="الباقات" data-en="Packages">الباقات</a>
+    <a href="#testimonials" data-ar="آراء العملاء" data-en="Reviews">آراء العملاء</a>
+    <a href="#faq" data-ar="أسئلة" data-en="FAQ">أسئلة</a>
+    <a href="#book" data-ar="احجز ميعاد" data-en="Book a Call">احجز ميعاد</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center">
+    <div class="lang-wrap">
+      <button class="lang-btn" id="langBtn" title="Switch language / تبديل اللغة">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span id="langLabel">EN</span>
+      </button>
+      <span class="lang-hint" id="langHint" data-ar="Prefer English? Tap here 🌐" data-en="بتفضل عربي؟ اضغط هنا 🌐">بتفضل عربي؟ اضغط هنا 🌐</span>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</nav>
+
+<!-- ==================== HERO (سينمائي — نص + شريط صور رأسي متحرك) ==================== -->
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge reveal"><span class="dot"></span><span data-ar="شريك محتوى — Content Partner" data-en="Content Partner — شريك محتوى">شريك محتوى — Content Partner</span></div>
+      <h1 class="reveal d1">
+        <span data-ar="بساعد البيزنس يكبر" data-en="I help businesses grow">بساعد البيزنس يكبر</span><br>
+        <span class="grad" data-ar="ويزوّد دخله بالمحتوى" data-en="&amp; increase revenue with content">ويزوّد دخله بالمحتوى</span>
+      </h1>
+      <p class="reveal d2" data-ar="أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: بحط معاك الاستراتيجية، أكتب المحتوى، أصوّر، أمنتج، وأتابع النتايج — لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك." data-en="I'm Abdelrahman Ayman — not just a videographer or editor. I'm a content partner for businesses and entrepreneurs: I build the strategy with you, write the content, shoot, edit, and track results — until content becomes a real growth engine for your revenue.">أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: بحط معاك الاستراتيجية، أكتب المحتوى، أصوّر، أمنتج، وأتابع النتايج — لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك.</p>
+      <div class="cta-row reveal d3">
+        <a href="#book" class="btn btn-primary" data-ar="ابدأ مشروعك معايا" data-en="Start your project">ابدأ مشروعك معايا</a>
+        <a href="#work" class="btn btn-ghost" data-ar="شوف شغلي" data-en="See my work">شوف شغلي</a>
+      </div>
+      <div class="scroll-hint reveal d4" data-ar="↓ انزل تحت" data-en="↓ Scroll down">↓ انزل تحت</div>
+    </div>
+
+    <!-- ⚠️ شريط الصور: بدّل الصور بصور اللوكيشن/السيت بتاعتك.
+         الأعمدة بتتحرك تلقائي — الأولاني لفوق والتاني لتحت.
+         دلوقتي مليان بصورك + ستيلز رأسية من ريلزك الحقيقية عشان يبان كامل. -->
+    <div class="hero-strip reveal d2" aria-hidden="true">
+      <!-- صف علوي — بيتحرك لجهة -->
+      <div class="hero-row">
+        <div class="hero-rtrack left">
+          <div class="hframe"><img src="abdelrahman-1.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
+          <div class="hframe"><img data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy"></div>
+          <div class="hframe"><img src="abdelrahman-2.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
+          <div class="hframe"><img data-yt-id="31iiZNvk7Vc" alt="" loading="lazy"></div>
+          <!-- نسخة مكررة للحركة المستمرة -->
+          <div class="hframe"><img src="abdelrahman-1.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
+          <div class="hframe"><img data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy"></div>
+          <div class="hframe"><img src="abdelrahman-2.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
+          <div class="hframe"><img data-yt-id="31iiZNvk7Vc" alt="" loading="lazy"></div>
+        </div>
+      </div>
+      <!-- صف سفلي — بيتحرك للجهة المعاكسة -->
+      <div class="hero-row">
+        <div class="hero-rtrack right">
+          <div class="hframe"><img data-yt-id="kGaDUebDfs4" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="5osODgizVlY" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="NFRcL-GPmrs" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="kGaDUebDfs4" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="5osODgizVlY" alt="" loading="lazy"></div>
+          <div class="hframe"><img data-yt-id="NFRcL-GPmrs" alt="" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="hero-strip-stamp"><span data-ar="شوريل مختارات" data-en="Selected showreel">شوريل مختارات</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== STATS ==================== -->
+<section class="stats">
+  <!-- عدّل الأرقام دي بأرقامك الحقيقية -->
+  <div class="stat reveal"><div class="num" data-count="100">0</div><div class="lbl" data-ar="+ مشروع منفّذ" data-en="+ Projects delivered">+ مشروع منفّذ</div></div>
+  <div class="stat reveal d1"><div class="num" data-count="40">0</div><div class="lbl" data-ar="+ بيزنس اشتغلت معاه" data-en="+ Businesses served">+ بيزنس اشتغلت معاه</div></div>
+  <div class="stat reveal d2"><div class="num" data-count="42" data-suffix="K">0</div><div class="lbl" data-ar="مشاهدة شهرياً" data-en="Monthly views">مشاهدة شهرياً</div></div>
+  <div class="stat reveal d3"><div class="num" data-count="5">0</div><div class="lbl" data-ar="+ سنين خبرة" data-en="+ Years of experience">+ سنين خبرة</div></div>
+</section>
+
+<!-- ==================== CLIENTS ==================== -->
+<section class="clients" id="clients">
+  <div class="c-label reveal" data-ar="عملاء وثقوا فيّا" data-en="Clients who trusted me">عملاء وثقوا فيّا</div>
+  <div class="marquee reveal d1">
+    <div class="track" id="clientsTrack">
+      <!-- ⚠️ استبدل كل كارت باسم/لوجو عميل حقيقي:
+           بالاسم فقط:  <div class="client-logo"><span class="dot"></span> اسم العميل</div>
+           بلوجو صورة:  <div class="client-logo"><img src="logos/client.png" alt="اسم العميل"></div>
+           (المجموعة بتتكرر تلقائياً بالجافاسكريبت علشان الحركة تفضل مستمرة) -->
+      <div class="client-logo"><span class="dot"></span><span data-ar="د. اسم العميل" data-en="Dr. Client Name">د. اسم العميل</span></div>
+      <div class="client-logo"><span class="dot"></span><span data-ar="اسم براند" data-en="Brand Name">اسم براند</span></div>
+      <div class="client-logo"><span class="dot"></span><span data-ar="اسم كوتش" data-en="Coach Name">اسم كوتش</span></div>
+      <div class="client-logo"><span class="dot"></span><span data-ar="اسم عيادة" data-en="Clinic Name">اسم عيادة</span></div>
+      <div class="client-logo"><span class="dot"></span><span data-ar="اسم شركة" data-en="Company Name">اسم شركة</span></div>
+      <div class="client-logo"><span class="dot"></span><span data-ar="صانع محتوى" data-en="Creator Name">صانع محتوى</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+  <div class="about-grid">
+    <!-- ⚠️ احفظ صورة الكاميرات والمعدات باسم abdelrahman-2.jpg في نفس فولدر الملف ده -->
+    <div class="about-visual reveal">
+      <img src="abdelrahman-2.jpg" alt="عبدالرحمن أيمن — صناعة أفلام ومونتاج" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="ph" style="display:none" data-ar="احفظ صورتك التانية باسم abdelrahman-2.jpg جنب الملف" data-en="Save your second photo as abdelrahman-2.jpg next to this file">احفظ صورتك التانية باسم abdelrahman-2.jpg جنب الملف</div>
+    </div>
+    <div>
+      <span class="kicker reveal" data-ar="عني" data-en="About me">عني</span>
+      <h2 class="title reveal d1" data-ar="شريك بيزنس... مش مجرد كاميرا" data-en="A business partner, not just a camera">شريك بيزنس... مش مجرد كاميرا</h2>
+      <p class="sub reveal d2" data-ar="شغال في صناعة المحتوى والماركتينج من سنين، واشتغلت مع دكاترة وكوتشيز وصنّاع محتوى وبراندات. اللي بيميزني إني بفكر في البيزنس بتاعك قبل الكاميرا: مين جمهورك؟ إيه اللي يخليه يشتري؟ وبعدين نبني المحتوى اللي يوصلك للهدف ده — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين." data-en="I've been in content and marketing for years, working with doctors, coaches, creators and brands. What sets me apart: I think about your business before the camera — who's your audience? What makes them buy? Then we build the content that gets you there: from idea and script, to shooting and lighting, to editing and grading.">شغال في صناعة المحتوى والماركتينج من سنين، واشتغلت مع دكاترة وكوتشيز وصنّاع محتوى وبراندات. اللي بيميزني إني بفكر في البيزنس بتاعك قبل الكاميرا: مين جمهورك؟ إيه اللي يخليه يشتري؟ وبعدين نبني المحتوى اللي يوصلك للهدف ده — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين.</p>
+      <div class="quote reveal d3" data-ar="«المحتوى مش فيديو حلو... المحتوى استثمار المفروض يرجعلك بعائد.»" data-en="&ldquo;Content isn't a pretty video &mdash; it's an investment that should pay you back.&rdquo;">«المحتوى مش فيديو حلو... المحتوى استثمار المفروض يرجعلك بعائد.»</div>
+      <div class="chips reveal d4">
+        <span class="chip hot" data-ar="استراتيجية محتوى" data-en="Content strategy">استراتيجية محتوى</span>
+        <span class="chip" data-ar="كتابة سكريبتات" data-en="Scriptwriting">كتابة سكريبتات</span>
+        <span class="chip" data-ar="تصوير وإضاءة" data-en="Shooting &amp; lighting">تصوير وإضاءة</span>
+        <span class="chip" data-ar="مونتاج وتلوين" data-en="Editing &amp; grading">مونتاج وتلوين</span>
+        <span class="chip" data-ar="موشن جرافيك" data-en="Motion graphics">موشن جرافيك</span>
+        <span class="chip" data-ar="ماركتينج ونمو" data-en="Marketing &amp; growth">ماركتينج ونمو</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PAIN POINTS ==================== -->
+<section id="problem">
+  <span class="kicker reveal" data-ar="مشكلتك الحقيقية" data-en="Your real problem">مشكلتك الحقيقية</span>
+  <h2 class="title reveal d1" data-ar="ليه المحتوى مش بيجيبلك عملاء؟" data-en="Why isn't content bringing you clients?">ليه المحتوى مش بيجيبلك عملاء؟</h2>
+  <p class="sub reveal d2" data-ar="لو لقيت نفسك في واحدة من دول، أنا موجود عشان أحلها معاك:" data-en="If you recognize yourself in any of these, I'm here to fix it with you:">لو لقيت نفسك في واحدة من دول، أنا موجود عشان أحلها معاك:</p>
+  <div class="pain-grid">
+    <div class="pain reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+      <h3 data-ar="محتوى بيتعمل بدون خطة" data-en="Content made without a plan">محتوى بيتعمل بدون خطة</h3>
+      <p data-ar="بتنزل فيديوهات كتير بس من غير استراتيجية، فالنتيجة مشاهدات بتروح وتيجي ومفيش عميل بيتحوّل." data-en="You post a lot but without strategy — views come and go, and nobody converts into a client.">بتنزل فيديوهات كتير بس من غير استراتيجية، فالنتيجة مشاهدات بتروح وتيجي ومفيش عميل بيتحوّل.</p>
+    </div>
+    <div class="pain reveal d1">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div>
+      <h3 data-ar="مالكش بصمة تميّزك" data-en="You have no signature style">مالكش بصمة تميّزك</h3>
+      <p data-ar="شكل المحتوى بتاعك زيه زي أي حد، فالعميل بيقارنك بالسعر مش بالقيمة، وبيروح لأرخص واحد." data-en="Your content looks like everyone else's, so clients compare you on price, not value — and pick the cheapest.">شكل المحتوى بتاعك زيه زي أي حد، فالعميل بيقارنك بالسعر مش بالقيمة، وبيروح لأرخص واحد.</p>
+    </div>
+    <div class="pain reveal d2">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"/></svg></div>
+      <h3 data-ar="وقتك بيضيع في التنفيذ" data-en="Your time drowns in execution">وقتك بيضيع في التنفيذ</h3>
+      <p data-ar="بتحاول تعمل كل حاجة بنفسك — فكرة وتصوير ومونتاج — فمش فاضي تركّز في البيزنس نفسه." data-en="You try to do it all yourself — idea, shooting, editing — so you have no time to actually run your business.">بتحاول تعمل كل حاجة بنفسك — فكرة وتصوير ومونتاج — فمش فاضي تركّز في البيزنس نفسه.</p>
+    </div>
+    <div class="pain reveal">
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div>
+      <h3 data-ar="جودة مش على مستوى البراند" data-en="Quality below your brand">جودة مش على مستوى البراند</h3>
+      <p data-ar="بتصرف على إعلانات وشغلك شكله عادي، فالانطباع الأول عن البراند بيبقى أضعف من المنافسين." data-en="You spend on ads but the work looks ordinary, so the first impression of your brand is weaker than competitors.">بتصرف على إعلانات وشغلك شكله عادي، فالانطباع الأول عن البراند بيبقى أضعف من المنافسين.</p>
+    </div>
+  </div>
+  <div class="pain-cta reveal" data-ar="«الحل مش إنك تنزل أكتر... الحل إنك تنزل صح.»" data-en="&ldquo;The fix isn't posting more — it's posting right.&rdquo;">«الحل مش إنك تنزل أكتر... الحل إنك تنزل صح.»</div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section id="process">
+  <span class="kicker reveal" data-ar="إزاي بشتغل" data-en="How I work">إزاي بشتغل</span>
+  <h2 class="title reveal d1" data-ar="من الاستراتيجية... للنمو" data-en="From strategy to growth">من الاستراتيجية... للنمو</h2>
+  <p class="sub reveal d2" data-ar="نظام كامل، مش خدمة واحدة. ده اللي بيحصل لما نشتغل مع بعض:" data-en="A complete system, not a single service. Here's what happens when we work together:">نظام كامل، مش خدمة واحدة. ده اللي بيحصل لما نشتغل مع بعض:</p>
+  <div class="process-grid">
+    <div class="step reveal">
+      <div class="n">01</div>
+      <h3 data-ar="نفهم البيزنس" data-en="Understand the business">نفهم البيزنس</h3>
+      <p data-ar="جلسة استراتيجية: مين جمهورك، إيه هدفك، وإيه اللي بيمنع المحتوى الحالي إنه يجيب نتيجة." data-en="Strategy session: your audience, your goal, and what's stopping your current content from converting.">جلسة استراتيجية: مين جمهورك، إيه هدفك، وإيه اللي بيمنع المحتوى الحالي إنه يجيب نتيجة.</p>
+    </div>
+    <div class="step reveal d1">
+      <div class="n">02</div>
+      <h3 data-ar="نبني خطة المحتوى" data-en="Build the content plan">نبني خطة المحتوى</h3>
+      <p data-ar="أفكار وسكريبتات مكتوبة تخاطب جمهورك — محتوى بيبيع مش بس بيتفرّج عليه." data-en="Ideas and written scripts that speak to your audience — content that sells, not just gets watched.">أفكار وسكريبتات مكتوبة تخاطب جمهورك — محتوى بيبيع مش بس بيتفرّج عليه.</p>
+    </div>
+    <div class="step reveal d2">
+      <div class="n">03</div>
+      <h3 data-ar="ننفّذ باحترافية" data-en="Produce professionally">ننفّذ باحترافية</h3>
+      <p data-ar="تصوير وإضاءة سينمائية، مونتاج وتلوين وموشن جرافيك — جودة تخلي البراند بتاعك مختلف." data-en="Cinematic shooting and lighting, editing, grading and motion graphics — quality that sets your brand apart.">تصوير وإضاءة سينمائية، مونتاج وتلوين وموشن جرافيك — جودة تخلي البراند بتاعك مختلف.</p>
+    </div>
+    <div class="step reveal d3">
+      <div class="n">04</div>
+      <h3 data-ar="نقيس ونكبر" data-en="Measure &amp; scale">نقيس ونكبر</h3>
+      <p data-ar="نتابع الأداء ونطوّر — اللي بيشتغل نزوّده، واللي مش بيجيب نتيجة نغيّره." data-en="We track performance and iterate — double down on what works, change what doesn't.">نتابع الأداء ونطوّر — اللي بيشتغل نزوّده، واللي مش بيجيب نتيجة نغيّره.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WORK ==================== -->
+<section id="work">
+  <span class="kicker reveal" data-ar="البورتفوليو" data-en="Portfolio">البورتفوليو</span>
+  <h2 class="title reveal d1" data-ar="شغل اتعمل بنيّة نتيجة" data-en="Work made to get results">شغل اتعمل بنيّة نتيجة</h2>
+  <p class="sub reveal d2" data-ar="اضغط على أي مشروع علشان تشوفه. (استبدل اللينكات والصور المصغرة بشغلك الحقيقي)" data-en="Click any project to watch it. (Replace links &amp; thumbnails with your real work)">اضغط على أي مشروع علشان تشوفه. (استبدل اللينكات والصور المصغرة بشغلك الحقيقي)</p>
+  <!-- ===== 1) الريلز — القسم الأساسي ===== -->
+  <div class="work-sub reveal">
+    <h3 data-ar="ريلز — المحتوى القصير" data-en="Reels — short-form content">ريلز — المحتوى القصير</h3>
+    <span class="stamp" data-ar="الأساسي" data-en="Main work">الأساسي</span>
+    <div class="line"></div>
+  </div>
+  <div class="work-sub-note reveal d1" data-ar="اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design" data-en="Swipe through — videos play right here. All one-man-crew work: script + shooting + lighting + editing + sound design">اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design</div>
+  <div class="reels-strip">
+    <a class="reel-card t2 reveal" href="https://youtube.com/shorts/V82ml1q02Q0" target="_blank" data-yt="V82ml1q02Q0" data-v="1">
+      <img class="rimg" data-yt-id="V82ml1q02Q0" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
+    </a>
+    <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/zr39m7_3T14" target="_blank" data-yt="zr39m7_3T14" data-v="1">
+      <img class="rimg" data-yt-id="zr39m7_3T14" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
+    </a>
+    <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/kGaDUebDfs4" target="_blank" data-yt="kGaDUebDfs4" data-v="1">
+      <img class="rimg" data-yt-id="kGaDUebDfs4" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لازم يبقى شكلك حلو" data-en="You have to look good">لازم يبقى شكلك حلو</div>
+    </a>
+    <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/NFRcL-GPmrs" target="_blank" data-yt="NFRcL-GPmrs" data-v="1">
+      <img class="rimg" data-yt-id="NFRcL-GPmrs" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="السكوت" data-en="Silence">السكوت</div>
+    </a>
+    <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/TvqMW43_5EQ" target="_blank" data-yt="TvqMW43_5EQ" data-v="1">
+      <img class="rimg" data-yt-id="TvqMW43_5EQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="محكمة" data-en="The courtroom">محكمة</div>
+    </a>
+    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/gZQYtvWtZ8k" target="_blank" data-yt="gZQYtvWtZ8k" data-v="1">
+      <img class="rimg" data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="السوشيال ميديا" data-en="Social media">السوشيال ميديا</div>
+    </a>
+    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/31iiZNvk7Vc" target="_blank" data-yt="31iiZNvk7Vc" data-v="1">
+      <img class="rimg" data-yt-id="31iiZNvk7Vc" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
+    </a>
+    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/vJqZ0E4mpNk" target="_blank" data-yt="vJqZ0E4mpNk" data-v="1">
+      <img class="rimg" data-yt-id="vJqZ0E4mpNk" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
+    </a>
+    <a class="reel-card t5 reveal d3" href="https://youtube.com/shorts/_bJ3v-8qNWY" target="_blank" data-yt="_bJ3v-8qNWY" data-v="1">
+      <img class="rimg" data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="علاج مقاومة البوتوكس" data-en="Botox resistance treatment">علاج مقاومة البوتوكس</div>
+    </a>
+    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/WRGwLJ8_wmQ" target="_blank" data-yt="WRGwLJ8_wmQ" data-v="1">
+      <img class="rimg" data-yt-id="WRGwLJ8_wmQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
+    </a>
+    <a class="reel-card t6 reveal" href="https://youtube.com/shorts/-CBu5vxpymc" target="_blank" data-yt="-CBu5vxpymc" data-v="1">
+      <img class="rimg" data-yt-id="-CBu5vxpymc" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="سكلبترا" data-en="Sculptra">سكلبترا</div>
+    </a>
+    <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/5osODgizVlY" target="_blank" data-yt="5osODgizVlY" data-v="1">
+      <img class="rimg" data-yt-id="5osODgizVlY" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
+    </a>
+    <a class="reel-card t2 reveal d2" href="https://youtu.be/YKl-jj4VbPg" target="_blank" data-yt="YKl-jj4VbPg">
+      <img class="rimg" data-yt-id="YKl-jj4VbPg" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="جلو ليفت" data-en="Glow lift">جلو ليفت</div>
+    </a>
+    <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/eEi9DrKzGYg" target="_blank" data-yt="eEi9DrKzGYg" data-v="1">
+      <img class="rimg" data-yt-id="eEi9DrKzGYg" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
+    </a>
+    <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/jsNIfdwmiLo" target="_blank" data-yt="jsNIfdwmiLo" data-v="1">
+      <img class="rimg" data-yt-id="jsNIfdwmiLo" alt="" loading="lazy">
+      <span class="rtag" data-ar="إعلان" data-en="Ad">إعلان</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
+    </a>
+  </div>
+
+  <!-- ===== 2) بودكاست ===== -->
+  <div class="work-sub reveal">
+    <h3 data-ar="بودكاست" data-en="Podcast">بودكاست</h3>
+    <div class="line"></div>
+  </div>
+  <div class="work-sub-note reveal d1" data-ar="مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل" data-en="Podcast episode clips — full shooting, lighting &amp; editing">مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل</div>
+  <div class="reels-strip">
+    <a class="reel-card t5 reveal" href="https://youtube.com/shorts/xrCDbvWVgFw" target="_blank" data-yt="xrCDbvWVgFw" data-v="1">
+      <img class="rimg" data-yt-id="xrCDbvWVgFw" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 1" data-en="Podcast clip — 1">مقتطف بودكاست — 1</div>
+    </a>
+    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/Q-0P4oxqH_E" target="_blank" data-yt="Q-0P4oxqH_E" data-v="1">
+      <img class="rimg" data-yt-id="Q-0P4oxqH_E" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 2" data-en="Podcast clip — 2">مقتطف بودكاست — 2</div>
+    </a>
+    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/hQ8rUmpaxLM" target="_blank" data-yt="hQ8rUmpaxLM" data-v="1">
+      <img class="rimg" data-yt-id="hQ8rUmpaxLM" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 3" data-en="Podcast clip — 3">مقتطف بودكاست — 3</div>
+    </a>
+    <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/YsjNnJcSwKM" target="_blank" data-yt="YsjNnJcSwKM" data-v="1">
+      <img class="rimg" data-yt-id="YsjNnJcSwKM" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 4" data-en="Podcast clip — 4">مقتطف بودكاست — 4</div>
+    </a>
+    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/PqAN7_tMKKo" target="_blank" data-yt="PqAN7_tMKKo" data-v="1">
+      <img class="rimg" data-yt-id="PqAN7_tMKKo" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 5" data-en="Podcast clip — 5">مقتطف بودكاست — 5</div>
+    </a>
+    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/DFqLNZ1Dnyc" target="_blank" data-yt="DFqLNZ1Dnyc" data-v="1">
+      <img class="rimg" data-yt-id="DFqLNZ1Dnyc" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 6" data-en="Podcast clip — 6">مقتطف بودكاست — 6</div>
+    </a>
+    <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/k09jf_XBxVY" target="_blank" data-yt="k09jf_XBxVY" data-v="1">
+      <img class="rimg" data-yt-id="k09jf_XBxVY" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مقتطف بودكاست — 7" data-en="Podcast clip — 7">مقتطف بودكاست — 7</div>
+    </a>
+  </div>
+
+  <!-- ===== 2) فيديوهات يوتيوب وإعلانات (بالعرض) ===== -->
+  <div class="work-sub reveal">
+    <h3 data-ar="فيديوهات يوتيوب وإعلانات" data-en="YouTube videos &amp; commercials">فيديوهات يوتيوب وإعلانات</h3>
+    <span class="stamp gold" data-ar="بالعرض" data-en="Long-form">بالعرض</span>
+    <div class="line"></div>
+  </div>
+  <div class="work-grid">
+    <a class="work-card reveal" href="https://youtu.be/m81KFPoz71I" target="_blank" data-yt="m81KFPoz71I">
+      <div class="work-thumb t1"><img class="wt" data-yt-id="m81KFPoz71I" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="يوتيوب" data-en="YouTube">يوتيوب</span><h3 data-ar="هدايا ومفاجآت الـ 2 مليون مشترك" data-en="Gifts &amp; surprises for 2M subscribers">هدايا ومفاجآت الـ 2 مليون مشترك</h3><p data-ar="فكرة + تصوير + مونتاج + Sound Design" data-en="Concept + shooting + editing + sound design">فكرة + تصوير + مونتاج + Sound Design</p></div>
+    </a>
+    <a class="work-card reveal d1" href="https://youtu.be/_17-W8eVa1Y" target="_blank" data-yt="_17-W8eVa1Y">
+      <div class="work-thumb t2"><img class="wt" data-yt-id="_17-W8eVa1Y" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="إعلان" data-en="Commercial">إعلان</span><h3 data-ar="حكاية حلم — تانية ثانوي" data-en="A Dream's Tale — 2nd secondary">حكاية حلم — تانية ثانوي</h3><p data-ar="إعلان قصصي لـ د. محمد أيمن — تصوير ومونتاج وتلوين" data-en="Story-driven ad for Dr. Mohamed Ayman — shooting, editing &amp; grading">إعلان قصصي لـ د. محمد أيمن — تصوير ومونتاج وتلوين</p></div>
+    </a>
+    <a class="work-card reveal d2" href="https://youtu.be/lgwq2Y6KfpE" target="_blank" data-yt="lgwq2Y6KfpE">
+      <div class="work-thumb t4"><img class="wt" data-yt-id="lgwq2Y6KfpE" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="يوتيوب" data-en="YouTube">يوتيوب</span><h3 data-ar="Top 10 Things in Breckenridge" data-en="Top 10 Things in Breckenridge">Top 10 Things in Breckenridge</h3><p data-ar="مونتاج ليوتيوبر أجنبي — قناة Living in Colorado" data-en="Edit for a US creator — Living in Colorado channel">مونتاج ليوتيوبر أجنبي — قناة Living in Colorado</p></div>
+    </a>
+    <a class="work-card reveal" href="https://youtu.be/EqNLiWnYyBM" target="_blank" data-yt="EqNLiWnYyBM">
+      <div class="work-thumb t5"><img class="wt" data-yt-id="EqNLiWnYyBM" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="برنامج" data-en="TV program">برنامج</span><h3 data-ar="برنامج المفيد" data-en="Al-Mofid program">برنامج المفيد</h3><p data-ar="مونتاج حلقات البرنامج" data-en="Program episodes editing">مونتاج حلقات البرنامج</p></div>
+    </a>
+    <a class="work-card reveal d1" href="https://youtu.be/W6EvtJ3odfk" target="_blank" data-yt="W6EvtJ3odfk">
+      <div class="work-thumb t6"><img class="wt" data-yt-id="W6EvtJ3odfk" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="إعلان" data-en="Commercial">إعلان</span><h3 data-ar="تفاصيل الأونلاين والكتب — دفعة 2026" data-en="Online &amp; books details — class of 2026">تفاصيل الأونلاين والكتب — دفعة 2026</h3><p data-ar="إعلان تعليمي لـ د. محمد أيمن — تصوير ومونتاج" data-en="Educational ad for Dr. Mohamed Ayman — shooting &amp; editing">إعلان تعليمي لـ د. محمد أيمن — تصوير ومونتاج</p></div>
+    </a>
+    <a class="work-card reveal d2" href="https://youtu.be/xn1xcygUWsE" target="_blank" data-yt="xn1xcygUWsE">
+      <div class="work-thumb t3"><img class="wt" data-yt-id="xn1xcygUWsE" alt="" loading="lazy"><div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="work-info"><span class="tag" data-ar="محتوى" data-en="Content">محتوى</span><h3 data-ar="5 أنواع محتوى بستخدمهم مع العملاء" data-en="5 content types I use with clients">5 أنواع محتوى بستخدمهم مع العملاء</h3><p data-ar="من قناتي — خبرتي في المحتوى مع العملاء" data-en="From my channel — my client content playbook">من قناتي — خبرتي في المحتوى مع العملاء</p></div>
+    </a>
+  </div>
+
+  <!-- ===== 4) موشن جرافيك ===== -->
+  <div class="work-sub reveal">
+    <h3 data-ar="موشن جرافيك" data-en="Motion graphics">موشن جرافيك</h3>
+    <div class="line"></div>
+  </div>
+  <div class="reels-strip">
+    <a class="reel-card t3 reveal" href="https://youtube.com/shorts/KABhzdKdU1Y" target="_blank" data-yt="KABhzdKdU1Y" data-v="1">
+      <img class="rimg" data-yt-id="KABhzdKdU1Y" alt="" loading="lazy">
+      <span class="rtag" data-ar="موشن جرافيك" data-en="Motion">موشن جرافيك</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="إعلان موشن جرافيك — 1" data-en="Motion graphics ad — 1">إعلان موشن جرافيك — 1</div>
+    </a>
+    <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/QqB8MeIUCfI" target="_blank" data-yt="QqB8MeIUCfI" data-v="1">
+      <img class="rimg" data-yt-id="QqB8MeIUCfI" alt="" loading="lazy">
+      <span class="rtag" data-ar="موشن جرافيك" data-en="Motion">موشن جرافيك</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="إعلان موشن جرافيك — 2" data-en="Motion graphics ad — 2">إعلان موشن جرافيك — 2</div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:44px" class="reveal">
+    <a href="https://www.behance.net/abdelraayman3" target="_blank" class="btn btn-ghost" data-ar="شوف كل الأعمال على بيهانس" data-en="See all work on Behance">شوف كل الأعمال على بيهانس</a>
+  </div>
+</section>
+
+<!-- ==================== BTS ==================== -->
+<section id="bts">
+  <span class="kicker reveal" data-ar="وراء الكاميرا" data-en="Behind the scenes">وراء الكاميرا</span>
+  <h2 class="title reveal d1" data-ar="كواليس الشغل" data-en="Behind the scenes">كواليس الشغل</h2>
+  <p class="sub reveal d2" data-ar="لقطات من التصوير والإضاءة والمونتاج — اسحب يمين وشمال. (استبدل الخلفيات بصور الكواليس بتاعتك)" data-en="Moments from shooting, lighting and editing — swipe through. (Replace backgrounds with your real BTS photos)">لقطات من التصوير والإضاءة والمونتاج — اسحب يمين وشمال. (استبدل الخلفيات بصور الكواليس بتاعتك)</p>
+  <div class="bts-strip">
+    <div class="bts-item t1"><span data-ar="التايم لاين" data-en="The timeline">التايم لاين</span></div>
+    <div class="bts-item t3"><span data-ar="يوم تصوير" data-en="Shooting day">يوم تصوير</span></div>
+    <div class="bts-item t5"><span data-ar="سيت الإضاءة" data-en="Lighting setup">سيت الإضاءة</span></div>
+    <div class="bts-item t2"><span data-ar="جلسة تلوين" data-en="Grading session">جلسة تلوين</span></div>
+    <div class="bts-item t6"><span data-ar="شغل بالذكاء الاصطناعي" data-en="Working with AI">شغل بالذكاء الاصطناعي</span></div>
+    <div class="bts-item t4"><span data-ar="تسجيل صوت" data-en="Voice recording">تسجيل صوت</span></div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section id="services">
+  <span class="kicker reveal" data-ar="الباقات" data-en="Packages">الباقات</span>
+  <h2 class="title reveal d1" data-ar="اختار مستوى الشراكة" data-en="Choose your level of partnership">اختار مستوى الشراكة</h2>
+  <p class="sub reveal d2" data-ar="(عدّل الأسعار والتفاصيل حسب عروضك الحالية)" data-en="(Edit prices &amp; details to match your current offers)">(عدّل الأسعار والتفاصيل حسب عروضك الحالية)</p>
+  <div class="plans">
+    <div class="plan reveal">
+      <h3 data-ar="إنتاج فيديو" data-en="Video production">إنتاج فيديو</h3>
+      <div class="price" data-ar="ابتداءً من $—" data-en="From $—">ابتداءً من $—</div>
+      <ul>
+        <li data-ar="تصوير وإضاءة احترافية" data-en="Professional shooting &amp; lighting">تصوير وإضاءة احترافية</li>
+        <li data-ar="مونتاج وتلوين سينمائي" data-en="Editing &amp; cinematic grading">مونتاج وتلوين سينمائي</li>
+        <li data-ar="تصميم صوت وموسيقى" data-en="Sound design &amp; music">تصميم صوت وموسيقى</li>
+        <li data-ar="تعديلات حسب الاتفاق" data-en="Revisions as agreed">تعديلات حسب الاتفاق</li>
+      </ul>
+      <a href="#book" class="btn btn-ghost" data-ar="اطلب الخدمة" data-en="Get started">اطلب الخدمة</a>
+    </div>
+    <div class="plan featured reveal d1">
+      <span class="badge" data-ar="الأكثر طلباً" data-en="Most popular">الأكثر طلباً</span>
+      <h3 data-ar="شريك المحتوى الشهري" data-en="Monthly content partner">شريك المحتوى الشهري</h3>
+      <div class="price" data-ar="ابتداءً من $—" data-en="From $—">ابتداءً من $—<small data-ar=" / شهرياً" data-en=" / month"> / شهرياً</small></div>
+      <ul>
+        <li data-ar="استراتيجية محتوى كاملة لبيزنسك" data-en="Full content strategy for your business">استراتيجية محتوى كاملة لبيزنسك</li>
+        <li data-ar="أفكار وسكريبتات شهرية" data-en="Monthly ideas &amp; scripts">أفكار وسكريبتات شهرية</li>
+        <li data-ar="تصوير + مونتاج عدد فيديوهات شهرياً" data-en="Monthly batch: shooting + editing">تصوير + مونتاج عدد فيديوهات شهرياً</li>
+        <li data-ar="هوية بصرية موحدة لكل المحتوى" data-en="Consistent branding across all content">هوية بصرية موحدة لكل المحتوى</li>
+        <li data-ar="متابعة الأداء وتطوير الخطة" data-en="Performance tracking &amp; plan iteration">متابعة الأداء وتطوير الخطة</li>
+      </ul>
+      <a href="#book" class="btn btn-primary" data-ar="احجز مكالمة" data-en="Book a call">احجز مكالمة</a>
+    </div>
+    <div class="plan reveal d2">
+      <h3 data-ar="مشروع كامل (فيلم / إعلان)" data-en="Full project (film / ad)">مشروع كامل (فيلم / إعلان)</h3>
+      <div class="price" data-ar="حسب المشروع" data-en="Custom quote">حسب المشروع</div>
+      <ul>
+        <li data-ar="فكرة وسيناريو من الصفر" data-en="Concept &amp; script from scratch">فكرة وسيناريو من الصفر</li>
+        <li data-ar="إنتاج كامل من الألف للياء" data-en="Full production A to Z">إنتاج كامل من الألف للياء</li>
+        <li data-ar="فريق تصوير عند الحاجة" data-en="Crew when needed">فريق تصوير عند الحاجة</li>
+        <li data-ar="تسليم بجودة سينمائية" data-en="Cinematic-grade delivery">تسليم بجودة سينمائية</li>
+      </ul>
+      <a href="#book" class="btn btn-ghost" data-ar="كلمني بالتفاصيل" data-en="Let's talk details">كلمني بالتفاصيل</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OUTCOME (النتيجة) ==================== -->
+<div class="outcome-wrap">
+<section id="outcome">
+  <span class="kicker reveal" data-ar="النتيجة" data-en="The outcome">النتيجة</span>
+  <h2 class="title reveal d1" data-ar="شكل بيزنسك بعد ما نشتغل مع بعض" data-en="Your business after we work together">شكل بيزنسك بعد ما نشتغل مع بعض</h2>
+  <p class="sub reveal d2" data-ar="مش مجرد فيديوهات أحلى — نقلة حقيقية في طريقة ظهورك ونتايجك:" data-en="Not just prettier videos — a real shift in how you show up and what you get:">مش مجرد فيديوهات أحلى — نقلة حقيقية في طريقة ظهورك ونتايجك:</p>
+  <div class="out-grid">
+    <div class="out reveal">
+      <div class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-ar="بصمة بصرية تميّزك" data-en="A signature look">بصمة بصرية تميّزك</h3>
+      <p data-ar="محتوى ليه هوية ثابتة يخلي الناس تعرف شغلك من أول لقطة." data-en="Content with a consistent identity people recognize from the first shot.">محتوى ليه هوية ثابتة يخلي الناس تعرف شغلك من أول لقطة.</p>
+    </div>
+    <div class="out reveal d1">
+      <div class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-ar="عملاء بيجولك انت" data-en="Clients come to you">عملاء بيجولك انت</h3>
+      <p data-ar="بدل ما تجري ورا الشغل، المحتوى بيبني ثقة تخلي العميل يطلبك بالاسم." data-en="Instead of chasing work, content builds trust so clients ask for you by name.">بدل ما تجري ورا الشغل، المحتوى بيبني ثقة تخلي العميل يطلبك بالاسم.</p>
+    </div>
+    <div class="out reveal d2">
+      <div class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-ar="وقت فاضي ليك" data-en="Time back for you">وقت فاضي ليك</h3>
+      <p data-ar="أنا بشيل عنك عبء المحتوى بالكامل، وانت تركّز في اللي بيكبّر بيزنسك." data-en="I take the whole content load off you, so you focus on growing your business.">أنا بشيل عنك عبء المحتوى بالكامل، وانت تركّز في اللي بيكبّر بيزنسك.</p>
+    </div>
+    <div class="out reveal d3">
+      <div class="chk"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 data-ar="سعر أعلى بثقة" data-en="Higher rates, confidently">سعر أعلى بثقة</h3>
+      <p data-ar="لما شغلك يبان محترف، بتقدر ترفع أسعارك والعميل يدفع عن اقتناع." data-en="When your work looks premium, you can raise prices and clients pay gladly.">لما شغلك يبان محترف، بتقدر ترفع أسعارك والعميل يدفع عن اقتناع.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section id="testimonials">
+  <span class="kicker reveal" data-ar="آراء العملاء" data-en="Testimonials">آراء العملاء</span>
+  <h2 class="title reveal d1" data-ar="اللي اشتغلت معاهم بيقولوا إيه؟" data-en="What clients say">اللي اشتغلت معاهم بيقولوا إيه؟</h2>
+  <p class="sub reveal d2" data-ar="(استبدل الكلام ده بتوصيات حقيقية من عملائك)" data-en="(Replace with real testimonials from your clients)">(استبدل الكلام ده بتوصيات حقيقية من عملائك)</p>
+  <div class="testis">
+    <div class="testi reveal">
+      <div class="stars">★★★★★</div>
+      <p data-ar="شغل احترافي والتزام بالمواعيد. المحتوى ضاعف التفاعل على صفحتي في أول شهر، وبدأت حجوزات العيادة تزيد فعلاً." data-en="Professional work and always on time. The content doubled my engagement in the first month, and clinic bookings actually started increasing.">شغل احترافي والتزام بالمواعيد. المحتوى ضاعف التفاعل على صفحتي في أول شهر، وبدأت حجوزات العيادة تزيد فعلاً.</p>
+      <div class="who"><div class="av">د</div><div><b data-ar="د. اسم العميل" data-en="Dr. Client Name">د. اسم العميل</b><small data-ar="دكتور — عيادة تخصصية" data-en="Doctor — specialty clinic">دكتور — عيادة تخصصية</small></div></div>
+    </div>
+    <div class="testi reveal d1">
+      <div class="stars">★★★★★</div>
+      <p data-ar="فاهم الماركتينج مش بس المونتاج. بيقترح أفكار واستراتيجية بتخلي الفيديو يبيع فعلاً — حاسس إنه شريك مش مورّد خدمة." data-en="He understands marketing, not just editing. He brings ideas and strategy that make videos actually sell — he feels like a partner, not a vendor.">فاهم الماركتينج مش بس المونتاج. بيقترح أفكار واستراتيجية بتخلي الفيديو يبيع فعلاً — حاسس إنه شريك مش مورّد خدمة.</p>
+      <div class="who"><div class="av">ك</div><div><b data-ar="اسم العميل" data-en="Client Name">اسم العميل</b><small data-ar="كوتش وصانع محتوى" data-en="Coach &amp; creator">كوتش وصانع محتوى</small></div></div>
+    </div>
+    <div class="testi reveal d2">
+      <div class="stars">★★★★★</div>
+      <p data-ar="جودة التصوير والتلوين خلّت البراند شكله مختلف تماماً عن المنافسين، والخطة الشهرية وفرت علينا وقت ومجهود كبير." data-en="The shooting and grading quality made our brand look completely different from competitors, and the monthly plan saved us huge time and effort.">جودة التصوير والتلوين خلّت البراند شكله مختلف تماماً عن المنافسين، والخطة الشهرية وفرت علينا وقت ومجهود كبير.</p>
+      <div class="who"><div class="av">ب</div><div><b data-ar="اسم العميل" data-en="Client Name">اسم العميل</b><small data-ar="صاحب براند" data-en="Brand owner">صاحب براند</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FAQ ==================== -->
+<section id="faq">
+  <span class="kicker reveal" data-ar="أسئلة قبل ما تبدأ" data-en="Questions before you start">أسئلة قبل ما تبدأ</span>
+  <h2 class="title reveal d1" data-ar="اسأل براحتك" data-en="Ask away">اسأل براحتك</h2>
+  <p class="sub reveal d2" data-ar="جمعت أكتر الأسئلة اللي بتتسأل قبل ما نشتغل مع بعض:" data-en="The most common questions I get before we work together:">جمعت أكتر الأسئلة اللي بتتسأل قبل ما نشتغل مع بعض:</p>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <button class="faq-q" type="button"><span data-ar="بتشتغل مع أي نوع بيزنس؟" data-en="Do you work with any type of business?">بتشتغل مع أي نوع بيزنس؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="أشتغل أكتر مع الدكاترة والكوتشيز وصنّاع المحتوى والبراندات الشخصية، بس أي بيزنس عايز يستخدم المحتوى عشان يكبر ويبيع أقدر أساعده. أول خطوة دايماً مكالمة قصيرة نفهم فيها البيزنس بتاعك." data-en="I mostly work with doctors, coaches, creators and personal brands, but any business that wants to grow and sell through content is welcome. The first step is always a short call to understand your business.">أشتغل أكتر مع الدكاترة والكوتشيز وصنّاع المحتوى والبراندات الشخصية، بس أي بيزنس عايز يستخدم المحتوى عشان يكبر ويبيع أقدر أساعده. أول خطوة دايماً مكالمة قصيرة نفهم فيها البيزنس بتاعك.</p></div>
+    </div>
+    <div class="faq-item reveal d1">
+      <button class="faq-q" type="button"><span data-ar="الأسعار بتبدأ منين؟" data-en="Where do prices start?">الأسعار بتبدأ منين؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="السعر بيختلف حسب نوع الشغل وحجمه — ريل واحد غير باقة شهرية غير إنتاج إعلان كامل. بعد ما نتكلم في مكالمة التعارف بحدد لك عرض واضح يناسب هدفك وميزانيتك من غير مفاجآت." data-en="Pricing depends on the type and volume of work — a single reel differs from a monthly package or a full ad production. After our intro call I give you a clear quote matching your goal and budget, with no surprises.">السعر بيختلف حسب نوع الشغل وحجمه — ريل واحد غير باقة شهرية غير إنتاج إعلان كامل. بعد ما نتكلم في مكالمة التعارف بحدد لك عرض واضح يناسب هدفك وميزانيتك من غير مفاجآت.</p></div>
+    </div>
+    <div class="faq-item reveal d2">
+      <button class="faq-q" type="button"><span data-ar="أنا بعمل كل حاجة بنفسي ولا في فريق؟" data-en="Do you do everything yourself or with a team?">أنا بعمل كل حاجة بنفسي ولا في فريق؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="بشتغل One Man Crew في أغلب المشاريع — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين والـ Sound Design. ولو المشروع كبير ومحتاج فريق تصوير، بجهّزه عند الحاجة." data-en="I work as a one-man crew on most projects — from idea and script, to shooting and lighting, to editing, grading and sound design. For bigger projects that need a crew, I arrange one when needed.">بشتغل One Man Crew في أغلب المشاريع — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين والـ Sound Design. ولو المشروع كبير ومحتاج فريق تصوير، بجهّزه عند الحاجة.</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" type="button"><span data-ar="لو مش عاجبني المونتاج بيحصل إيه؟" data-en="What if I don't like the edit?">لو مش عاجبني المونتاج بيحصل إيه؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="التعديلات جزء أساسي من الشغل. بنتفق من البداية على عدد جولات التعديل، وبراجع معاك أول نسخة لحد ما توصل للشكل اللي انت متخيله. هدفي إنك تبقى مبسوط بالنتيجة مش بس أسلّم وخلاص." data-en="Revisions are part of the deal. We agree upfront on revision rounds, and I refine the first cut with you until it matches your vision. My goal is that you're happy with the result, not just that I deliver.">التعديلات جزء أساسي من الشغل. بنتفق من البداية على عدد جولات التعديل، وبراجع معاك أول نسخة لحد ما توصل للشكل اللي انت متخيله. هدفي إنك تبقى مبسوط بالنتيجة مش بس أسلّم وخلاص.</p></div>
+    </div>
+    <div class="faq-item reveal d1">
+      <button class="faq-q" type="button"><span data-ar="مش عندي أفكار محتوى، تقدر تساعدني؟" data-en="I have no content ideas — can you help?">مش عندي أفكار محتوى، تقدر تساعدني؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="ده بالظبط دوري. أنا مش بس بنفّذ — بحط معاك استراتيجية وأفكار وسكريبتات تخاطب جمهورك وتحقق هدفك. انت بتيجي بالبيزنس وأنا بجيب المحتوى اللي يكبّره." data-en="That's exactly my role. I don't just execute — I build the strategy, ideas and scripts that speak to your audience and hit your goal. You bring the business, I bring the content that grows it.">ده بالظبط دوري. أنا مش بس بنفّذ — بحط معاك استراتيجية وأفكار وسكريبتات تخاطب جمهورك وتحقق هدفك. انت بتيجي بالبيزنس وأنا بجيب المحتوى اللي يكبّره.</p></div>
+    </div>
+    <div class="faq-item reveal d2">
+      <button class="faq-q" type="button"><span data-ar="بتشتغل مع عملاء بره مصر؟" data-en="Do you work with clients outside Egypt?">بتشتغل مع عملاء بره مصر؟</span><span class="qic">+</span></button>
+      <div class="faq-a"><p data-ar="أيوة. المونتاج والاستراتيجية والموشن جرافيك بيتعملوا أونلاين من أي مكان — واشتغلت فعلاً مع عملاء بره مصر. التصوير الميداني بس هو اللي بيحتاج نكون في نفس المكان أو نرتب له." data-en="Yes. Editing, strategy and motion graphics happen online from anywhere — and I've worked with clients abroad. Only on-location shooting requires us to be in the same place or to arrange it.">أيوة. المونتاج والاستراتيجية والموشن جرافيك بيتعملوا أونلاين من أي مكان — واشتغلت فعلاً مع عملاء بره مصر. التصوير الميداني بس هو اللي بيحتاج نكون في نفس المكان أو نرتب له.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BOOKING ==================== -->
+<section id="book">
+  <span class="kicker reveal" data-ar="احجز ميعاد" data-en="Book a call">احجز ميعاد</span>
+  <h2 class="title reveal d1" data-ar="يلا نكبّر البيزنس بتاعك" data-en="Let's grow your business">يلا نكبّر البيزنس بتاعك</h2>
+  <p class="sub reveal d2" data-ar="عميل جديد؟ املا برايف مشروعك في 4 خطوات سريعة وهرجعلك بخطة — أو كلمني مباشرة واتساب أو إيميل." data-en="New client? Fill your project brief in 4 quick steps and I'll get back with a plan — or reach me directly on WhatsApp or email.">عميل جديد؟ املا برايف مشروعك في 4 خطوات سريعة وهرجعلك بخطة — أو كلمني مباشرة واتساب أو إيميل.</p>
+  <div class="book-wrap">
+    <div class="book-cards">
+      <a class="book-card reveal" href="https://wa.me/201012431207?text=%D8%A7%D9%87%D9%84%D8%A7%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B9%D8%A7%D9%83%20Content" target="_blank">
+        <div class="ico wa"><svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.2L2 22l4.9-1.6A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.35-2 1.4-.55.05-1.05.25-3.55-.75-3-1.2-4.9-4.25-5.05-4.45-.15-.2-1.2-1.6-1.2-3.05s.75-2.15 1-2.45c.25-.3.55-.35.75-.35h.55c.15 0 .4-.05.6.5.25.55.8 1.9.85 2.05.05.15.1.3 0 .5-.1.2-.15.3-.3.5s-.3.35-.45.5c-.15.15-.3.3-.15.6.15.3.75 1.2 1.6 1.95 1.1 1 2 1.3 2.3 1.45.3.15.5.1.65-.05.2-.15.75-.85.95-1.15.2-.3.4-.25.65-.15s1.65.8 1.95.9c.3.15.5.2.55.3.05.15.05.65-.2 1.3z"/></svg></div>
+        <div><b data-ar="واتساب مباشر" data-en="WhatsApp — instant">واتساب مباشر</b><small data-ar="أسرع طريقة — ابعت «Content» وهرد عليك" data-en="Fastest way — DM &ldquo;Content&rdquo; and I'll reply">أسرع طريقة — ابعت «Content» وهرد عليك</small></div>
+      </a>
+      <a class="book-card reveal d1" href="mailto:apderahman00@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%8A%D8%B9%D8%A7%D8%AF">
+        <div class="ico em"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div><b data-ar="إيميل" data-en="Email">إيميل</b><small>apderahman00@gmail.com</small></div>
+      </a>
+      <!-- لو عندك Calendly حط اللينك بتاعك هنا -->
+      <a class="book-card reveal d2" href="https://calendly.com/YOUR_USERNAME" target="_blank">
+        <div class="ico ca"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"/></svg></div>
+        <div><b data-ar="احجز من الكالندر" data-en="Book via calendar">احجز من الكالندر</b><small data-ar="اختار اليوم والساعة اللي تناسبك" data-en="Pick the day &amp; time that suits you">اختار اليوم والساعة اللي تناسبك</small></div>
+      </a>
+    </div>
+    <form class="book-form reveal d2" id="briefForm">
+      <div class="wiz-head">
+        <div class="wiz-steps">
+          <div class="wiz-step-lbl on" data-ar="عنك" data-en="About you">عنك</div>
+          <div class="wiz-step-lbl" data-ar="مشروعك" data-en="Your project">مشروعك</div>
+          <div class="wiz-step-lbl" data-ar="الستايل" data-en="Style">الستايل</div>
+          <div class="wiz-step-lbl" data-ar="الحجز" data-en="Booking">الحجز</div>
+        </div>
+        <div class="wiz-bar"><div class="fill" id="wizFill"></div></div>
+      </div>
+
+      <!-- ===== الخطوة 1: عنك وعن البيزنس ===== -->
+      <div class="wiz-panel act">
+        <label data-ar="اسمك" data-en="Your name">اسمك</label>
+        <input type="text" id="bName" data-ar-ph="اسمك إيه؟" data-en-ph="Your name" placeholder="اسمك إيه؟">
+        <div class="wiz-err" id="errName" data-ar="محتاج اسمك عشان نكمل" data-en="I need your name to continue">محتاج اسمك عشان نكمل</div>
+        <label data-ar="اسم الشركة / البراند" data-en="Company / brand name">اسم الشركة / البراند</label>
+        <input type="text" id="bBrand" data-ar-ph="اسم البيزنس أو البراند الشخصي" data-en-ph="Business or personal brand name" placeholder="اسم البيزنس أو البراند الشخصي">
+        <label data-ar="نوع البيزنس" data-en="Business type">نوع البيزنس</label>
+        <select id="bBiz">
+          <option data-ar="دكتور / عيادة" data-en="Doctor / clinic">دكتور / عيادة</option>
+          <option data-ar="كوتش / تدريب" data-en="Coach / training">كوتش / تدريب</option>
+          <option data-ar="تعليم / كورسات" data-en="Education / courses">تعليم / كورسات</option>
+          <option data-ar="تجارة / منتجات" data-en="E-commerce / products">تجارة / منتجات</option>
+          <option data-ar="مطاعم / كافيهات" data-en="Restaurants / cafés">مطاعم / كافيهات</option>
+          <option data-ar="صانع محتوى / Personal Brand" data-en="Creator / personal brand">صانع محتوى / Personal Brand</option>
+          <option data-ar="مجال تاني" data-en="Other">مجال تاني</option>
+        </select>
+        <label data-ar="لينك انستجرام أو موقعك (اختياري)" data-en="Instagram or website link (optional)">لينك انستجرام أو موقعك (اختياري)</label>
+        <input type="text" id="bLink" data-ar-ph="instagram.com/..." data-en-ph="instagram.com/..." placeholder="instagram.com/...">
+      </div>
+
+      <!-- ===== الخطوة 2: عن المشروع ===== -->
+      <div class="wiz-panel">
+        <label data-ar="محتاج إيه بالظبط؟" data-en="What do you need exactly?">محتاج إيه بالظبط؟</label>
+        <select id="bService">
+          <option data-ar="شريك محتوى شهري (استراتيجية + تنفيذ)" data-en="Monthly content partner (strategy + production)">شريك محتوى شهري (استراتيجية + تنفيذ)</option>
+          <option data-ar="ريلز / محتوى قصير" data-en="Reels / short-form content">ريلز / محتوى قصير</option>
+          <option data-ar="إعلان / فيديو ترويجي" data-en="Commercial / promo video">إعلان / فيديو ترويجي</option>
+          <option data-ar="بودكاست (تصوير + مونتاج)" data-en="Podcast (shooting + editing)">بودكاست (تصوير + مونتاج)</option>
+          <option data-ar="موشن جرافيك" data-en="Motion graphics">موشن جرافيك</option>
+          <option data-ar="استشارة استراتيجية محتوى" data-en="Content strategy consultation">استشارة استراتيجية محتوى</option>
+        </select>
+        <label data-ar="هدفك الأساسي من المحتوى" data-en="Your main goal">هدفك الأساسي من المحتوى</label>
+        <select id="bGoal">
+          <option data-ar="زيادة مبيعات / حجوزات" data-en="More sales / bookings">زيادة مبيعات / حجوزات</option>
+          <option data-ar="نمو متابعين ووعي بالبراند" data-en="Audience growth &amp; brand awareness">نمو متابعين ووعي بالبراند</option>
+          <option data-ar="بناء Personal Brand" data-en="Building a personal brand">بناء Personal Brand</option>
+          <option data-ar="إطلاق منتج / خدمة جديدة" data-en="Launching a new product / service">إطلاق منتج / خدمة جديدة</option>
+        </select>
+        <label data-ar="المنصات اللي هتنزل عليها" data-en="Target platforms">المنصات اللي هتنزل عليها</label>
+        <div class="pchips">
+          <label class="pchip"><input type="checkbox" class="bPlat" checked><span data-ar="انستجرام" data-en="Instagram">انستجرام</span></label>
+          <label class="pchip"><input type="checkbox" class="bPlat"><span data-ar="تيك توك" data-en="TikTok">تيك توك</span></label>
+          <label class="pchip"><input type="checkbox" class="bPlat"><span data-ar="يوتيوب" data-en="YouTube">يوتيوب</span></label>
+          <label class="pchip"><input type="checkbox" class="bPlat"><span data-ar="فيسبوك" data-en="Facebook">فيسبوك</span></label>
+          <label class="pchip"><input type="checkbox" class="bPlat"><span data-ar="لينكد إن" data-en="LinkedIn">لينكد إن</span></label>
+        </div>
+        <label data-ar="منافسينك أو حسابات معجبك شغلها (لينكات)" data-en="Competitors or accounts whose content you like (links)">منافسينك أو حسابات معجبك شغلها (لينكات)</label>
+        <textarea id="bComp" style="min-height:80px" data-ar-ph="حط لينك أو اتنين — بيساعدني أفهم ذوقك وسوقك" data-en-ph="Drop a link or two — helps me get your taste &amp; market" placeholder="حط لينك أو اتنين — بيساعدني أفهم ذوقك وسوقك"></textarea>
+      </div>
+
+      <!-- ===== الخطوة 3: الستايل والميزانية ===== -->
+      <div class="wiz-panel">
+        <label data-ar="ستايل المونتاج اللي بتحبه" data-en="Editing style you like">ستايل المونتاج اللي بتحبه</label>
+        <select id="bStyle">
+          <option data-ar="سينمائي هادي" data-en="Calm &amp; cinematic">سينمائي هادي</option>
+          <option data-ar="سريع وديناميكي" data-en="Fast &amp; dynamic">سريع وديناميكي</option>
+          <option data-ar="فخم ومينيمال" data-en="Premium &amp; minimal">فخم ومينيمال</option>
+          <option data-ar="مليان موشن جرافيك" data-en="Motion-graphics heavy">مليان موشن جرافيك</option>
+          <option data-ar="مش متأكد — محتاج اقتراحك" data-en="Not sure — I need your recommendation">مش متأكد — محتاج اقتراحك</option>
+        </select>
+        <label data-ar="ألوان أو هوية البراند (لو موجودة)" data-en="Brand colors / identity (if any)">ألوان أو هوية البراند (لو موجودة)</label>
+        <input type="text" id="bColors" data-ar-ph="مثلاً: أحمر داكن ودهبي — أو عندي Brand Guideline" data-en-ph="e.g. dark red &amp; gold — or I have a brand guideline" placeholder="مثلاً: أحمر داكن ودهبي — أو عندي Brand Guideline">
+        <label data-ar="الميزانية الشهرية التقريبية" data-en="Approximate monthly budget">الميزانية الشهرية التقريبية</label>
+        <select id="bBudget">
+          <option data-ar="أحدد في المكالمة" data-en="I'll decide on the call">أحدد في المكالمة</option>
+          <option data-ar="محدودة — لسه بادئ" data-en="Limited — just starting">محدودة — لسه بادئ</option>
+          <option data-ar="متوسطة" data-en="Medium">متوسطة</option>
+          <option data-ar="مرنة — الأولوية للجودة" data-en="Flexible — quality first">مرنة — الأولوية للجودة</option>
+        </select>
+        <label data-ar="ملاحظات إضافية" data-en="Extra notes">ملاحظات إضافية</label>
+        <textarea id="bNotes" style="min-height:80px" data-ar-ph="أي تفاصيل تانية حابب تقولها" data-en-ph="Anything else you'd like to add" placeholder="أي تفاصيل تانية حابب تقولها"></textarea>
+      </div>
+
+      <!-- ===== الخطوة 4: الحجز والتواصل ===== -->
+      <div class="wiz-panel">
+        <label data-ar="أنسب ميعاد لمكالمة تعارف (15 دقيقة)" data-en="Best time for an intro call (15 min)">أنسب ميعاد لمكالمة تعارف (15 دقيقة)</label>
+        <input type="datetime-local" id="bDate">
+        <label data-ar="تحب نتكلم إزاي؟" data-en="Preferred contact method">تحب نتكلم إزاي؟</label>
+        <select id="bContact">
+          <option data-ar="واتساب" data-en="WhatsApp">واتساب</option>
+          <option data-ar="مكالمة Zoom / Google Meet" data-en="Zoom / Google Meet call">مكالمة Zoom / Google Meet</option>
+          <option data-ar="إيميل" data-en="Email">إيميل</option>
+        </select>
+        <div class="form-row">
+          <div>
+            <label data-ar="رقم الواتساب" data-en="WhatsApp number">رقم الواتساب</label>
+            <input type="tel" id="bPhone" data-ar-ph="+20 ..." data-en-ph="+20 ..." placeholder="+20 ...">
+          </div>
+          <div>
+            <label data-ar="الإيميل" data-en="Email">الإيميل</label>
+            <input type="email" id="bEmail" data-ar-ph="email@example.com" data-en-ph="email@example.com" placeholder="email@example.com">
+          </div>
+        </div>
+        <div class="wiz-err" id="errContact" data-ar="سيبلي رقم الواتساب أو الإيميل عشان أعرف أرد عليك" data-en="Leave your WhatsApp or email so I can get back to you">سيبلي رقم الواتساب أو الإيميل عشان أعرف أرد عليك</div>
+      </div>
+
+      <div class="wiz-nav">
+        <button type="button" class="btn btn-back" id="wizPrev" style="display:none" data-ar="السابق" data-en="Back">السابق</button>
+        <button type="button" class="btn btn-primary" id="wizNext" data-ar="التالي" data-en="Next">التالي</button>
+      </div>
+      <div class="form-note" data-ar="في الآخر بيتفتح إيميل جاهز بكل تفاصيل البرايف — دوس إرسال وخلاص" data-en="At the end, a pre-filled email opens with your full brief — just hit send">في الآخر بيتفتح إيميل جاهز بكل تفاصيل البرايف — دوس إرسال وخلاص</div>
+    </form>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="flogo" data-ar="عبدالرحمن أيمن" data-en="Abdelrahman Ayman">عبدالرحمن أيمن</div>
+  <div class="socials">
+    <!-- كمّل لينكات حساباتك -->
+    <a href="https://www.instagram.com/abdelrahman_ayman" target="_blank" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.4 4 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zm0 3.7a6.1 6.1 0 1 0 0 12.2 6.1 6.1 0 0 0 0-12.2zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.2a1.4 1.4 0 1 0 0-2.9 1.4 1.4 0 0 0 0 2.9z"/></svg></a>
+    <a href="https://www.behance.net/abdelraayman3" target="_blank" title="Behance"><svg viewBox="0 0 24 24"><path d="M8.2 10.9c.8-.4 1.3-1.1 1.3-2.1 0-2.1-1.6-2.8-3.5-2.8H0v11.9h6.2c2.1 0 4.2-1 4.2-3.4 0-1.6-.7-2.9-2.2-3.6zM2.7 8h2.9c.9 0 1.7.3 1.7 1.3 0 1-.7 1.4-1.6 1.4h-3V8zm3.2 8H2.7v-3.3h3.3c1.1 0 1.9.5 1.9 1.7 0 1.2-.9 1.6-2 1.6zM21.5 7.4h-5v-1.2h5v1.2zM24 13.3c0-2.9-1.7-5-4.7-5-3 0-5 2.2-5 5.1 0 3 1.9 5 5 5 2.3 0 3.9-1.1 4.6-3.2h-2.4c-.3.8-1.1 1.3-2.1 1.3-1.5 0-2.4-.9-2.5-2.4H24v-.8zm-7.1-1c.2-1.3 1-2.1 2.4-2.1 1.3 0 2.1.9 2.2 2.1h-4.6z"/></svg></a>
+    <a href="https://facebook.com/YOUR_USERNAME" target="_blank" title="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.6-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    <a href="https://www.youtube.com/channel/UCFogzQ4jTmczgynbFy7p-wg" target="_blank" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.5 15.5v-7l6.3 3.5-6.3 3.5z"/></svg></a>
+    <a href="https://www.linkedin.com/in/abdelrahman-ayman-87799318b" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6zM8.3 18.4H5.7V9.8h2.6v8.6zM7 8.6a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1zm11.4 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.8h2.5v1.2h.03a2.75 2.75 0 0 1 2.5-1.4c2.6 0 3.1 1.7 3.1 4v4.8z"/></svg></a>
+    <a href="https://tiktok.com/@YOUR_USERNAME" target="_blank" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 5.8a5 5 0 0 1-3.5-4.3H12.8v13.9a2.9 2.9 0 1 1-2.1-2.8V9.2a6.3 6.3 0 1 0 5.5 6.2V8.6a8.3 8.3 0 0 0 4.8 1.5V6.8c-.5 0-1-.1-1.4-.3z"/></svg></a>
+  </div>
+  <p><span data-ar="© 2026 عبدالرحمن أيمن — كل الحقوق محفوظة" data-en="© 2026 Abdelrahman Ayman — All rights reserved">© 2026 عبدالرحمن أيمن — كل الحقوق محفوظة</span></p>
+</footer>
+
+<!-- ==================== FLOATING WHATSAPP ==================== -->
+<a class="wa-float" href="https://wa.me/201012431207?text=%D8%A7%D9%87%D9%84%D8%A7%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A8%D9%88%D8%B1%D8%AA%D9%81%D9%88%D9%84%D9%8A%D9%88%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B9%D8%A7%D9%83" target="_blank" title="WhatsApp">
+  <span class="wa-tip" data-ar="كلمني على واتساب" data-en="Chat on WhatsApp">كلمني على واتساب</span>
+  <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.2L2 22l4.9-1.6A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.35-2 1.4-.55.05-1.05.25-3.55-.75-3-1.2-4.9-4.25-5.05-4.45-.15-.2-1.2-1.6-1.2-3.05s.75-2.15 1-2.45c.25-.3.55-.35.75-.35h.55c.15 0 .4-.05.6.5.25.55.8 1.9.85 2.05.05.15.1.3 0 .5-.1.2-.15.3-.3.5s-.3.35-.45.5c-.15.15-.3.3-.15.6.15.3.75 1.2 1.6 1.95 1.1 1 2 1.3 2.3 1.45.3.15.5.1.65-.05.2-.15.75-.85.95-1.15.2-.3.4-.25.65-.15s1.65.8 1.95.9c.3.15.5.2.55.3.05.15.05.65-.2 1.3z"/></svg>
+</a>
+
+<!-- ==================== VIDEO LIGHTBOX ==================== -->
+<div class="ytm" id="ytm">
+  <button class="x" id="ytX" title="Close">✕</button>
+  <div class="box"><iframe id="ytFrame" src="" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+</div>
+
+<script>
+/* ============ Language toggle ============ */
+const langBtn=document.getElementById('langBtn');
+const langLabel=document.getElementById('langLabel');
+let lang='en';
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  langLabel.textContent=lang==='ar'?'EN':'ع';
+  document.querySelectorAll('[data-ar]').forEach(el=>{el.innerHTML=el.dataset[lang];});
+  document.querySelectorAll('[data-ar-ph]').forEach(el=>{
+    el.placeholder=lang==='ar'?el.dataset.arPh:el.dataset.enPh;
+  });
+  document.title=lang==='ar'?'عبدالرحمن أيمن — شريكك في نمو البيزنس بالمحتوى':'Abdelrahman Ayman — Your content growth partner';
+  if(typeof wizShow==='function')wizShow(wizCur);
+}
+langBtn.addEventListener('click',()=>{
+  dismissLangHint();
+  document.body.style.opacity='0';
+  document.body.style.transition='opacity .25s';
+  setTimeout(()=>{lang=lang==='ar'?'en':'ar';applyLang();document.body.style.opacity='1';},250);
+});
+
+/* تلميح على زرار اللغة يوضح إمكانية التبديل للعربي */
+const langHint=document.getElementById('langHint');
+function dismissLangHint(){if(langHint){langHint.classList.add('gone')}}
+setTimeout(()=>{if(langHint)langHint.classList.add('show')},1400);
+setTimeout(dismissLangHint,8000);
+window.addEventListener('scroll',dismissLangHint,{once:true,passive:true});
+
+/* ============ Clients marquee (تكرار تلقائي للحركة المستمرة) ============ */
+const track=document.getElementById('clientsTrack');
+track.innerHTML+=track.innerHTML;
+
+/* ============ Nav scroll effect ============ */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ============ Mobile menu ============ */
+const burger=document.getElementById('burger');
+const navLinks=document.getElementById('navLinks');
+burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ============ Reveal on scroll ============ */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============ Counter animation ============ */
+const counters=document.querySelectorAll('[data-count]');
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'';
+    let start=null;
+    function step(ts){
+      if(!start)start=ts;
+      const p=Math.min((ts-start)/1600,1);
+      el.textContent=Math.floor(target*(1-Math.pow(1-p,3)))+suffix;
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+counters.forEach(c=>cio.observe(c));
+
+/* ============ Video lightbox (بيشغل الفيديو جوه الموقع) ============ */
+const ytm=document.getElementById('ytm');
+const ytFrame=document.getElementById('ytFrame');
+document.querySelectorAll('a[data-yt]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    /* لو الموقع مفتوح كملف محلي، يوتيوب بيمنع التشغيل الداخلي (Error 153)
+       فبنفتح الفيديو على يوتيوب في تاب جديد. بعد النشر أونلاين المشغل الداخلي بيشتغل تلقائي */
+    if(location.protocol==='file:')return;
+    e.preventDefault();
+    ytm.classList.toggle('vert',a.dataset.v==='1');
+    ytFrame.src='https://www.youtube.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0';
+    ytm.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function ytClose(){
+  ytm.classList.remove('open');ytFrame.src='';document.body.style.overflow='';
+}
+ytm.addEventListener('click',e=>{if(e.target===ytm)ytClose()});
+document.getElementById('ytX').addEventListener('click',ytClose);
+addEventListener('keydown',e=>{if(e.key==='Escape')ytClose()});
+
+/* ============ Brief wizard (برايف العميل الجديد) ============ */
+const panels=[...document.querySelectorAll('.wiz-panel')];
+const stepLbls=[...document.querySelectorAll('.wiz-step-lbl')];
+const wizFill=document.getElementById('wizFill');
+const wizPrev=document.getElementById('wizPrev');
+const wizNext=document.getElementById('wizNext');
+let wizCur=0;
+function wizShow(i){
+  panels.forEach((p,x)=>p.classList.toggle('act',x===i));
+  stepLbls.forEach((l,x)=>l.classList.toggle('on',x<=i));
+  wizFill.style.width=((i+1)/panels.length*100)+'%';
+  wizPrev.style.display=i===0?'none':'inline-flex';
+  wizNext.textContent=i===panels.length-1
+    ?(lang==='ar'?'ابعت البرايف':'Send the brief')
+    :(lang==='ar'?'التالي':'Next');
+  wizCur=i;
+}
+wizPrev.addEventListener('click',()=>wizShow(wizCur-1));
+wizNext.addEventListener('click',()=>{
+  const v=id=>document.getElementById(id).value.trim();
+  if(wizCur===0){
+    const bad=!v('bName');
+    document.getElementById('errName').classList.toggle('show',bad);
+    if(bad)return;
+  }
+  if(wizCur<panels.length-1){wizShow(wizCur+1);return;}
+  /* الخطوة الأخيرة: تحقق + إرسال */
+  const noContact=!v('bPhone')&&!v('bEmail');
+  document.getElementById('errContact').classList.toggle('show',noContact);
+  if(noContact)return;
+  const sel=id=>{const s=document.getElementById(id);return s.options[s.selectedIndex].textContent;};
+  const plats=[...document.querySelectorAll('.bPlat')].filter(c=>c.checked)
+    .map(c=>c.parentElement.querySelector('span').textContent).join('، ')||'—';
+  const L=lang==='ar';
+  const subject=encodeURIComponent((L?'برايف عميل جديد — ':'New client brief — ')+v('bName')+(v('bBrand')?' ('+v('bBrand')+')':''));
+  const bodyLines=L?[
+    '— عن العميل —','الاسم: '+v('bName'),'البراند: '+(v('bBrand')||'—'),'نوع البيزنس: '+sel('bBiz'),'لينك: '+(v('bLink')||'—'),'',
+    '— المشروع —','الخدمة: '+sel('bService'),'الهدف: '+sel('bGoal'),'المنصات: '+plats,'منافسين/إلهام: '+(v('bComp')||'—'),'',
+    '— الستايل —','ستايل المونتاج: '+sel('bStyle'),'ألوان البراند: '+(v('bColors')||'—'),'الميزانية: '+sel('bBudget'),'ملاحظات: '+(v('bNotes')||'—'),'',
+    '— الحجز —','الميعاد المفضل: '+(v('bDate')||'—'),'طريقة التواصل: '+sel('bContact'),'واتساب: '+(v('bPhone')||'—'),'إيميل: '+(v('bEmail')||'—')
+  ]:[
+    '— About the client —','Name: '+v('bName'),'Brand: '+(v('bBrand')||'—'),'Business type: '+sel('bBiz'),'Link: '+(v('bLink')||'—'),'',
+    '— The project —','Service: '+sel('bService'),'Goal: '+sel('bGoal'),'Platforms: '+plats,'Competitors/inspiration: '+(v('bComp')||'—'),'',
+    '— Style —','Editing style: '+sel('bStyle'),'Brand colors: '+(v('bColors')||'—'),'Budget: '+sel('bBudget'),'Notes: '+(v('bNotes')||'—'),'',
+    '— Booking —','Preferred time: '+(v('bDate')||'—'),'Contact method: '+sel('bContact'),'WhatsApp: '+(v('bPhone')||'—'),'Email: '+(v('bEmail')||'—')
+  ];
+  location.href='mailto:apderahman00@gmail.com?subject='+subject+'&body='+encodeURIComponent(bodyLines.join('\n'));
+});
+
+/* ============ Robust YouTube thumbnails (مفيش كارت من غير غلاف حقيقي) ============ */
+/* يوتيوب أحياناً بيرجّع صورة رمادية افتراضية (120px) بدل الثامبنيل الحقيقي.
+   بنكتشفها بعرضها (<=121px) ونجرّب النسخة اللي بعدها لحد ما نلاقي فريم حقيقي.
+   لو كل النسخ رمادية بنخفي الصورة وتظهر خلفية البراند المتدرجة (مفيش أيقونة مكسورة). */
+const YT_CHAIN=['oardefault','oar2','hqdefault','sddefault','maxresdefault','mqdefault'];
+function ytLoad(img,id){
+  img._i=(img._i==null?-1:img._i)+1;
+  if(img._i>=YT_CHAIN.length){img.style.display='none';img.onload=img.onerror=null;return;}
+  img.onload=function(){ if(img.naturalWidth&&img.naturalWidth<=121){ytLoad(img,id);} };
+  img.onerror=function(){ ytLoad(img,id); };
+  img.src='https://i.ytimg.com/vi/'+id+'/'+YT_CHAIN[img._i]+'.jpg';
+}
+document.querySelectorAll('img[data-yt-id]').forEach(img=>{img._i=-1;ytLoad(img,img.dataset.ytId);});
+
+/* ============ FAQ accordion ============ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q');
+  const a=item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null;});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+
+/* ============ Init: الموقع أساسي إنجليزي — نطبّق اللغة بعد ما كل الدوال والمتغيرات اتعرّفت ============ */
+applyLang();
+</script>
+</body>
+</html>
