@@ -14,21 +14,23 @@
    (لو ركّبت فونتات Thmanyah هتشتغل تلقائي — أول اختيار)
    ====================================================== */
 :root{
-  --bg:#0e0906;
-  --bg-2:#150e08;
-  --card:#1c130c;
-  --card-hover:#241a11;
-  --border:rgba(251,246,233,.09);
-  --text:#FBF6E9;
-  --text-2:#B7A791;
-  --red:#A5342A;
-  --red-deep:#7A1E16;
-  --red-darkest:#5C160F;
-  --red-light:#C24A3B;
-  --gold:#C9A227;
-  --gold-light:#D9B94B;
-  --grad:linear-gradient(120deg,#7A1E16,#C24A3B);
-  --grad-gold:linear-gradient(120deg,#92721A,#D9B94B);
+  /* الهوية: أحمر + أبيض + أسود (بدون أصفر) — أحمر عميق ومشبع */
+  --bg:#0b0a0a;
+  --bg-2:#111010;
+  --card:#161414;
+  --card-hover:#1e1b1b;
+  --border:rgba(255,255,255,.10);
+  --text:#F7F5F4;
+  --text-2:#ADA6A4;
+  --red:#C41E28;
+  --red-deep:#9E141C;
+  --red-darkest:#6E0D12;
+  --red-light:#E23A3F;
+  /* الأصفر اتشال — المتغيرات دي بقت درجات أحمر عشان أي مرجع قديم يبان أحمر مش أصفر */
+  --gold:#E23A3F;
+  --gold-light:#F05359;
+  --grad:linear-gradient(120deg,#9E141C,#E23A3F);
+  --grad-gold:linear-gradient(120deg,#9E141C,#E23A3F);
   --radius:22px;
   --ease:cubic-bezier(.22,1,.36,1);
   --font-sans:'Thmanyah Sans','IBM Plex Sans Arabic',sans-serif;
@@ -51,7 +53,7 @@ img{max-width:100%;display:block}
 /* ---------- background glow ---------- */
 .glow{position:fixed;border-radius:50%;filter:blur(140px);opacity:.2;pointer-events:none;z-index:0}
 .glow.g1{width:600px;height:600px;background:var(--red-deep);top:-200px;inset-inline-start:-150px}
-.glow.g2{width:500px;height:500px;background:var(--gold);top:40%;inset-inline-end:-220px;opacity:.1}
+.glow.g2{width:500px;height:500px;background:var(--red);top:40%;inset-inline-end:-220px;opacity:.08}
 .glow.g3{width:500px;height:500px;background:var(--red-darkest);bottom:-200px;inset-inline-start:30%;opacity:.25}
 
 /* ---------- nav ---------- */
@@ -118,75 +120,42 @@ h2.title{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;line-height:1.3;marg
 .reveal.visible{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.22s}.reveal.d3{transition-delay:.34s}.reveal.d4{transition-delay:.46s}
 
-/* ---------- hero (سينمائي: نص + شريط صور رأسي) ---------- */
+/* ---------- hero (صورة كبيرة بعرض الصفحة) ---------- */
 .hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  padding:140px 6vw 70px;max-width:1250px;margin:0 auto;position:relative;z-index:1;
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;justify-content:center;
+  text-align:center;padding:150px 6vw clamp(50px,9vh,110px);overflow:hidden;z-index:1;
 }
-.hero-inner{
-  display:flex;flex-direction:column;align-items:center;gap:46px;width:100%;
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(11,10,10,.72) 0%,rgba(11,10,10,.42) 35%,rgba(11,10,10,.82) 78%,var(--bg) 100%),
+    radial-gradient(120% 90% at 50% 42%,transparent 40%,rgba(11,10,10,.55) 100%);
 }
-.hero-text{text-align:center;max-width:820px;display:flex;flex-direction:column;align-items:center}
+.hero-content{
+  position:relative;z-index:2;max-width:900px;
+  display:flex;flex-direction:column;align-items:center;
+}
 .hero-badge{
   display:inline-flex;align-items:center;gap:10px;
-  border:1.5px solid var(--red-light);color:var(--gold-light);
+  border:1.5px solid var(--red);color:#fff;
   border-radius:999px;padding:7px 20px;font-size:.78rem;font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;
-  background:rgba(165,52,42,.08);
+  background:rgba(196,30,40,.18);backdrop-filter:blur(6px);
 }
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--red-light);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .hero h1{
   font-family:var(--font-serif);
-  font-size:clamp(2.3rem,5.2vw,4.2rem);font-weight:700;line-height:1.25;letter-spacing:-.5px;
+  font-size:clamp(2rem,4.2vw,3.4rem);font-weight:700;line-height:1.18;letter-spacing:-.5px;
+  text-shadow:0 4px 30px rgba(0,0,0,.7);
 }
-.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(1.35)}
-.hero p{color:var(--text-2);font-size:clamp(1rem,1.6vw,1.18rem);max-width:620px;margin-top:24px}
-.hero .cta-row{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap;justify-content:center}
-
-/* شريط الصور — فوق بعرض الصفحة، صفين بيتحركوا في اتجاهين متعاكسين */
-.hero-strip{
-  order:-1;width:100%;
-  position:relative;display:flex;flex-direction:column;gap:16px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-}
-.hero-row{overflow:hidden;position:relative}
-.hero-rtrack{display:flex;flex-direction:row;gap:16px;width:max-content;will-change:transform}
-.hero-rtrack.left{animation:strip-left 40s linear infinite}
-.hero-rtrack.right{animation:strip-right 40s linear infinite}
-@keyframes strip-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes strip-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-html[dir="rtl"] .hero-rtrack.left{animation-name:strip-right}
-html[dir="rtl"] .hero-rtrack.right{animation-name:strip-left}
-.hero-strip:hover .hero-rtrack{animation-play-state:paused}
-.hframe{
-  border-radius:16px;overflow:hidden;border:1px solid var(--border);
-  width:clamp(140px,13vw,180px);aspect-ratio:3/4;position:relative;flex-shrink:0;
-  box-shadow:0 14px 40px rgba(0,0,0,.45);
-  background:linear-gradient(150deg,#241a11,#150e08);
-}
-.hframe img{width:100%;height:100%;object-fit:cover;display:block}
-.hframe::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,transparent 60%,rgba(14,9,6,.35));
-  box-shadow:inset 0 0 40px rgba(0,0,0,.35);
-}
-.hframe.ph::before{
-  content:"صورتك هنا";position:absolute;inset:0;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--text-2);font-size:.8rem;text-align:center;padding:12px;
-}
-.hframe.ph img{display:none}
-.hero-strip-stamp{
-  position:absolute;bottom:6%;inset-inline-start:50%;transform:translateX(-50%);z-index:3;
-  background:var(--red);color:#fff;font-size:.72rem;font-weight:700;
-  padding:7px 18px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;
-  box-shadow:0 10px 26px rgba(92,22,15,.55);white-space:nowrap;
-}
-html[dir="ltr"] .hero-strip-stamp{transform:translateX(-50%)}
-.scroll-hint{margin-top:36px;color:var(--text-2);font-size:.85rem;animation:float 3s ease-in-out infinite}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(1.25)}
+.hero p{color:#e9e6e4;font-size:clamp(.95rem,1.4vw,1.1rem);max-width:600px;margin-top:18px;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.hero .cta-row{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+.scroll-hint{margin-top:28px;color:#e9e6e4;font-size:.85rem;animation:float 3s ease-in-out infinite;text-shadow:0 2px 10px rgba(0,0,0,.7)}
 .btn{
   display:inline-flex;align-items:center;gap:10px;
   padding:15px 36px;border-radius:999px;font-weight:700;font-size:1rem;
@@ -315,12 +284,12 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 }
 .work-card:hover .play{transform:scale(1.15);background:var(--red)}
 .work-thumb .play svg{width:22px;height:22px;fill:#fff;margin-inline-start:3px}
-.t1{background:linear-gradient(150deg,#7A1E16,#241A11)}
-.t2{background:linear-gradient(150deg,#3A2A1C,#5C160F)}
-.t3{background:linear-gradient(150deg,#92721A,#241A11)}
-.t4{background:linear-gradient(150deg,#241A11,#8C2A1F)}
-.t5{background:linear-gradient(150deg,#55402C,#17110B)}
-.t6{background:linear-gradient(150deg,#5C160F,#92721A)}
+.t1{background:linear-gradient(150deg,#9E141C,#1a1414)}
+.t2{background:linear-gradient(150deg,#2a1414,#6E0D12)}
+.t3{background:linear-gradient(150deg,#6E0D12,#161414)}
+.t4{background:linear-gradient(150deg,#161414,#C41E28)}
+.t5{background:linear-gradient(150deg,#3a2020,#0f0d0d)}
+.t6{background:linear-gradient(150deg,#6E0D12,#9E141C)}
 .work-info{padding:20px 22px}
 .work-info .tag{font-size:.72rem;font-weight:700;color:var(--gold-light);letter-spacing:.1em;text-transform:uppercase}
 .work-info h3{font-size:1.1rem;font-weight:700;margin-top:6px}
@@ -339,15 +308,15 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
   padding:5px 14px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;
   white-space:nowrap;
 }
-.work-sub .stamp.gold{background:var(--grad-gold);color:var(--bg)}
+.work-sub .stamp.gold{background:var(--grad-gold);color:#fff}
 .work-sub-note{color:var(--text-2);font-size:.92rem;margin-bottom:10px}
 .reels-strip{
-  display:flex;gap:18px;overflow-x:auto;padding:30px 0 16px;
+  display:flex;align-items:flex-start;gap:18px;overflow-x:auto;padding:30px 0 16px;
   scroll-snap-type:x mandatory;scrollbar-width:none;
 }
 .reels-strip::-webkit-scrollbar{display:none}
 .reel-card{
-  flex:0 0 235px;aspect-ratio:9/16;border-radius:var(--radius);scroll-snap-align:start;
+  flex:0 0 235px;width:235px;height:418px;aspect-ratio:9/16;border-radius:var(--radius);scroll-snap-align:start;
   position:relative;overflow:hidden;border:1px solid var(--border);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
   transition:all .5s var(--ease);cursor:pointer;
@@ -657,15 +626,12 @@ footer p{color:var(--text-2);font-size:.85rem}
 
 /* ---------- responsive (تابلت) ---------- */
 @media(max-width:900px){
-  .hero{padding-top:130px;min-height:auto}
-  .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-text{text-align:center}
+  .hero{padding-top:130px}
   .hero .cta-row{justify-content:center}
-  .hero-strip{order:-1}
   .about-grid,.book-wrap{grid-template-columns:1fr;gap:36px}
   .nav-links{
     position:fixed;top:0;inset-inline-end:-100%;height:100vh;width:min(75vw,320px);
-    background:rgba(14,9,6,.97);backdrop-filter:blur(30px);
+    background:rgba(11,10,10,.97);backdrop-filter:blur(30px);
     flex-direction:column;justify-content:center;gap:34px;
     transition:inset-inline-end .5s var(--ease);z-index:99;
   }
@@ -679,9 +645,8 @@ footer p{color:var(--text-2);font-size:.85rem}
 /* ---------- responsive (موبايل) ---------- */
 @media(max-width:600px){
   section{padding:70px 5vw}
-  .hero{padding:110px 5vw 50px}
-  .hero-strip{gap:12px}
-  .hframe{width:clamp(120px,38vw,160px)}
+  .hero{padding:120px 5vw 70px;min-height:88vh}
+  .hero-bg img{object-position:center 22%}
   .hero p{font-size:1rem}
   .btn{padding:14px 26px;font-size:.95rem;width:100%;justify-content:center}
   .cta-row{width:100%}
@@ -695,7 +660,7 @@ footer p{color:var(--text-2);font-size:.85rem}
   .work-grid{grid-template-columns:1fr}
   .work-sub{flex-wrap:wrap;gap:10px;margin-top:50px}
   .work-sub h3{white-space:normal;font-size:1.2rem}
-  .reel-card{flex-basis:200px}
+  .reel-card{flex:0 0 190px;width:190px;height:338px}
   .bts-item{flex-basis:240px}
   .client-logo{min-width:150px;height:64px;padding:0 20px;font-size:.88rem}
   .quote{font-size:1.05rem}
@@ -756,56 +721,25 @@ footer p{color:var(--text-2);font-size:.85rem}
   </div>
 </nav>
 
-<!-- ==================== HERO (سينمائي — نص + شريط صور رأسي متحرك) ==================== -->
+<!-- ==================== HERO (صورة كبيرة بعرض الصفحة) ==================== -->
+<!-- ⚠️ الصورة الرئيسية: احفظ صورتك القوية باسم abdelrahman-hero.jpg (يفضّل أفقية landscape وجودة عالية).
+     لو مش موجودة بترجع تلقائي لـ abdelrahman-2.jpg. للتحكم في تركيز الصورة عدّل object-position في CSS (.hero-bg img). -->
 <header class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-badge reveal"><span class="dot"></span><span data-ar="شريك محتوى — Content Partner" data-en="Content Partner — شريك محتوى">شريك محتوى — Content Partner</span></div>
-      <h1 class="reveal d1">
-        <span data-ar="بساعد البيزنس يكبر" data-en="I help businesses grow">بساعد البيزنس يكبر</span><br>
-        <span class="grad" data-ar="ويزوّد دخله بالمحتوى" data-en="&amp; increase revenue with content">ويزوّد دخله بالمحتوى</span>
-      </h1>
-      <p class="reveal d2" data-ar="أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: بحط معاك الاستراتيجية، أكتب المحتوى، أصوّر، أمنتج، وأتابع النتايج — لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك." data-en="I'm Abdelrahman Ayman — not just a videographer or editor. I'm a content partner for businesses and entrepreneurs: I build the strategy with you, write the content, shoot, edit, and track results — until content becomes a real growth engine for your revenue.">أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: بحط معاك الاستراتيجية، أكتب المحتوى، أصوّر، أمنتج، وأتابع النتايج — لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك.</p>
-      <div class="cta-row reveal d3">
-        <a href="#book" class="btn btn-primary" data-ar="ابدأ مشروعك معايا" data-en="Start your project">ابدأ مشروعك معايا</a>
-        <a href="#work" class="btn btn-ghost" data-ar="شوف شغلي" data-en="See my work">شوف شغلي</a>
-      </div>
-      <div class="scroll-hint reveal d4" data-ar="↓ انزل تحت" data-en="↓ Scroll down">↓ انزل تحت</div>
+  <div class="hero-bg">
+    <img src="abdelrahman-hero.jpg" alt="عبدالرحمن أيمن" onerror="this.onerror=null;this.src='abdelrahman-2.jpg'">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="reveal d1">
+      <span data-ar="بساعد البيزنس يكبر" data-en="I help businesses grow">بساعد البيزنس يكبر</span><br>
+      <span class="grad" data-ar="ويزوّد دخله بالمحتوى" data-en="&amp; increase revenue with content">ويزوّد دخله بالمحتوى</span>
+    </h1>
+    <p class="reveal d2" data-ar="أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: من الاستراتيجية والسكريبت، للتصوير والمونتاج، لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك." data-en="I'm Abdelrahman Ayman — not just a videographer or editor. I'm a content partner for businesses and entrepreneurs: from strategy and script, to shooting and editing, until content becomes a real growth engine for your revenue.">أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. أنا شريك محتوى للبيزنس ورواد الأعمال: من الاستراتيجية والسكريبت، للتصوير والمونتاج، لحد ما المحتوى يبقى مصدر نمو حقيقي لدخلك.</p>
+    <div class="cta-row reveal d3">
+      <a href="#book" class="btn btn-primary" data-ar="ابدأ مشروعك معايا" data-en="Start your project">ابدأ مشروعك معايا</a>
+      <a href="#work" class="btn btn-ghost" data-ar="شوف شغلي" data-en="See my work">شوف شغلي</a>
     </div>
-
-    <!-- ⚠️ شريط الصور: بدّل الصور بصور اللوكيشن/السيت بتاعتك.
-         الأعمدة بتتحرك تلقائي — الأولاني لفوق والتاني لتحت.
-         دلوقتي مليان بصورك + ستيلز رأسية من ريلزك الحقيقية عشان يبان كامل. -->
-    <div class="hero-strip reveal d2" aria-hidden="true">
-      <!-- صف علوي — بيتحرك لجهة -->
-      <div class="hero-row">
-        <div class="hero-rtrack left">
-          <div class="hframe"><img src="abdelrahman-1.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
-          <div class="hframe"><img data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy"></div>
-          <div class="hframe"><img src="abdelrahman-2.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
-          <div class="hframe"><img data-yt-id="31iiZNvk7Vc" alt="" loading="lazy"></div>
-          <!-- نسخة مكررة للحركة المستمرة -->
-          <div class="hframe"><img src="abdelrahman-1.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
-          <div class="hframe"><img data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy"></div>
-          <div class="hframe"><img src="abdelrahman-2.jpg" alt="" onerror="this.closest('.hframe').classList.add('ph')"></div>
-          <div class="hframe"><img data-yt-id="31iiZNvk7Vc" alt="" loading="lazy"></div>
-        </div>
-      </div>
-      <!-- صف سفلي — بيتحرك للجهة المعاكسة -->
-      <div class="hero-row">
-        <div class="hero-rtrack right">
-          <div class="hframe"><img data-yt-id="kGaDUebDfs4" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="5osODgizVlY" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="NFRcL-GPmrs" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="kGaDUebDfs4" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="5osODgizVlY" alt="" loading="lazy"></div>
-          <div class="hframe"><img data-yt-id="NFRcL-GPmrs" alt="" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="hero-strip-stamp"><span data-ar="شوريل مختارات" data-en="Selected showreel">شوريل مختارات</span></div>
-    </div>
+    <div class="scroll-hint reveal d4" data-ar="↓ انزل تحت" data-en="↓ Scroll down">↓ انزل تحت</div>
   </div>
 </header>
 
@@ -818,32 +752,14 @@ footer p{color:var(--text-2);font-size:.85rem}
   <div class="stat reveal d3"><div class="num" data-count="5">0</div><div class="lbl" data-ar="+ سنين خبرة" data-en="+ Years of experience">+ سنين خبرة</div></div>
 </section>
 
-<!-- ==================== CLIENTS ==================== -->
-<section class="clients" id="clients">
-  <div class="c-label reveal" data-ar="عملاء وثقوا فيّا" data-en="Clients who trusted me">عملاء وثقوا فيّا</div>
-  <div class="marquee reveal d1">
-    <div class="track" id="clientsTrack">
-      <!-- ⚠️ استبدل كل كارت باسم/لوجو عميل حقيقي:
-           بالاسم فقط:  <div class="client-logo"><span class="dot"></span> اسم العميل</div>
-           بلوجو صورة:  <div class="client-logo"><img src="logos/client.png" alt="اسم العميل"></div>
-           (المجموعة بتتكرر تلقائياً بالجافاسكريبت علشان الحركة تفضل مستمرة) -->
-      <div class="client-logo"><span class="dot"></span><span data-ar="د. اسم العميل" data-en="Dr. Client Name">د. اسم العميل</span></div>
-      <div class="client-logo"><span class="dot"></span><span data-ar="اسم براند" data-en="Brand Name">اسم براند</span></div>
-      <div class="client-logo"><span class="dot"></span><span data-ar="اسم كوتش" data-en="Coach Name">اسم كوتش</span></div>
-      <div class="client-logo"><span class="dot"></span><span data-ar="اسم عيادة" data-en="Clinic Name">اسم عيادة</span></div>
-      <div class="client-logo"><span class="dot"></span><span data-ar="اسم شركة" data-en="Company Name">اسم شركة</span></div>
-      <div class="client-logo"><span class="dot"></span><span data-ar="صانع محتوى" data-en="Creator Name">صانع محتوى</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== ABOUT ==================== -->
 <section id="about">
   <div class="about-grid">
-    <!-- ⚠️ احفظ صورة الكاميرات والمعدات باسم abdelrahman-2.jpg في نفس فولدر الملف ده -->
+    <!-- ⚠️ صورة "عني" (البورتريه): احفظ الصورة الجديدة (اللي بتبتسم فيها) باسم abdelrahman-about.jpg
+         في نفس الفولدر. لو مش موجودة بترجع تلقائي للبورتريه القديم abdelrahman-1.jpg.
+         الكادر مقصوص من فوق (object-position center 12%) عشان يبان الوش والصدر ومتبانش الكرسي والإيدين. -->
     <div class="about-visual reveal">
-      <img src="abdelrahman-2.jpg" alt="عبدالرحمن أيمن — صناعة أفلام ومونتاج" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <div class="ph" style="display:none" data-ar="احفظ صورتك التانية باسم abdelrahman-2.jpg جنب الملف" data-en="Save your second photo as abdelrahman-2.jpg next to this file">احفظ صورتك التانية باسم abdelrahman-2.jpg جنب الملف</div>
+      <img src="abdelrahman-about.jpg" alt="عبدالرحمن أيمن" style="width:100%;height:100%;object-fit:cover;object-position:center 12%;position:absolute;inset:0" onerror="this.onerror=null;this.src='abdelrahman-2.jpg'">
     </div>
     <div>
       <span class="kicker reveal" data-ar="عني" data-en="About me">عني</span>
@@ -934,95 +850,161 @@ footer p{color:var(--text-2);font-size:.85rem}
   </div>
   <div class="work-sub-note reveal d1" data-ar="اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design" data-en="Swipe through — videos play right here. All one-man-crew work: script + shooting + lighting + editing + sound design">اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design</div>
   <div class="reels-strip">
-    <a class="reel-card t2 reveal" href="https://youtube.com/shorts/V82ml1q02Q0" target="_blank" data-yt="V82ml1q02Q0" data-v="1">
+      <a class="reel-card t2 reveal" href="https://youtube.com/shorts/V82ml1q02Q0" target="_blank" data-yt="V82ml1q02Q0" data-v="1">
       <img class="rimg" data-yt-id="V82ml1q02Q0" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
     </a>
-    <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/zr39m7_3T14" target="_blank" data-yt="zr39m7_3T14" data-v="1">
-      <img class="rimg" data-yt-id="zr39m7_3T14" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
-    </a>
-    <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/kGaDUebDfs4" target="_blank" data-yt="kGaDUebDfs4" data-v="1">
-      <img class="rimg" data-yt-id="kGaDUebDfs4" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="لازم يبقى شكلك حلو" data-en="You have to look good">لازم يبقى شكلك حلو</div>
-    </a>
-    <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/NFRcL-GPmrs" target="_blank" data-yt="NFRcL-GPmrs" data-v="1">
-      <img class="rimg" data-yt-id="NFRcL-GPmrs" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="السكوت" data-en="Silence">السكوت</div>
-    </a>
-    <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/TvqMW43_5EQ" target="_blank" data-yt="TvqMW43_5EQ" data-v="1">
-      <img class="rimg" data-yt-id="TvqMW43_5EQ" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="محكمة" data-en="The courtroom">محكمة</div>
-    </a>
-    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/gZQYtvWtZ8k" target="_blank" data-yt="gZQYtvWtZ8k" data-v="1">
-      <img class="rimg" data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="السوشيال ميديا" data-en="Social media">السوشيال ميديا</div>
-    </a>
-    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/31iiZNvk7Vc" target="_blank" data-yt="31iiZNvk7Vc" data-v="1">
-      <img class="rimg" data-yt-id="31iiZNvk7Vc" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
-    </a>
-    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/vJqZ0E4mpNk" target="_blank" data-yt="vJqZ0E4mpNk" data-v="1">
-      <img class="rimg" data-yt-id="vJqZ0E4mpNk" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
-    </a>
-    <a class="reel-card t5 reveal d3" href="https://youtube.com/shorts/_bJ3v-8qNWY" target="_blank" data-yt="_bJ3v-8qNWY" data-v="1">
-      <img class="rimg" data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="علاج مقاومة البوتوكس" data-en="Botox resistance treatment">علاج مقاومة البوتوكس</div>
-    </a>
-    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/WRGwLJ8_wmQ" target="_blank" data-yt="WRGwLJ8_wmQ" data-v="1">
-      <img class="rimg" data-yt-id="WRGwLJ8_wmQ" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
-    </a>
-    <a class="reel-card t6 reveal" href="https://youtube.com/shorts/-CBu5vxpymc" target="_blank" data-yt="-CBu5vxpymc" data-v="1">
-      <img class="rimg" data-yt-id="-CBu5vxpymc" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="سكلبترا" data-en="Sculptra">سكلبترا</div>
-    </a>
-    <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/5osODgizVlY" target="_blank" data-yt="5osODgizVlY" data-v="1">
-      <img class="rimg" data-yt-id="5osODgizVlY" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
-    </a>
-    <a class="reel-card t2 reveal d2" href="https://youtu.be/YKl-jj4VbPg" target="_blank" data-yt="YKl-jj4VbPg">
+      <a class="reel-card t2 reveal d1" href="https://youtu.be/YKl-jj4VbPg" target="_blank" data-yt="YKl-jj4VbPg">
       <img class="rimg" data-yt-id="YKl-jj4VbPg" alt="" loading="lazy">
       <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="جلو ليفت" data-en="Glow lift">جلو ليفت</div>
     </a>
-    <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/eEi9DrKzGYg" target="_blank" data-yt="eEi9DrKzGYg" data-v="1">
+      <a class="reel-card t4 reveal d2" href="https://youtube.com/shorts/chpzS18oGwY" target="_blank" data-yt="chpzS18oGwY" data-v="1">
+      <img class="rimg" data-yt-id="chpzS18oGwY" alt="" loading="lazy">
+      <span class="rtag" data-ar="ذكاء اصطناعي" data-en="AI">ذكاء اصطناعي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="محتوى بالذكاء الاصطناعي" data-en="AI-powered content">محتوى بالذكاء الاصطناعي</div>
+    </a>
+      <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/SOVGDAiwUGM" target="_blank" data-yt="SOVGDAiwUGM">
+      <img class="rimg" data-yt-id="SOVGDAiwUGM" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريكاب" data-en="Recap">ريكاب</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="ريكاب مشروع" data-en="Project recap">ريكاب مشروع</div>
+    </a>
+      <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/cGeG3RczKEk" target="_blank" data-yt="cGeG3RczKEk" data-v="1">
+      <img class="rimg" data-yt-id="cGeG3RczKEk" alt="" loading="lazy">
+      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الطموح" data-en="Ambition">الطموح</div>
+    </a>
+      <a class="reel-card t5 reveal" href="https://youtube.com/shorts/jsNIfdwmiLo" target="_blank" data-yt="jsNIfdwmiLo" data-v="1">
+      <img class="rimg" data-yt-id="jsNIfdwmiLo" alt="" loading="lazy">
+      <span class="rtag" data-ar="إعلان" data-en="Ad">إعلان</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
+    </a>
+      <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/TvqMW43_5EQ" target="_blank" data-yt="TvqMW43_5EQ" data-v="1">
+      <img class="rimg" data-yt-id="TvqMW43_5EQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="محكمة" data-en="The courtroom">محكمة</div>
+    </a>
+      <a class="reel-card t3 reveal d2" href="https://youtube.com/shorts/KHYYeeAlIX0" target="_blank" data-yt="KHYYeeAlIX0" data-v="1">
+      <img class="rimg" data-yt-id="KHYYeeAlIX0" alt="" loading="lazy">
+      <span class="rtag" data-ar="رأي مجتمعي" data-en="Opinion">رأي مجتمعي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الفلوس بتغيّر النفوس" data-en="Money changes people">الفلوس بتغيّر النفوس</div>
+    </a>
+      <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/WRGwLJ8_wmQ" target="_blank" data-yt="WRGwLJ8_wmQ" data-v="1">
+      <img class="rimg" data-yt-id="WRGwLJ8_wmQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
+    </a>
+      <a class="reel-card t2 reveal d4" href="https://youtube.com/shorts/WMoAvzHs0Xs" target="_blank" data-yt="WMoAvzHs0Xs" data-v="1">
+      <img class="rimg" data-yt-id="WMoAvzHs0Xs" alt="" loading="lazy">
+      <span class="rtag" data-ar="رأي مجتمعي" data-en="Opinion">رأي مجتمعي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الراجل ومراته الشغالة" data-en="Should a wife work?">الراجل ومراته الشغالة</div>
+    </a>
+      <a class="reel-card t2 reveal" href="https://youtube.com/shorts/31iiZNvk7Vc" target="_blank" data-yt="31iiZNvk7Vc" data-v="1">
+      <img class="rimg" data-yt-id="31iiZNvk7Vc" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
+    </a>
+      <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/z90b60JCwIQ" target="_blank" data-yt="z90b60JCwIQ" data-v="1">
+      <img class="rimg" data-yt-id="z90b60JCwIQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كوميدي" data-en="Comedy">كوميدي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المرايا المضحّية" data-en="The funny mirror">المرايا المضحّية</div>
+    </a>
+      <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/-CBu5vxpymc" target="_blank" data-yt="-CBu5vxpymc" data-v="1">
+      <img class="rimg" data-yt-id="-CBu5vxpymc" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="سكلبترا" data-en="Sculptra">سكلبترا</div>
+    </a>
+      <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/C9gizwExsE0" target="_blank" data-yt="C9gizwExsE0" data-v="1">
+      <img class="rimg" data-yt-id="C9gizwExsE0" alt="" loading="lazy">
+      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الشباب محتاجين فرصة" data-en="Young people need a chance">الشباب محتاجين فرصة</div>
+    </a>
+      <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/vJqZ0E4mpNk" target="_blank" data-yt="vJqZ0E4mpNk" data-v="1">
+      <img class="rimg" data-yt-id="vJqZ0E4mpNk" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
+    </a>
+      <a class="reel-card t4 reveal" href="https://youtube.com/shorts/gZQYtvWtZ8k" target="_blank" data-yt="gZQYtvWtZ8k" data-v="1">
+      <img class="rimg" data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="السوشيال ميديا" data-en="Social media">السوشيال ميديا</div>
+    </a>
+      <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/_bJ3v-8qNWY" target="_blank" data-yt="_bJ3v-8qNWY" data-v="1">
+      <img class="rimg" data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="علاج مقاومة البوتوكس" data-en="Botox resistance treatment">علاج مقاومة البوتوكس</div>
+    </a>
+      <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/kGaDUebDfs4" target="_blank" data-yt="kGaDUebDfs4" data-v="1">
+      <img class="rimg" data-yt-id="kGaDUebDfs4" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لازم يبقى شكلك حلو" data-en="You have to look good">لازم يبقى شكلك حلو</div>
+    </a>
+      <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/zr39m7_3T14" target="_blank" data-yt="zr39m7_3T14" data-v="1">
+      <img class="rimg" data-yt-id="zr39m7_3T14" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
+    </a>
+      <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/eEi9DrKzGYg" target="_blank" data-yt="eEi9DrKzGYg" data-v="1">
       <img class="rimg" data-yt-id="eEi9DrKzGYg" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
     </a>
-    <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/jsNIfdwmiLo" target="_blank" data-yt="jsNIfdwmiLo" data-v="1">
-      <img class="rimg" data-yt-id="jsNIfdwmiLo" alt="" loading="lazy">
-      <span class="rtag" data-ar="إعلان" data-en="Ad">إعلان</span>
+      <a class="reel-card t4 reveal" href="https://youtube.com/shorts/5osODgizVlY" target="_blank" data-yt="5osODgizVlY" data-v="1">
+      <img class="rimg" data-yt-id="5osODgizVlY" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
+      <div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
+    </a>
+      <a class="reel-card t3 reveal d1" href="https://youtube.com/shorts/NFRcL-GPmrs" target="_blank" data-yt="NFRcL-GPmrs" data-v="1">
+      <img class="rimg" data-yt-id="NFRcL-GPmrs" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="السكوت" data-en="Silence">السكوت</div>
+    </a>
+      <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/olfIGfuljb0" target="_blank" data-yt="olfIGfuljb0" data-v="1">
+      <img class="rimg" data-yt-id="olfIGfuljb0" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مواضيع تهمّك — 1" data-en="Topics that matter — 1">مواضيع تهمّك — 1</div>
+    </a>
+      <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/XTJQBDnncFI" target="_blank" data-yt="XTJQBDnncFI" data-v="1">
+      <img class="rimg" data-yt-id="XTJQBDnncFI" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مواضيع تهمّك — 2" data-en="Topics that matter — 2">مواضيع تهمّك — 2</div>
+    </a>
+      <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/xESMkOiSB9c" target="_blank" data-yt="xESMkOiSB9c" data-v="1">
+      <img class="rimg" data-yt-id="xESMkOiSB9c" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="مواضيع تهمّك — 3" data-en="Topics that matter — 3">مواضيع تهمّك — 3</div>
+    </a>
+      <a class="reel-card t3 reveal" href="https://youtube.com/shorts/rrXL8lvrhaQ" target="_blank" data-yt="rrXL8lvrhaQ" data-v="1">
+      <img class="rimg" data-yt-id="rrXL8lvrhaQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لقطة قصيرة" data-en="Short scene">لقطة قصيرة</div>
     </a>
   </div>
 
@@ -1138,14 +1120,404 @@ footer p{color:var(--text-2);font-size:.85rem}
 <section id="bts">
   <span class="kicker reveal" data-ar="وراء الكاميرا" data-en="Behind the scenes">وراء الكاميرا</span>
   <h2 class="title reveal d1" data-ar="كواليس الشغل" data-en="Behind the scenes">كواليس الشغل</h2>
-  <p class="sub reveal d2" data-ar="لقطات من التصوير والإضاءة والمونتاج — اسحب يمين وشمال. (استبدل الخلفيات بصور الكواليس بتاعتك)" data-en="Moments from shooting, lighting and editing — swipe through. (Replace backgrounds with your real BTS photos)">لقطات من التصوير والإضاءة والمونتاج — اسحب يمين وشمال. (استبدل الخلفيات بصور الكواليس بتاعتك)</p>
+  <p class="sub reveal d2" data-ar="من جوه اللوكيشن: التصوير، الإضاءة، والمونتاج — اسحب واتفرّج، كل فيديو بيشتغل جوه الموقع" data-en="From inside the shoot: filming, lighting and editing — swipe and watch, each plays right here">من جوه اللوكيشن: التصوير، الإضاءة، والمونتاج — اسحب واتفرّج، كل فيديو بيشتغل جوه الموقع</p>
   <div class="bts-strip">
-    <div class="bts-item t1"><span data-ar="التايم لاين" data-en="The timeline">التايم لاين</span></div>
-    <div class="bts-item t3"><span data-ar="يوم تصوير" data-en="Shooting day">يوم تصوير</span></div>
-    <div class="bts-item t5"><span data-ar="سيت الإضاءة" data-en="Lighting setup">سيت الإضاءة</span></div>
-    <div class="bts-item t2"><span data-ar="جلسة تلوين" data-en="Grading session">جلسة تلوين</span></div>
-    <div class="bts-item t6"><span data-ar="شغل بالذكاء الاصطناعي" data-en="Working with AI">شغل بالذكاء الاصطناعي</span></div>
-    <div class="bts-item t4"><span data-ar="تسجيل صوت" data-en="Voice recording">تسجيل صوت</span></div>
+    <a class="reel-card t1 reveal" href="https://youtube.com/shorts/vJYAXDHQ2xQ" target="_blank" data-yt="vJYAXDHQ2xQ" data-v="1">
+      <img class="rimg" data-yt-id="vJYAXDHQ2xQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 1" data-en="BTS 1">كواليس 1</div>
+    </a>
+    <a class="reel-card t3 reveal d1" href="https://youtube.com/shorts/WaBKQwPxQYc" target="_blank" data-yt="WaBKQwPxQYc" data-v="1">
+      <img class="rimg" data-yt-id="WaBKQwPxQYc" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 2" data-en="BTS 2">كواليس 2</div>
+    </a>
+    <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/25MHUHfGbVs" target="_blank" data-yt="25MHUHfGbVs" data-v="1">
+      <img class="rimg" data-yt-id="25MHUHfGbVs" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 3" data-en="BTS 3">كواليس 3</div>
+    </a>
+    <a class="reel-card t2 reveal d3" href="https://youtube.com/shorts/z8SVEaGqvTM" target="_blank" data-yt="z8SVEaGqvTM" data-v="1">
+      <img class="rimg" data-yt-id="z8SVEaGqvTM" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 4" data-en="BTS 4">كواليس 4</div>
+    </a>
+    <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/HshPkrzTASQ" target="_blank" data-yt="HshPkrzTASQ" data-v="1">
+      <img class="rimg" data-yt-id="HshPkrzTASQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 5" data-en="BTS 5">كواليس 5</div>
+    </a>
+    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/Xnof1wWaqYQ" target="_blank" data-yt="Xnof1wWaqYQ" data-v="1">
+      <img class="rimg" data-yt-id="Xnof1wWaqYQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 6" data-en="BTS 6">كواليس 6</div>
+    </a>
+    <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/Ix4nn7cbvGo" target="_blank" data-yt="Ix4nn7cbvGo" data-v="1">
+      <img class="rimg" data-yt-id="Ix4nn7cbvGo" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 7" data-en="BTS 7">كواليس 7</div>
+    </a>
+    <a class="reel-card t3 reveal d2" href="https://youtube.com/shorts/Dlml7b1cXJ0" target="_blank" data-yt="Dlml7b1cXJ0" data-v="1">
+      <img class="rimg" data-yt-id="Dlml7b1cXJ0" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 8" data-en="BTS 8">كواليس 8</div>
+    </a>
+    <a class="reel-card t5 reveal d3" href="https://youtube.com/shorts/W0J29LnlpR0" target="_blank" data-yt="W0J29LnlpR0" data-v="1">
+      <img class="rimg" data-yt-id="W0J29LnlpR0" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 9" data-en="BTS 9">كواليس 9</div>
+    </a>
+    <a class="reel-card t2 reveal d4" href="https://youtube.com/shorts/qcURSLGd6Zw" target="_blank" data-yt="qcURSLGd6Zw" data-v="1">
+      <img class="rimg" data-yt-id="qcURSLGd6Zw" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 10" data-en="BTS 10">كواليس 10</div>
+    </a>
+    <a class="reel-card t6 reveal" href="https://youtube.com/shorts/pZ15fOJ2aBM" target="_blank" data-yt="pZ15fOJ2aBM" data-v="1">
+      <img class="rimg" data-yt-id="pZ15fOJ2aBM" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 11" data-en="BTS 11">كواليس 11</div>
+    </a>
+    <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/b0FSnCYiLs4" target="_blank" data-yt="b0FSnCYiLs4" data-v="1">
+      <img class="rimg" data-yt-id="b0FSnCYiLs4" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 12" data-en="BTS 12">كواليس 12</div>
+    </a>
+    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/UB9xD8j6fWs" target="_blank" data-yt="UB9xD8j6fWs" data-v="1">
+      <img class="rimg" data-yt-id="UB9xD8j6fWs" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 13" data-en="BTS 13">كواليس 13</div>
+    </a>
+    <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/K_y7tcw78JQ" target="_blank" data-yt="K_y7tcw78JQ" data-v="1">
+      <img class="rimg" data-yt-id="K_y7tcw78JQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 14" data-en="BTS 14">كواليس 14</div>
+    </a>
+    <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/4nbn8NmW0EE" target="_blank" data-yt="4nbn8NmW0EE" data-v="1">
+      <img class="rimg" data-yt-id="4nbn8NmW0EE" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 15" data-en="BTS 15">كواليس 15</div>
+    </a>
+    <a class="reel-card t2 reveal" href="https://youtube.com/shorts/xk8uIqqgvrE" target="_blank" data-yt="xk8uIqqgvrE" data-v="1">
+      <img class="rimg" data-yt-id="xk8uIqqgvrE" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 16" data-en="BTS 16">كواليس 16</div>
+    </a>
+    <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/P-cG17Hmbno" target="_blank" data-yt="P-cG17Hmbno" data-v="1">
+      <img class="rimg" data-yt-id="P-cG17Hmbno" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 17" data-en="BTS 17">كواليس 17</div>
+    </a>
+    <a class="reel-card t4 reveal d2" href="https://youtube.com/shorts/pqMiNGJvz70" target="_blank" data-yt="pqMiNGJvz70" data-v="1">
+      <img class="rimg" data-yt-id="pqMiNGJvz70" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 18" data-en="BTS 18">كواليس 18</div>
+    </a>
+    <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/_geQ03H8KU0" target="_blank" data-yt="_geQ03H8KU0" data-v="1">
+      <img class="rimg" data-yt-id="_geQ03H8KU0" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 19" data-en="BTS 19">كواليس 19</div>
+    </a>
+    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/l1c40BLFfis" target="_blank" data-yt="l1c40BLFfis" data-v="1">
+      <img class="rimg" data-yt-id="l1c40BLFfis" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 20" data-en="BTS 20">كواليس 20</div>
+    </a>
+    <a class="reel-card t5 reveal" href="https://youtube.com/shorts/duCa_vAbqZc" target="_blank" data-yt="duCa_vAbqZc" data-v="1">
+      <img class="rimg" data-yt-id="duCa_vAbqZc" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 21" data-en="BTS 21">كواليس 21</div>
+    </a>
+    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/J3XmQOwFbYk" target="_blank" data-yt="J3XmQOwFbYk" data-v="1">
+      <img class="rimg" data-yt-id="J3XmQOwFbYk" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 22" data-en="BTS 22">كواليس 22</div>
+    </a>
+    <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/xBbvlShjhgg" target="_blank" data-yt="xBbvlShjhgg" data-v="1">
+      <img class="rimg" data-yt-id="xBbvlShjhgg" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 23" data-en="BTS 23">كواليس 23</div>
+    </a>
+    <a class="reel-card t4 reveal d3" href="https://youtube.com/shorts/Za06ZpvRZug" target="_blank" data-yt="Za06ZpvRZug" data-v="1">
+      <img class="rimg" data-yt-id="Za06ZpvRZug" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 24" data-en="BTS 24">كواليس 24</div>
+    </a>
+    <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/_d3CD3gbcdA" target="_blank" data-yt="_d3CD3gbcdA" data-v="1">
+      <img class="rimg" data-yt-id="_d3CD3gbcdA" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 25" data-en="BTS 25">كواليس 25</div>
+    </a>
+    <a class="reel-card t3 reveal" href="https://youtube.com/shorts/PJiU-_QN4co" target="_blank" data-yt="PJiU-_QN4co" data-v="1">
+      <img class="rimg" data-yt-id="PJiU-_QN4co" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 26" data-en="BTS 26">كواليس 26</div>
+    </a>
+    <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/obksVY9CqOk" target="_blank" data-yt="obksVY9CqOk" data-v="1">
+      <img class="rimg" data-yt-id="obksVY9CqOk" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 27" data-en="BTS 27">كواليس 27</div>
+    </a>
+    <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/vwWOYGCXfHY" target="_blank" data-yt="vwWOYGCXfHY" data-v="1">
+      <img class="rimg" data-yt-id="vwWOYGCXfHY" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 28" data-en="BTS 28">كواليس 28</div>
+    </a>
+    <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/TbOHHrJ-Dx8" target="_blank" data-yt="TbOHHrJ-Dx8" data-v="1">
+      <img class="rimg" data-yt-id="TbOHHrJ-Dx8" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 29" data-en="BTS 29">كواليس 29</div>
+    </a>
+    <a class="reel-card t4 reveal d4" href="https://youtube.com/shorts/ztwXzhi_H8U" target="_blank" data-yt="ztwXzhi_H8U" data-v="1">
+      <img class="rimg" data-yt-id="ztwXzhi_H8U" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 30" data-en="BTS 30">كواليس 30</div>
+    </a>
+    <a class="reel-card t1 reveal" href="https://youtube.com/shorts/F5-infqXJkw" target="_blank" data-yt="F5-infqXJkw" data-v="1">
+      <img class="rimg" data-yt-id="F5-infqXJkw" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 31" data-en="BTS 31">كواليس 31</div>
+    </a>
+    <a class="reel-card t3 reveal d1" href="https://youtube.com/shorts/AsIUMzb_DW0" target="_blank" data-yt="AsIUMzb_DW0" data-v="1">
+      <img class="rimg" data-yt-id="AsIUMzb_DW0" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 32" data-en="BTS 32">كواليس 32</div>
+    </a>
+    <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/jCq6t3NYxKA" target="_blank" data-yt="jCq6t3NYxKA" data-v="1">
+      <img class="rimg" data-yt-id="jCq6t3NYxKA" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 33" data-en="BTS 33">كواليس 33</div>
+    </a>
+    <a class="reel-card t2 reveal d3" href="https://youtube.com/shorts/BawYGZHqSrI" target="_blank" data-yt="BawYGZHqSrI" data-v="1">
+      <img class="rimg" data-yt-id="BawYGZHqSrI" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 34" data-en="BTS 34">كواليس 34</div>
+    </a>
+    <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/Ilrchu5o4tI" target="_blank" data-yt="Ilrchu5o4tI" data-v="1">
+      <img class="rimg" data-yt-id="Ilrchu5o4tI" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 35" data-en="BTS 35">كواليس 35</div>
+    </a>
+    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/P-cUcx_idW8" target="_blank" data-yt="P-cUcx_idW8" data-v="1">
+      <img class="rimg" data-yt-id="P-cUcx_idW8" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 36" data-en="BTS 36">كواليس 36</div>
+    </a>
+    <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/LwRt-Qm48UE" target="_blank" data-yt="LwRt-Qm48UE" data-v="1">
+      <img class="rimg" data-yt-id="LwRt-Qm48UE" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 37" data-en="BTS 37">كواليس 37</div>
+    </a>
+    <a class="reel-card t3 reveal d2" href="https://youtube.com/shorts/qxrBhn9ZG2U" target="_blank" data-yt="qxrBhn9ZG2U" data-v="1">
+      <img class="rimg" data-yt-id="qxrBhn9ZG2U" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 38" data-en="BTS 38">كواليس 38</div>
+    </a>
+    <a class="reel-card t5 reveal d3" href="https://youtube.com/shorts/2ykM06XrFtg" target="_blank" data-yt="2ykM06XrFtg" data-v="1">
+      <img class="rimg" data-yt-id="2ykM06XrFtg" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 39" data-en="BTS 39">كواليس 39</div>
+    </a>
+    <a class="reel-card t2 reveal d4" href="https://youtube.com/shorts/9bXXT0tXtJ8" target="_blank" data-yt="9bXXT0tXtJ8" data-v="1">
+      <img class="rimg" data-yt-id="9bXXT0tXtJ8" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 40" data-en="BTS 40">كواليس 40</div>
+    </a>
+    <a class="reel-card t6 reveal" href="https://youtube.com/shorts/EbmW0CD6Aac" target="_blank" data-yt="EbmW0CD6Aac" data-v="1">
+      <img class="rimg" data-yt-id="EbmW0CD6Aac" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 41" data-en="BTS 41">كواليس 41</div>
+    </a>
+    <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/YVOTPwU5_j4" target="_blank" data-yt="YVOTPwU5_j4" data-v="1">
+      <img class="rimg" data-yt-id="YVOTPwU5_j4" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 42" data-en="BTS 42">كواليس 42</div>
+    </a>
+    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/FBqxXlLEu_I" target="_blank" data-yt="FBqxXlLEu_I" data-v="1">
+      <img class="rimg" data-yt-id="FBqxXlLEu_I" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 43" data-en="BTS 43">كواليس 43</div>
+    </a>
+    <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/jEvW3Sfc8QY" target="_blank" data-yt="jEvW3Sfc8QY" data-v="1">
+      <img class="rimg" data-yt-id="jEvW3Sfc8QY" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 44" data-en="BTS 44">كواليس 44</div>
+    </a>
+    <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/OiPdAyKdEkE" target="_blank" data-yt="OiPdAyKdEkE" data-v="1">
+      <img class="rimg" data-yt-id="OiPdAyKdEkE" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 45" data-en="BTS 45">كواليس 45</div>
+    </a>
+    <a class="reel-card t2 reveal" href="https://youtube.com/shorts/yQXtq4hQPu8" target="_blank" data-yt="yQXtq4hQPu8" data-v="1">
+      <img class="rimg" data-yt-id="yQXtq4hQPu8" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 46" data-en="BTS 46">كواليس 46</div>
+    </a>
+    <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/LHX34g-rW1M" target="_blank" data-yt="LHX34g-rW1M" data-v="1">
+      <img class="rimg" data-yt-id="LHX34g-rW1M" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 47" data-en="BTS 47">كواليس 47</div>
+    </a>
+    <a class="reel-card t4 reveal d2" href="https://youtube.com/shorts/t7s7K70hJ4M" target="_blank" data-yt="t7s7K70hJ4M" data-v="1">
+      <img class="rimg" data-yt-id="t7s7K70hJ4M" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 48" data-en="BTS 48">كواليس 48</div>
+    </a>
+    <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/m2-W_muEeeE" target="_blank" data-yt="m2-W_muEeeE" data-v="1">
+      <img class="rimg" data-yt-id="m2-W_muEeeE" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 49" data-en="BTS 49">كواليس 49</div>
+    </a>
+    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/AixUDoWP1Oo" target="_blank" data-yt="AixUDoWP1Oo" data-v="1">
+      <img class="rimg" data-yt-id="AixUDoWP1Oo" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 50" data-en="BTS 50">كواليس 50</div>
+    </a>
+    <a class="reel-card t5 reveal" href="https://youtube.com/shorts/ap8671YKtYs" target="_blank" data-yt="ap8671YKtYs" data-v="1">
+      <img class="rimg" data-yt-id="ap8671YKtYs" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 51" data-en="BTS 51">كواليس 51</div>
+    </a>
+    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/Lncy6yvPLxQ" target="_blank" data-yt="Lncy6yvPLxQ" data-v="1">
+      <img class="rimg" data-yt-id="Lncy6yvPLxQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 52" data-en="BTS 52">كواليس 52</div>
+    </a>
+    <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/VcXZOMgMq1o" target="_blank" data-yt="VcXZOMgMq1o" data-v="1">
+      <img class="rimg" data-yt-id="VcXZOMgMq1o" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 53" data-en="BTS 53">كواليس 53</div>
+    </a>
+    <a class="reel-card t4 reveal d3" href="https://youtube.com/shorts/PuTWjiD0CTg" target="_blank" data-yt="PuTWjiD0CTg" data-v="1">
+      <img class="rimg" data-yt-id="PuTWjiD0CTg" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 54" data-en="BTS 54">كواليس 54</div>
+    </a>
+    <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/GaBzFiAkCw8" target="_blank" data-yt="GaBzFiAkCw8" data-v="1">
+      <img class="rimg" data-yt-id="GaBzFiAkCw8" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 55" data-en="BTS 55">كواليس 55</div>
+    </a>
+    <a class="reel-card t3 reveal" href="https://youtube.com/shorts/yYqY2sxLajk" target="_blank" data-yt="yYqY2sxLajk" data-v="1">
+      <img class="rimg" data-yt-id="yYqY2sxLajk" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 56" data-en="BTS 56">كواليس 56</div>
+    </a>
+    <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/nn16Jk4oFkA" target="_blank" data-yt="nn16Jk4oFkA" data-v="1">
+      <img class="rimg" data-yt-id="nn16Jk4oFkA" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 57" data-en="BTS 57">كواليس 57</div>
+    </a>
+    <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/6tJWe-qpWEI" target="_blank" data-yt="6tJWe-qpWEI" data-v="1">
+      <img class="rimg" data-yt-id="6tJWe-qpWEI" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 58" data-en="BTS 58">كواليس 58</div>
+    </a>
+    <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/hOFAADlOneg" target="_blank" data-yt="hOFAADlOneg" data-v="1">
+      <img class="rimg" data-yt-id="hOFAADlOneg" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 59" data-en="BTS 59">كواليس 59</div>
+    </a>
+    <a class="reel-card t4 reveal d4" href="https://youtube.com/shorts/nmrk_jXOVPc" target="_blank" data-yt="nmrk_jXOVPc" data-v="1">
+      <img class="rimg" data-yt-id="nmrk_jXOVPc" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 60" data-en="BTS 60">كواليس 60</div>
+    </a>
+    <a class="reel-card t1 reveal" href="https://youtube.com/shorts/EmJaP0XNF5E" target="_blank" data-yt="EmJaP0XNF5E" data-v="1">
+      <img class="rimg" data-yt-id="EmJaP0XNF5E" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 61" data-en="BTS 61">كواليس 61</div>
+    </a>
+    <a class="reel-card t3 reveal d1" href="https://youtube.com/shorts/uXLfs3xZK20" target="_blank" data-yt="uXLfs3xZK20" data-v="1">
+      <img class="rimg" data-yt-id="uXLfs3xZK20" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 62" data-en="BTS 62">كواليس 62</div>
+    </a>
+    <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/3-LjKEffXW4" target="_blank" data-yt="3-LjKEffXW4" data-v="1">
+      <img class="rimg" data-yt-id="3-LjKEffXW4" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 63" data-en="BTS 63">كواليس 63</div>
+    </a>
+    <a class="reel-card t2 reveal d3" href="https://youtube.com/shorts/M08qkbF97Ps" target="_blank" data-yt="M08qkbF97Ps" data-v="1">
+      <img class="rimg" data-yt-id="M08qkbF97Ps" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 64" data-en="BTS 64">كواليس 64</div>
+    </a>
+    <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/3lnH7sa5Saw" target="_blank" data-yt="3lnH7sa5Saw" data-v="1">
+      <img class="rimg" data-yt-id="3lnH7sa5Saw" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 65" data-en="BTS 65">كواليس 65</div>
+    </a>
+    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/eXcuSJBhsYw" target="_blank" data-yt="eXcuSJBhsYw" data-v="1">
+      <img class="rimg" data-yt-id="eXcuSJBhsYw" alt="" loading="lazy">
+      <span class="rtag" data-ar="كواليس" data-en="BTS">كواليس</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كواليس 66" data-en="BTS 66">كواليس 66</div>
+    </a>
   </div>
 </section>
 
@@ -1476,9 +1848,7 @@ setTimeout(()=>{if(langHint)langHint.classList.add('show')},1400);
 setTimeout(dismissLangHint,8000);
 window.addEventListener('scroll',dismissLangHint,{once:true,passive:true});
 
-/* ============ Clients marquee (تكرار تلقائي للحركة المستمرة) ============ */
-const track=document.getElementById('clientsTrack');
-track.innerHTML+=track.innerHTML;
+
 
 /* ============ Nav scroll effect ============ */
 const nav=document.getElementById('nav');
