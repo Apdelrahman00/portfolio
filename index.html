@@ -74,7 +74,7 @@ nav{
 }
 nav.scrolled{
   background:rgba(14,9,6,.75);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
   padding:12px 6vw;
 }
@@ -373,15 +373,16 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 .pagebg{
   position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
   opacity:0;transition:opacity 1.4s var(--ease);
+  transform:translateZ(0);          /* طبقة مستقلة — مفيش إعادة رسم مع السكرول */
+  contain:strict;backface-visibility:hidden;
 }
 .pagebg.on{opacity:1}
 /* الفيديو بياخد الشاشة كلها — والتركيز على فوق (الوش والكاميرا) مش على النص */
 .pagebg video,.pagebg iframe{
   position:absolute;top:0;left:0;width:100%;height:100%;
-  object-fit:cover;object-position:center center;
+  object-fit:cover;object-position:center 20%;
   border:0;pointer-events:none;
-  opacity:0;filter:grayscale(.25) contrast(1.05);
-  transition:opacity 1.8s var(--ease);
+  opacity:0;transition:opacity 1.8s var(--ease);
 }
 .pagebg video.on,.pagebg iframe.on{opacity:.26}
 /* لفيديو اليوتيوب (iframe مش بيدعم object-fit) — بنكبّره ونوسّطه */
@@ -436,8 +437,8 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 }
 .work-thumb .play{
   position:relative;z-index:2;
-  width:64px;height:64px;border-radius:50%;background:rgba(251,246,233,.13);
-  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+  width:64px;height:64px;border-radius:50%;background:rgba(251,246,233,.16);
+  display:flex;align-items:center;justify-content:center;
   transition:all .4s var(--ease);border:1px solid rgba(251,246,233,.2);
 }
 .work-card:hover .play{transform:scale(1.15);background:var(--red)}
@@ -483,8 +484,8 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 }
 .reel-card:hover{transform:translateY(-6px);border-color:rgba(165,52,42,.6);box-shadow:0 20px 50px rgba(0,0,0,.5)}
 .reel-card .play{
-  width:56px;height:56px;border-radius:50%;background:rgba(251,246,233,.13);
-  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:50%;background:rgba(251,246,233,.16);
+  display:flex;align-items:center;justify-content:center;
   border:1px solid rgba(251,246,233,.2);transition:all .4s var(--ease);
 }
 .reel-card:hover .play{transform:scale(1.15);background:var(--red)}
@@ -494,7 +495,7 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 }
 .reel-card .rtag{
   position:absolute;top:14px;inset-inline-start:14px;
-  background:rgba(14,9,6,.6);backdrop-filter:blur(8px);
+  background:rgba(14,9,6,.72);
   color:var(--gold-light);font-size:.68rem;font-weight:700;
   padding:4px 12px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase;
 }
@@ -554,7 +555,7 @@ html[dir="rtl"] .marquee .track{animation-name:marquee-rtl}
 .bts-item:hover{transform:scale(1.03)}
 .bts-item span{
   font-weight:700;font-size:.95rem;z-index:1;
-  background:rgba(14,9,6,.55);backdrop-filter:blur(8px);
+  background:rgba(14,9,6,.68);
   padding:8px 16px;border-radius:12px;
 }
 
@@ -741,7 +742,7 @@ label{font-size:.85rem;color:var(--text-2);margin-bottom:-8px}
 /* ---------- footer ---------- */
 footer{
   position:relative;z-index:1;
-  padding:60px 6vw 40px;text-align:center;background:rgba(17,16,16,.55);backdrop-filter:blur(2px);
+  padding:60px 6vw 40px;text-align:center;background:rgba(17,16,16,.62);
 }
 footer .flogo{
   font-family:var(--font-serif);font-size:1.6rem;font-weight:700;
@@ -2241,38 +2242,61 @@ document.querySelectorAll('img[data-yt-id]').forEach(img=>{img._i=-1;ytLoad(img,
     work:['أعمالي','WORK'],bts:['كواليس','BTS'],services:['الباقات','PACKAGES'],
     outcome:['النتيجة','OUTCOME'],faq:['أسئلة','FAQ'],book:['احجز','BOOK']};
 
+  /* بنقيس مواقع الأقسام مرة واحدة بس (مش كل فريم) — ده بيوفّر شغل كبير على المتصفح */
+  let bounds=[],docMax=0;
+  function measure(){
+    bounds=secs.map(s=>({id:s.id,top:s.offsetTop,bottom:s.offsetTop+s.offsetHeight}));
+    docMax=document.documentElement.scrollHeight-innerHeight;
+  }
+
+  /* الخلفية: بتظهر بعد قسم «عني» وبتختفي أول ما يبدأ قسم «أعمالي» */
+  const pageBg=document.getElementById('pageBg');
+  const aboutSec=document.getElementById('about');
+  const workSec=document.getElementById('work');
+  let bgStarted=false,lastOn=null,lastLbl='';
+
   let raf=null;
   function upd(){
     raf=null;
-    const doc=document.documentElement;
-    const max=doc.scrollHeight-innerHeight;
-    const p=max>0?Math.min(Math.max(scrollY/max,0),1):0;
-    fill.style.height=(p*100)+'%';
-    dot.style.top=(p*100)+'%';
+    const y=scrollY;
+    const p=docMax>0?Math.min(Math.max(y/docMax,0),1):0;
+    const pp=(p*100).toFixed(1);
+    fill.style.height=pp+'%';
+    dot.style.top=pp+'%';
     pct.textContent=Math.round(p*100)+'%';
-    sp.classList.toggle('on',scrollY>innerHeight*.45);
+    sp.classList.toggle('on',y>innerHeight*.45);
 
-    /* اسم القسم الحالي */
+    /* اسم القسم الحالي — من القياسات المحفوظة (بدون إجبار المتصفح يعيد الحساب) */
+    const mid=y+innerHeight*.5;
     let cur=null;
-    for(const s of secs){
-      const r=s.getBoundingClientRect();
-      if(r.top<=innerHeight*.5&&r.bottom>=innerHeight*.5){cur=s.id;break;}
-    }
+    for(const b of bounds){if(mid>=b.top&&mid<=b.bottom){cur=b.id;break;}}
     const n=cur&&names[cur];
-    lbl.textContent=n?(lang==='ar'?n[0]:n[1]):(lang==='ar'?'تصفّح':'SCROLL');
+    const txt=n?(lang==='ar'?n[0]:n[1]):(lang==='ar'?'تصفّح':'SCROLL');
+    if(txt!==lastLbl){lbl.textContent=txt;lastLbl=txt;}
 
-    /* بارالاكس خفيف لصورة الهيرو (بيقف تماماً بعد ما تعدّي الهيرو — توفير أداء) */
-    if(heroImg){
-      if(scrollY<innerHeight){
-        heroImg.style.transform='translate3d(0,'+(scrollY*.16)+'px,0) scale(1.07)';
-      }else if(heroImg.style.willChange!=='auto'){
-        heroImg.style.willChange='auto';
+    /* خلفية الفيديو — بين نهاية «عني» وبداية «أعمالي» بس */
+    if(pageBg&&aboutSec&&workSec){
+      const after=y+innerHeight*.6>aboutSec.offsetTop+aboutSec.offsetHeight;
+      const before=y+innerHeight*.4<workSec.offsetTop;
+      const on=y>200&&after&&before;
+      if(on!==lastOn){
+        pageBg.classList.toggle('on',on);
+        lastOn=on;
+        /* وقّف الفيديو خالص وهو مخفي — توفير معالج وبطارية */
+        if(window.__pageBgPlay)window.__pageBgPlay(on);
       }
+      if(on&&!bgStarted){bgStarted=true;if(window.__startPageBg)window.__startPageBg();}
+    }
+
+    /* بارالاكس خفيف لصورة الهيرو (بيقف تماماً بعد ما تعدّي الهيرو) */
+    if(heroImg&&y<innerHeight){
+      heroImg.style.transform='translate3d(0,'+(y*.16)+'px,0) scale(1.07)';
     }
   }
   addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
-  addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
-  upd();
+  addEventListener('resize',()=>{measure();if(!raf)raf=requestAnimationFrame(upd)},{passive:true});
+  addEventListener('load',measure);
+  measure();upd();
 })();
 
 /* ============ خلفية فيديو الكواليس (بتتحمّل بس لما توصلها — عشان متبطّأش الموقع) ============ */
@@ -2339,20 +2363,22 @@ document.querySelectorAll('.pagebg').forEach(box=>{
     play(0);
   }
 
-  /* الفيديو بيبدأ بعد قسم «عني» ويفضل شغال لآخر الصفحة */
-  const startAfter=document.getElementById('about');
-  let started=false;
-  function check(){
-    if(!startAfter)return;
-    const passed=scrollY>200&&startAfter.getBoundingClientRect().bottom<innerHeight*0.6;
-    box.classList.toggle('on',passed);
-    if(passed&&!started){
-      started=true;
-      files.length?useFiles():useYouTube();
-    }
-  }
-  addEventListener('scroll',check,{passive:true});
-  check();
+  /* بيتشغّل من حلقة السكرول الموحّدة فوق (بدل مستمع سكرول تاني) */
+  window.__startPageBg=function(){ files.length?useFiles():useYouTube(); };
+
+  /* تشغيل/إيقاف حسب إذا كانت الخلفية ظاهرة — بيوفر معالج وبطارية */
+  window.__pageBgPlay=function(on){
+    box.querySelectorAll('video').forEach(v=>{
+      if(!on){v.pause();}
+      else if(v.classList.contains('on')){const p=v.play();if(p&&p.catch)p.catch(()=>{});}
+    });
+  };
+
+  /* وقّف الفيديو لما الزائر يسيب التاب */
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)box.querySelectorAll('video').forEach(v=>v.pause());
+    else if(box.classList.contains('on'))window.__pageBgPlay(true);
+  });
 });
 
 /* ============ FAQ accordion ============ */
