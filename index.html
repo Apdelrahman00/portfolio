@@ -281,6 +281,20 @@ section{position:relative}
 .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(1.25)}
 .hero p{color:#e9e6e4;font-size:clamp(.95rem,1.4vw,1.1rem);max-width:600px;margin-top:18px;text-shadow:0 2px 16px rgba(0,0,0,.7)}
 .hero .cta-row{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap;justify-content:center}
+
+/* سطر الخبرة فوق العنوان */
+.hero-exp{
+  display:inline-block;margin-bottom:16px;
+  font-size:clamp(.78rem,1.1vw,.9rem);font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--red-light);
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+/* الجملة التوضيحية تحت العنوان */
+.hero-sub{
+  margin-top:14px;color:#e9e6e4;
+  font-size:clamp(1rem,1.5vw,1.18rem);font-weight:500;
+  letter-spacing:.01em;text-shadow:0 2px 16px rgba(0,0,0,.7);
+}
 .scroll-hint{margin-top:28px;color:#e9e6e4;font-size:.85rem;animation:float 3s ease-in-out infinite;text-shadow:0 2px 10px rgba(0,0,0,.7)}
 .btn{
   display:inline-flex;align-items:center;gap:10px;
@@ -925,11 +939,12 @@ footer p{color:var(--text-2);font-size:.85rem}
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <div class="hero-exp reveal" data-ar="+6 سنين خبرة" data-en="+6 Years Experience">+6 سنين خبرة</div>
     <h1 class="reveal d1">
-      <span data-ar="بساعد رواد الأعمال يحوّلوا" data-en="I help entrepreneurs turn">بساعد رواد الأعمال يحوّلوا</span><br>
-      <span class="grad" data-ar="المحتوى لمصدر دخل حقيقي" data-en="content into real revenue">المحتوى لمصدر دخل حقيقي</span>
+      <span data-ar="صانع أفلام · مصوّر · مونتير" data-en="Filmmaker · Videographer · Video Editor">صانع أفلام · مصوّر · مونتير</span>
     </h1>
-    <p class="reveal d2" data-ar="أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. بشتغل مع أصحاب البيزنس والدكاترة والكوتشيز كشريك محتوى: من الاستراتيجية والسكريبت، للتصوير والمونتاج، لحد ما المحتوى يجيبلك عملاء فعلاً." data-en="I'm Abdelrahman Ayman — not just a videographer or editor. I work with business owners, doctors and coaches as a content partner: from strategy and script, to shooting and editing, until content actually brings you clients.">أنا عبدالرحمن أيمن — مش مجرد مصور أو مونتير. بشتغل مع أصحاب البيزنس والدكاترة والكوتشيز كشريك محتوى: من الاستراتيجية والسكريبت، للتصوير والمونتاج، لحد ما المحتوى يجيبلك عملاء فعلاً.</p>
+    <div class="hero-sub reveal d2" data-ar="محتوى سينمائي للمحترفين." data-en="Cinematic content for professionals.">محتوى سينمائي للمحترفين.</div>
+    
     <div class="cta-row reveal d3">
       <a href="#work" class="btn btn-primary btn-pulse" data-ar="شوف شغلي" data-en="See my work">شوف شغلي</a>
       <a href="#book" class="btn btn-ghost" data-ar="ابدأ مشروعك معايا" data-en="Start your project">ابدأ مشروعك معايا</a>
@@ -940,15 +955,6 @@ footer p{color:var(--text-2);font-size:.85rem}
     </div>
   </div>
 </header>
-
-<!-- ==================== STATS ==================== -->
-<section class="stats">
-  <!-- عدّل الأرقام دي بأرقامك الحقيقية -->
-  <div class="stat reveal"><div class="num" data-count="100">0</div><div class="lbl" data-ar="+ مشروع منفّذ" data-en="+ Projects delivered">+ مشروع منفّذ</div></div>
-  <div class="stat reveal d1"><div class="num" data-count="40">0</div><div class="lbl" data-ar="+ بيزنس اشتغلت معاه" data-en="+ Businesses served">+ بيزنس اشتغلت معاه</div></div>
-  <div class="stat reveal d2"><div class="num" data-count="1000000" data-suffix="+">0</div><div class="lbl" data-ar="مشاهدة شهرياً" data-en="Monthly views">مشاهدة شهرياً</div></div>
-  <div class="stat reveal d3"><div class="num" data-count="6">0</div><div class="lbl" data-ar="+ سنين خبرة" data-en="+ Years of experience">+ سنين خبرة</div></div>
-</section>
 
 <!-- ==================== ABOUT ==================== -->
 <section id="about">
@@ -989,11 +995,11 @@ footer p{color:var(--text-2);font-size:.85rem}
   </div>
   <div class="work-sub-note reveal d1" data-ar="اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design" data-en="Swipe through — videos play right here. All one-man-crew work: script + shooting + lighting + editing + sound design">اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design</div>
   <div class="reels-strip">
-      <a class="reel-card t2 reveal" href="https://youtube.com/shorts/V82ml1q02Q0" target="_blank" rel="noopener noreferrer" data-yt="V82ml1q02Q0" data-v="1">
-      <img class="rimg" data-yt-id="V82ml1q02Q0" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <a class="reel-card t2 reveal" href="https://youtube.com/shorts/Fwr49sadZ_U" target="_blank" rel="noopener noreferrer" data-yt="Fwr49sadZ_U">
+      <img class="rimg" data-yt-id="Fwr49sadZ_U" alt="" loading="lazy">
+      <span class="rtag" data-ar="الفنانة عبير صبري" data-en="Actress Abeer Sabry">الفنانة عبير صبري</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
+      <div class="rtitle" data-ar="الفنانة عبير صبري" data-en="Actress Abeer Sabry">الفنانة عبير صبري</div>
     </a>
       <a class="reel-card t2 reveal d1" href="https://youtu.be/YKl-jj4VbPg" target="_blank" rel="noopener noreferrer" data-yt="YKl-jj4VbPg">
       <img class="rimg" data-yt-id="YKl-jj4VbPg" alt="" loading="lazy">
@@ -1001,149 +1007,161 @@ footer p{color:var(--text-2);font-size:.85rem}
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="جلو ليفت" data-en="Glow lift">جلو ليفت</div>
     </a>
-      <a class="reel-card t4 reveal d2" href="https://youtube.com/shorts/chpzS18oGwY" target="_blank" rel="noopener noreferrer" data-yt="chpzS18oGwY" data-v="1">
-      <img class="rimg" data-yt-id="chpzS18oGwY" alt="" loading="lazy">
-      <span class="rtag" data-ar="ذكاء اصطناعي" data-en="AI">ذكاء اصطناعي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="محتوى بالذكاء الاصطناعي" data-en="AI-powered content">محتوى بالذكاء الاصطناعي</div>
-    </a>
-      <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/SOVGDAiwUGM" target="_blank" rel="noopener noreferrer" data-yt="SOVGDAiwUGM">
-      <img class="rimg" data-yt-id="SOVGDAiwUGM" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريكاب" data-en="Recap">ريكاب</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="ريكاب مشروع" data-en="Project recap">ريكاب مشروع</div>
-    </a>
-      <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/cGeG3RczKEk" target="_blank" rel="noopener noreferrer" data-yt="cGeG3RczKEk" data-v="1">
-      <img class="rimg" data-yt-id="cGeG3RczKEk" alt="" loading="lazy">
-      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="الطموح" data-en="Ambition">الطموح</div>
-    </a>
-      <a class="reel-card t5 reveal" href="https://youtube.com/shorts/jsNIfdwmiLo" target="_blank" rel="noopener noreferrer" data-yt="jsNIfdwmiLo" data-v="1">
-      <img class="rimg" data-yt-id="jsNIfdwmiLo" alt="" loading="lazy">
-      <span class="rtag" data-ar="إعلان" data-en="Ad">إعلان</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
-    </a>
-      <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/TvqMW43_5EQ" target="_blank" rel="noopener noreferrer" data-yt="TvqMW43_5EQ" data-v="1">
-      <img class="rimg" data-yt-id="TvqMW43_5EQ" alt="" loading="lazy">
+      <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/V82ml1q02Q0" target="_blank" rel="noopener noreferrer" data-yt="V82ml1q02Q0" data-v="1">
+      <img class="rimg" data-yt-id="V82ml1q02Q0" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="محكمة" data-en="The courtroom">محكمة</div>
+      <div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
     </a>
-      <a class="reel-card t3 reveal d2" href="https://youtube.com/shorts/KHYYeeAlIX0" target="_blank" rel="noopener noreferrer" data-yt="KHYYeeAlIX0" data-v="1">
-      <img class="rimg" data-yt-id="KHYYeeAlIX0" alt="" loading="lazy">
-      <span class="rtag" data-ar="رأي مجتمعي" data-en="Opinion">رأي مجتمعي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="الفلوس بتغيّر النفوس" data-en="Money changes people">الفلوس بتغيّر النفوس</div>
-    </a>
-      <a class="reel-card t4 reveal d2" href="https://youtu.be/9hXgrPNvCIk" target="_blank" rel="noopener noreferrer" data-yt="9hXgrPNvCIk">
-      <img class="rimg" data-yt-id="9hXgrPNvCIk" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="كريستيانو" data-en="Cristiano">كريستيانو</div>
-    </a>
-      <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/WRGwLJ8_wmQ" target="_blank" rel="noopener noreferrer" data-yt="WRGwLJ8_wmQ" data-v="1">
-      <img class="rimg" data-yt-id="WRGwLJ8_wmQ" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
-    </a>
-      <a class="reel-card t2 reveal d4" href="https://youtube.com/shorts/WMoAvzHs0Xs" target="_blank" rel="noopener noreferrer" data-yt="WMoAvzHs0Xs" data-v="1">
+      <a class="reel-card t2 reveal d3" href="https://youtube.com/shorts/WMoAvzHs0Xs" target="_blank" rel="noopener noreferrer" data-yt="WMoAvzHs0Xs" data-v="1">
       <img class="rimg" data-yt-id="WMoAvzHs0Xs" alt="" loading="lazy">
       <span class="rtag" data-ar="رأي مجتمعي" data-en="Opinion">رأي مجتمعي</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="الراجل ومراته الشغالة" data-en="Should a wife work?">الراجل ومراته الشغالة</div>
     </a>
-      <a class="reel-card t2 reveal" href="https://youtube.com/shorts/31iiZNvk7Vc" target="_blank" rel="noopener noreferrer" data-yt="31iiZNvk7Vc" data-v="1">
-      <img class="rimg" data-yt-id="31iiZNvk7Vc" alt="" loading="lazy">
+      <a class="reel-card t2 reveal d4" href="https://youtube.com/shorts/olfIGfuljb0" target="_blank" rel="noopener noreferrer" data-yt="olfIGfuljb0" data-v="1">
+      <img class="rimg" data-yt-id="olfIGfuljb0" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
+      <div class="rtitle" data-ar="مواضيع تهمّك — 1" data-en="Topics that matter — 1">مواضيع تهمّك — 1</div>
     </a>
-      <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/z90b60JCwIQ" target="_blank" rel="noopener noreferrer" data-yt="z90b60JCwIQ" data-v="1">
-      <img class="rimg" data-yt-id="z90b60JCwIQ" alt="" loading="lazy">
-      <span class="rtag" data-ar="كوميدي" data-en="Comedy">كوميدي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="المرايا المضحّية" data-en="The funny mirror">المرايا المضحّية</div>
-    </a>
-      <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/-CBu5vxpymc" target="_blank" rel="noopener noreferrer" data-yt="-CBu5vxpymc" data-v="1">
-      <img class="rimg" data-yt-id="-CBu5vxpymc" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="سكلبترا" data-en="Sculptra">سكلبترا</div>
-    </a>
-      <a class="reel-card t2 reveal d3" href="https://youtu.be/RtkTgC8d1E8" target="_blank" rel="noopener noreferrer" data-yt="RtkTgC8d1E8">
-      <img class="rimg" data-yt-id="RtkTgC8d1E8" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="حالات مينفعش نعملها فيلر" data-en="Cases you should not filler">حالات مينفعش نعملها فيلر</div>
-    </a>
-      <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/C9gizwExsE0" target="_blank" rel="noopener noreferrer" data-yt="C9gizwExsE0" data-v="1">
-      <img class="rimg" data-yt-id="C9gizwExsE0" alt="" loading="lazy">
-      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="الشباب محتاجين فرصة" data-en="Young people need a chance">الشباب محتاجين فرصة</div>
-    </a>
-      <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/vJqZ0E4mpNk" target="_blank" rel="noopener noreferrer" data-yt="vJqZ0E4mpNk" data-v="1">
-      <img class="rimg" data-yt-id="vJqZ0E4mpNk" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
-    </a>
-      <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/_bJ3v-8qNWY" target="_blank" rel="noopener noreferrer" data-yt="_bJ3v-8qNWY" data-v="1">
-      <img class="rimg" data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy">
-      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="علاج مقاومة البوتوكس" data-en="Botox resistance treatment">علاج مقاومة البوتوكس</div>
-    </a>
-      <a class="reel-card t4 reveal" href="https://youtube.com/shorts/gZQYtvWtZ8k" target="_blank" rel="noopener noreferrer" data-yt="gZQYtvWtZ8k" data-v="1">
-      <img class="rimg" data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="السوشيال ميديا" data-en="Social media">السوشيال ميديا</div>
-    </a>
-      <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/kGaDUebDfs4" target="_blank" rel="noopener noreferrer" data-yt="kGaDUebDfs4" data-v="1">
-      <img class="rimg" data-yt-id="kGaDUebDfs4" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="لازم يبقى شكلك حلو" data-en="You have to look good">لازم يبقى شكلك حلو</div>
-    </a>
-      <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/zr39m7_3T14" target="_blank" rel="noopener noreferrer" data-yt="zr39m7_3T14" data-v="1">
-      <img class="rimg" data-yt-id="zr39m7_3T14" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
-    </a>
-      <a class="reel-card t1 reveal d4" href="https://youtube.com/shorts/eEi9DrKzGYg" target="_blank" rel="noopener noreferrer" data-yt="eEi9DrKzGYg" data-v="1">
-      <img class="rimg" data-yt-id="eEi9DrKzGYg" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
-    </a>
-      <a class="reel-card t4 reveal" href="https://youtube.com/shorts/5osODgizVlY" target="_blank" rel="noopener noreferrer" data-yt="5osODgizVlY" data-v="1">
-      <img class="rimg" data-yt-id="5osODgizVlY" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
-    </a>
-      <a class="reel-card t6 reveal d1" href="https://youtube.com/shorts/MIyoU-IT9Rk" target="_blank" rel="noopener noreferrer" data-yt="MIyoU-IT9Rk" data-v="1">
-      <img class="rimg" data-yt-id="MIyoU-IT9Rk" alt="" loading="lazy">
-      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
-      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="سكين بوستر" data-en="Skin booster">سكين بوستر</div>
-    </a>
-      <a class="reel-card t3 reveal d1" href="https://youtube.com/shorts/NFRcL-GPmrs" target="_blank" rel="noopener noreferrer" data-yt="NFRcL-GPmrs" data-v="1">
+      <a class="reel-card t3 reveal" href="https://youtube.com/shorts/NFRcL-GPmrs" target="_blank" rel="noopener noreferrer" data-yt="NFRcL-GPmrs" data-v="1">
       <img class="rimg" data-yt-id="NFRcL-GPmrs" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="rtitle" data-ar="السكوت" data-en="Silence">السكوت</div>
     </a>
-      <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/olfIGfuljb0" target="_blank" rel="noopener noreferrer" data-yt="olfIGfuljb0" data-v="1">
-      <img class="rimg" data-yt-id="olfIGfuljb0" alt="" loading="lazy">
+      <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/eEi9DrKzGYg" target="_blank" rel="noopener noreferrer" data-yt="eEi9DrKzGYg" data-v="1">
+      <img class="rimg" data-yt-id="eEi9DrKzGYg" alt="" loading="lazy">
       <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مواضيع تهمّك — 1" data-en="Topics that matter — 1">مواضيع تهمّك — 1</div>
+      <div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
+    </a>
+      <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/vJqZ0E4mpNk" target="_blank" rel="noopener noreferrer" data-yt="vJqZ0E4mpNk" data-v="1">
+      <img class="rimg" data-yt-id="vJqZ0E4mpNk" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
+    </a>
+      <a class="reel-card t4 reveal d3" href="https://youtube.com/shorts/chpzS18oGwY" target="_blank" rel="noopener noreferrer" data-yt="chpzS18oGwY" data-v="1">
+      <img class="rimg" data-yt-id="chpzS18oGwY" alt="" loading="lazy">
+      <span class="rtag" data-ar="ذكاء اصطناعي" data-en="AI">ذكاء اصطناعي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="محتوى بالذكاء الاصطناعي" data-en="AI-powered content">محتوى بالذكاء الاصطناعي</div>
+    </a>
+      <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/SOVGDAiwUGM" target="_blank" rel="noopener noreferrer" data-yt="SOVGDAiwUGM">
+      <img class="rimg" data-yt-id="SOVGDAiwUGM" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريكاب" data-en="Recap">ريكاب</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="ريكاب مشروع" data-en="Project recap">ريكاب مشروع</div>
+    </a>
+      <a class="reel-card t5 reveal" href="https://youtube.com/shorts/cGeG3RczKEk" target="_blank" rel="noopener noreferrer" data-yt="cGeG3RczKEk" data-v="1">
+      <img class="rimg" data-yt-id="cGeG3RczKEk" alt="" loading="lazy">
+      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الطموح" data-en="Ambition">الطموح</div>
+    </a>
+      <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/jsNIfdwmiLo" target="_blank" rel="noopener noreferrer" data-yt="jsNIfdwmiLo" data-v="1">
+      <img class="rimg" data-yt-id="jsNIfdwmiLo" alt="" loading="lazy">
+      <span class="rtag" data-ar="إعلان" data-en="Ad">إعلان</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
+    </a>
+      <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/TvqMW43_5EQ" target="_blank" rel="noopener noreferrer" data-yt="TvqMW43_5EQ" data-v="1">
+      <img class="rimg" data-yt-id="TvqMW43_5EQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="محكمة" data-en="The courtroom">محكمة</div>
+    </a>
+      <a class="reel-card t3 reveal d3" href="https://youtube.com/shorts/KHYYeeAlIX0" target="_blank" rel="noopener noreferrer" data-yt="KHYYeeAlIX0" data-v="1">
+      <img class="rimg" data-yt-id="KHYYeeAlIX0" alt="" loading="lazy">
+      <span class="rtag" data-ar="رأي مجتمعي" data-en="Opinion">رأي مجتمعي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الفلوس بتغيّر النفوس" data-en="Money changes people">الفلوس بتغيّر النفوس</div>
+    </a>
+      <a class="reel-card t4 reveal d4" href="https://youtu.be/9hXgrPNvCIk" target="_blank" rel="noopener noreferrer" data-yt="9hXgrPNvCIk">
+      <img class="rimg" data-yt-id="9hXgrPNvCIk" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="كريستيانو" data-en="Cristiano">كريستيانو</div>
+    </a>
+      <a class="reel-card t3 reveal" href="https://youtube.com/shorts/WRGwLJ8_wmQ" target="_blank" rel="noopener noreferrer" data-yt="WRGwLJ8_wmQ" data-v="1">
+      <img class="rimg" data-yt-id="WRGwLJ8_wmQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
+    </a>
+      <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/M197yZfNMiE" target="_blank" rel="noopener noreferrer" data-yt="M197yZfNMiE">
+      <img class="rimg" data-yt-id="M197yZfNMiE" alt="" loading="lazy">
+      <span class="rtag" data-ar="قبل وبعد" data-en="Before &amp; After">قبل وبعد</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="قبل وبعد — نور" data-en="Before &amp; After — Nour">قبل وبعد — نور</div>
+    </a>
+      <a class="reel-card t2 reveal d2" href="https://youtube.com/shorts/31iiZNvk7Vc" target="_blank" rel="noopener noreferrer" data-yt="31iiZNvk7Vc" data-v="1">
+      <img class="rimg" data-yt-id="31iiZNvk7Vc" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
+    </a>
+      <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/z90b60JCwIQ" target="_blank" rel="noopener noreferrer" data-yt="z90b60JCwIQ" data-v="1">
+      <img class="rimg" data-yt-id="z90b60JCwIQ" alt="" loading="lazy">
+      <span class="rtag" data-ar="كوميدي" data-en="Comedy">كوميدي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="المرايا المضحّية" data-en="The funny mirror">المرايا المضحّية</div>
+    </a>
+      <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/-CBu5vxpymc" target="_blank" rel="noopener noreferrer" data-yt="-CBu5vxpymc" data-v="1">
+      <img class="rimg" data-yt-id="-CBu5vxpymc" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="سكلبترا" data-en="Sculptra">سكلبترا</div>
+    </a>
+      <a class="reel-card t2 reveal" href="https://youtu.be/RtkTgC8d1E8" target="_blank" rel="noopener noreferrer" data-yt="RtkTgC8d1E8">
+      <img class="rimg" data-yt-id="RtkTgC8d1E8" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="حالات مينفعش نعملها فيلر" data-en="Cases you should not filler">حالات مينفعش نعملها فيلر</div>
+    </a>
+      <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/C9gizwExsE0" target="_blank" rel="noopener noreferrer" data-yt="C9gizwExsE0" data-v="1">
+      <img class="rimg" data-yt-id="C9gizwExsE0" alt="" loading="lazy">
+      <span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الشباب محتاجين فرصة" data-en="Young people need a chance">الشباب محتاجين فرصة</div>
+    </a>
+      <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/_bJ3v-8qNWY" target="_blank" rel="noopener noreferrer" data-yt="_bJ3v-8qNWY" data-v="1">
+      <img class="rimg" data-yt-id="_bJ3v-8qNWY" alt="" loading="lazy">
+      <span class="rtag" data-ar="محتوى طبي" data-en="Medical">محتوى طبي</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="علاج مقاومة البوتوكس" data-en="Botox resistance treatment">علاج مقاومة البوتوكس</div>
+    </a>
+      <a class="reel-card t4 reveal d3" href="https://youtube.com/shorts/gZQYtvWtZ8k" target="_blank" rel="noopener noreferrer" data-yt="gZQYtvWtZ8k" data-v="1">
+      <img class="rimg" data-yt-id="gZQYtvWtZ8k" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="السوشيال ميديا" data-en="Social media">السوشيال ميديا</div>
+    </a>
+      <a class="reel-card t5 reveal d4" href="https://youtube.com/shorts/kGaDUebDfs4" target="_blank" rel="noopener noreferrer" data-yt="kGaDUebDfs4" data-v="1">
+      <img class="rimg" data-yt-id="kGaDUebDfs4" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لازم يبقى شكلك حلو" data-en="You have to look good">لازم يبقى شكلك حلو</div>
+    </a>
+      <a class="reel-card t1 reveal" href="https://youtube.com/shorts/zr39m7_3T14" target="_blank" rel="noopener noreferrer" data-yt="zr39m7_3T14" data-v="1">
+      <img class="rimg" data-yt-id="zr39m7_3T14" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
+    </a>
+      <a class="reel-card t4 reveal d1" href="https://youtube.com/shorts/5osODgizVlY" target="_blank" rel="noopener noreferrer" data-yt="5osODgizVlY" data-v="1">
+      <img class="rimg" data-yt-id="5osODgizVlY" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
+    </a>
+      <a class="reel-card t6 reveal d2" href="https://youtube.com/shorts/MIyoU-IT9Rk" target="_blank" rel="noopener noreferrer" data-yt="MIyoU-IT9Rk" data-v="1">
+      <img class="rimg" data-yt-id="MIyoU-IT9Rk" alt="" loading="lazy">
+      <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="سكين بوستر" data-en="Skin booster">سكين بوستر</div>
     </a>
       <a class="reel-card t1 reveal d3" href="https://youtube.com/shorts/XTJQBDnncFI" target="_blank" rel="noopener noreferrer" data-yt="XTJQBDnncFI" data-v="1">
       <img class="rimg" data-yt-id="XTJQBDnncFI" alt="" loading="lazy">
@@ -1172,47 +1190,77 @@ footer p{color:var(--text-2);font-size:.85rem}
   </div>
   <div class="work-sub-note reveal d1" data-ar="مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل" data-en="Podcast episode clips — full shooting, lighting &amp; editing">مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل</div>
   <div class="reels-strip">
-    <a class="reel-card t5 reveal" href="https://youtube.com/shorts/xrCDbvWVgFw" target="_blank" rel="noopener noreferrer" data-yt="xrCDbvWVgFw" data-v="1">
+      <a class="reel-card t5 reveal" href="https://youtube.com/shorts/xrCDbvWVgFw" target="_blank" rel="noopener noreferrer" data-yt="xrCDbvWVgFw" data-v="1">
       <img class="rimg" data-yt-id="xrCDbvWVgFw" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 1" data-en="Podcast clip — 1">مقتطف بودكاست — 1</div>
+      <div class="rtitle" data-ar="بودكاست — 1" data-en="Podcast — 1">بودكاست — 1</div>
     </a>
-    <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/Q-0P4oxqH_E" target="_blank" rel="noopener noreferrer" data-yt="Q-0P4oxqH_E" data-v="1">
+      <a class="reel-card t1 reveal d1" href="https://youtube.com/shorts/uHuvcu9RTfE" target="_blank" rel="noopener noreferrer" data-yt="uHuvcu9RTfE">
+      <img class="rimg" data-yt-id="uHuvcu9RTfE" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="بودكاست — 2" data-en="Podcast — 2">بودكاست — 2</div>
+    </a>
+      <a class="reel-card t5 reveal d2" href="https://youtube.com/shorts/Wj_Vcg_y2-o" target="_blank" rel="noopener noreferrer" data-yt="Wj_Vcg_y2-o">
+      <img class="rimg" data-yt-id="Wj_Vcg_y2-o" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="بودكاست — 3" data-en="Podcast — 3">بودكاست — 3</div>
+    </a>
+      <a class="reel-card t2 reveal d3" href="https://youtube.com/shorts/EQra0zSmLpw" target="_blank" rel="noopener noreferrer" data-yt="EQra0zSmLpw">
+      <img class="rimg" data-yt-id="EQra0zSmLpw" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="بودكاست — 4" data-en="Podcast — 4">بودكاست — 4</div>
+    </a>
+      <a class="reel-card t6 reveal d4" href="https://youtube.com/shorts/J-aTELRVJnY" target="_blank" rel="noopener noreferrer" data-yt="J-aTELRVJnY">
+      <img class="rimg" data-yt-id="J-aTELRVJnY" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="بودكاست — 5" data-en="Podcast — 5">بودكاست — 5</div>
+    </a>
+      <a class="reel-card t3 reveal" href="https://youtube.com/shorts/YB0Tv6ZBTUY" target="_blank" rel="noopener noreferrer" data-yt="YB0Tv6ZBTUY">
+      <img class="rimg" data-yt-id="YB0Tv6ZBTUY" alt="" loading="lazy">
+      <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="rtitle" data-ar="بودكاست — 6" data-en="Podcast — 6">بودكاست — 6</div>
+    </a>
+      <a class="reel-card t2 reveal d1" href="https://youtube.com/shorts/Q-0P4oxqH_E" target="_blank" rel="noopener noreferrer" data-yt="Q-0P4oxqH_E" data-v="1">
       <img class="rimg" data-yt-id="Q-0P4oxqH_E" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 2" data-en="Podcast clip — 2">مقتطف بودكاست — 2</div>
+      <div class="rtitle" data-ar="بودكاست — 7" data-en="Podcast — 7">بودكاست — 7</div>
     </a>
-    <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/hQ8rUmpaxLM" target="_blank" rel="noopener noreferrer" data-yt="hQ8rUmpaxLM" data-v="1">
+      <a class="reel-card t1 reveal d2" href="https://youtube.com/shorts/hQ8rUmpaxLM" target="_blank" rel="noopener noreferrer" data-yt="hQ8rUmpaxLM" data-v="1">
       <img class="rimg" data-yt-id="hQ8rUmpaxLM" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 3" data-en="Podcast clip — 3">مقتطف بودكاست — 3</div>
+      <div class="rtitle" data-ar="بودكاست — 8" data-en="Podcast — 8">بودكاست — 8</div>
     </a>
-    <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/YsjNnJcSwKM" target="_blank" rel="noopener noreferrer" data-yt="YsjNnJcSwKM" data-v="1">
+      <a class="reel-card t6 reveal d3" href="https://youtube.com/shorts/YsjNnJcSwKM" target="_blank" rel="noopener noreferrer" data-yt="YsjNnJcSwKM" data-v="1">
       <img class="rimg" data-yt-id="YsjNnJcSwKM" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 4" data-en="Podcast clip — 4">مقتطف بودكاست — 4</div>
+      <div class="rtitle" data-ar="بودكاست — 9" data-en="Podcast — 9">بودكاست — 9</div>
     </a>
-    <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/PqAN7_tMKKo" target="_blank" rel="noopener noreferrer" data-yt="PqAN7_tMKKo" data-v="1">
+      <a class="reel-card t3 reveal d4" href="https://youtube.com/shorts/PqAN7_tMKKo" target="_blank" rel="noopener noreferrer" data-yt="PqAN7_tMKKo" data-v="1">
       <img class="rimg" data-yt-id="PqAN7_tMKKo" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 5" data-en="Podcast clip — 5">مقتطف بودكاست — 5</div>
+      <div class="rtitle" data-ar="بودكاست — 10" data-en="Podcast — 10">بودكاست — 10</div>
     </a>
-    <a class="reel-card t4 reveal" href="https://youtube.com/shorts/DFqLNZ1Dnyc" target="_blank" rel="noopener noreferrer" data-yt="DFqLNZ1Dnyc" data-v="1">
+      <a class="reel-card t4 reveal" href="https://youtube.com/shorts/DFqLNZ1Dnyc" target="_blank" rel="noopener noreferrer" data-yt="DFqLNZ1Dnyc" data-v="1">
       <img class="rimg" data-yt-id="DFqLNZ1Dnyc" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 6" data-en="Podcast clip — 6">مقتطف بودكاست — 6</div>
+      <div class="rtitle" data-ar="بودكاست — 11" data-en="Podcast — 11">بودكاست — 11</div>
     </a>
-    <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/k09jf_XBxVY" target="_blank" rel="noopener noreferrer" data-yt="k09jf_XBxVY" data-v="1">
+      <a class="reel-card t5 reveal d1" href="https://youtube.com/shorts/k09jf_XBxVY" target="_blank" rel="noopener noreferrer" data-yt="k09jf_XBxVY" data-v="1">
       <img class="rimg" data-yt-id="k09jf_XBxVY" alt="" loading="lazy">
       <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
       <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="rtitle" data-ar="مقتطف بودكاست — 7" data-en="Podcast clip — 7">مقتطف بودكاست — 7</div>
+      <div class="rtitle" data-ar="بودكاست — 12" data-en="Podcast — 12">بودكاست — 12</div>
     </a>
   </div>
 
