@@ -919,6 +919,19 @@ footer p{color:var(--text-2);font-size:.85rem}
 <style>
 /* Vimeo thumbnails: real video poster images loaded from Vimeo oEmbed, with fallback */
 .vimeo-thumb{position:absolute;inset:0;overflow:hidden;background:#151515}.vimeo-poster{width:100%;height:100%;object-fit:cover;display:block;}
+</style><style>
+/* Category-first, swipeable portfolio */
+html{scroll-behavior:smooth}
+.portfolio-jump{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;position:sticky;top:70px;z-index:20;padding:13px 0 17px;margin:24px 0 28px;background:var(--bg, #101010)}
+.portfolio-jump::-webkit-scrollbar{display:none}
+.portfolio-jump a{flex-shrink:0;text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:10px 17px;color:var(--text);font-size:.85rem;font-weight:700;background:var(--surface, #191919);transition:.2s}
+.portfolio-jump a:hover{border-color:var(--red);color:var(--red)}
+.industry-portfolio-section{scroll-margin-top:160px;margin-bottom:28px}
+.industry-portfolio-section .work-sub{margin-top:46px}
+#work .work-sub[id]{scroll-margin-top:160px}
+.landscape-strip{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 0 22px;scrollbar-width:thin}
+.landscape-strip>.work-card{flex:0 0 min(370px,82vw);width:min(370px,82vw);scroll-snap-align:start}
+@media(max-width:650px){.portfolio-jump{top:60px;margin:18px 0}.industry-portfolio-section .work-sub{margin-top:32px}.reels-strip>.reel-card{flex-basis:73vw;width:73vw;max-width:260px}.landscape-strip>.work-card{flex-basis:84vw;width:84vw}}
 </style></head>
 <body>
 <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
@@ -1009,81 +1022,49 @@ footer p{color:var(--text-2);font-size:.85rem}
 </div>
 </section>
 <!-- ==================== WORK ==================== -->
-<div class="industry-explore reveal" id="industry-explore"><span class="industry-eyebrow" data-ar="شغل يناسب مجالك" data-en="WORK FOR YOUR INDUSTRY">شغل يناسب مجالك</span><h2 data-ar="إنت بتدور على محتوى في مجال إيه؟" data-en="What industry are you in?">إنت بتدور على محتوى في مجال إيه؟</h2><p data-ar="اختار مجالك وشوف شغل حقيقي قريب من احتياجاتك — أو اتفرج على كل الأعمال." data-en="Choose your field to see relevant projects, or explore everything.">اختار مجالك وشوف شغل حقيقي قريب من احتياجاتك — أو اتفرج على كل الأعمال.</p><div class="industry-cards"><button aria-pressed="true" class="industry-tile" data-pick-industry="all" type="button"><span class="industry-icon">✦</span><span data-ar="كل المجالات" data-en="All industries">كل المجالات</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="medical" type="button"><span class="industry-icon">✚</span><span data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="legal" type="button"><span class="industry-icon">⚖</span><span data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="business" type="button"><span class="industry-icon">◈</span><span data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="fitness" type="button"><span class="industry-icon">◉</span><span data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="realestate" type="button"><span class="industry-icon">⌂</span><span data-ar="عقارات" data-en="Real Estate">عقارات</span><span aria-hidden="true" class="industry-arrow">↗</span></button><button aria-pressed="false" class="industry-tile" data-pick-industry="creative" type="button"><span class="industry-icon">✧</span><span data-ar="أعمال إبداعية" data-en="Creative &amp; Other">أعمال إبداعية</span><span aria-hidden="true" class="industry-arrow">↗</span></button></div></div><section id="work">
+<section id="work">
 <span class="kicker reveal" data-ar="البورتفوليو" data-en="Portfolio">البورتفوليو</span>
 <h2 class="title reveal d1" data-ar="شغل اتعمل بنيّة نتيجة" data-en="Work made to get results">شغل اتعمل بنيّة نتيجة</h2>
-<p class="sub reveal d2" data-ar="اتفرج على أعمالي في المجال اللي اخترته." data-en="Explore projects in your selected industry.">اختار مجالك ونوع الفيديو، وشوف المشاريع الأقرب للي بتدور عليه.</p>
+<p class="sub reveal d2" data-ar="كل أعمالي قدامك، انزل بين المجالات واسحب علشان تتفرج على الفيديوهات." data-en="Explore all my work by category. Scroll down and swipe through each collection.">كل أعمالي قدامك، انزل بين المجالات واسحب علشان تتفرج على الفيديوهات.</p>
 <!-- ===== 1) الريلز — القسم الأساسي ===== -->
-<div class="portfolio-controls" id="portfolio-controls"><div class="filter-row"><span class="filter-label" data-ar="المجال" data-en="Industry">المجال</span><div class="filter-buttons"><button aria-pressed="true" class="filter-chip active" data-ar="كل المجالات" data-en="All industries" data-filter-industry="all" type="button">كل المجالات</button><button aria-pressed="false" class="filter-chip" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare" data-filter-industry="medical" type="button">طبي وعيادات</button><button aria-pressed="false" class="filter-chip" data-ar="محاماة وقانون" data-en="Legal &amp; Law" data-filter-industry="legal" type="button">محاماة وقانون</button><button aria-pressed="false" class="filter-chip" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands" data-filter-industry="business" type="button">بيزنس وبراندات</button><button aria-pressed="false" class="filter-chip" data-ar="جيم ورياضة" data-en="Fitness &amp; Sports" data-filter-industry="fitness" type="button">جيم ورياضة</button><button aria-pressed="false" class="filter-chip" data-ar="عقارات" data-en="Real Estate" data-filter-industry="realestate" type="button">عقارات</button><button aria-pressed="false" class="filter-chip" data-ar="أعمال إبداعية" data-en="Creative &amp; Other" data-filter-industry="creative" type="button">أعمال إبداعية</button></div></div><div class="filter-row"><span class="filter-label" data-ar="نوع الفيديو" data-en="Video type">نوع الفيديو</span><div class="filter-buttons"><button aria-pressed="true" class="filter-chip active" data-ar="كل الأنواع" data-en="All formats" data-filter-format="all" type="button">كل الأنواع</button><button aria-pressed="false" class="filter-chip" data-ar="ريلز" data-en="Reels" data-filter-format="reels" type="button">ريلز</button><button aria-pressed="false" class="filter-chip" data-ar="بودكاست" data-en="Podcasts" data-filter-format="podcasts" type="button">بودكاست</button><button aria-pressed="false" class="filter-chip" data-ar="يوتيوب وإعلانات" data-en="YouTube &amp; Ads" data-filter-format="youtube" type="button">يوتيوب وإعلانات</button><button aria-pressed="false" class="filter-chip" data-ar="موشن جرافيك" data-en="Motion Graphics" data-filter-format="motion" type="button">موشن جرافيك</button><button aria-pressed="false" class="filter-chip" data-ar="إيفنتات" data-en="Events" data-filter-format="events" type="button">إيفنتات</button></div></div><p aria-live="polite" class="portfolio-status" id="portfolio-status"></p></div><div class="work-sub reveal">
-<h3 data-ar="ريلز — المحتوى القصير" data-en="Reels — short-form content">ريلز — المحتوى القصير</h3>
-<span class="stamp" data-ar="الأساسي" data-en="Main work">الأساسي</span>
-<div class="line"></div>
-</div>
-<div class="work-sub-note reveal d1" data-ar="اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design" data-en="Swipe through — videos play right here. All one-man-crew work: script + shooting + lighting + editing + sound design">اسحب يمين وشمال — الفيديو بيتشغل جوه الموقع. كل الشغل ده One Man Crew: سكريبت + تصوير + إضاءة + مونتاج + Sound Design</div>
-<div class="reels-strip portfolio-group"><a aria-label="Play Actress Abeer Sabry Before and After video" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991550" href="https://vimeo.com/1239991550" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991550_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="الفنانة عبير صبري — قبل وبعد" data-en="Actress Abeer Sabry — Before &amp; After">الفنانة عبير صبري — قبل وبعد</div></a><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239980713" href="https://vimeo.com/1239980713" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Doctor Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239980713_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الدكتور" data-en="Doctor Promo">برومو الدكتور</div></a><a aria-label="Play medical video on Vimeo" class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239992747" href="https://vimeo.com/1239992747" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Saida Facelift Journey" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239992747_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="رحلة سعيدة مع شد الوجه" data-en="Saida Facelift Journey">رحلة سعيدة مع شد الوجه</div></a>
-<!-- New real-estate reels -->
 
-<a class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="realestate" data-yt="zvwnXdn4uEo" href="https://youtube.com/shorts/zvwnXdn4uEo" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="zvwnXdn4uEo" loading="lazy"/>
-<span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="تصوير عقارات — 7" data-en="Real Estate Reel — 7">تصوير عقارات — 7</div>
-</a>
-<a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="realestate" data-yt="jF9QjKHwMK0" href="https://youtube.com/shorts/jF9QjKHwMK0" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="jF9QjKHwMK0" loading="lazy"/>
-<span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="تصوير عقارات — 8" data-en="Real Estate Reel — 8">تصوير عقارات — 8</div>
-</a>
-<!-- Creative & Other reel -->
-<a class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="creative" data-yt="KpPD4yY7EzM" href="https://youtube.com/shorts/KpPD4yY7EzM" rel="noopener noreferrer" target="_blank">
-<img alt="Hammad Bakery reel" class="rimg" data-yt-id="KpPD4yY7EzM" loading="lazy"/>
-<span class="rtag" data-ar="أعمال أخرى" data-en="Others">أعمال أخرى</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="مخبوزات حماد" data-en="Hammad Bakery">مخبوزات حماد</div>
-</a>
-<!-- Featured medical podcast clip (also retained in full podcast section) -->
-<a class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="xrCDbvWVgFw" href="https://youtube.com/shorts/xrCDbvWVgFw" rel="noopener noreferrer" target="_blank">
+
+<nav aria-label="Portfolio sections" class="portfolio-jump"><a data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare" href="#section-medical">طبي وعيادات</a><a data-ar="محاماة وقانون" data-en="Legal &amp; Law" href="#section-legal">محاماة وقانون</a><a data-ar="بيزنس وبراندات" data-en="Business &amp; Brands" href="#section-business">بيزنس وبراندات</a><a data-ar="عقارات" data-en="Real Estate" href="#section-realestate">عقارات</a><a data-ar="جيم ورياضة" data-en="Fitness &amp; Sports" href="#section-fitness">جيم ورياضة</a><a data-ar="أعمال إبداعية وأخرى" data-en="Creative &amp; Other" href="#section-creative">أعمال إبداعية وأخرى</a><a data-ar="بودكاست" data-en="Podcasts" href="#section-podcasts">بودكاست</a><a data-ar="يوتيوب وإعلانات" data-en="YouTube &amp; Ads" href="#section-youtube">يوتيوب وإعلانات</a><a data-ar="موشن جرافيك" data-en="Motion Graphics" href="#section-motion">موشن جرافيك</a><a data-ar="إيفنتات" data-en="Events" href="#section-events">إيفنتات</a></nav><div class="industry-portfolio-section" id="section-medical"><div class="work-sub reveal"><h3 data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</h3><div class="line"></div></div><div aria-label="Medical &amp; Healthcare" class="reels-strip portfolio-group"><a aria-label="Play Actress Abeer Sabry Before and After video" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991550" href="https://vimeo.com/1239991550" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991550_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="الفنانة عبير صبري — قبل وبعد" data-en="Actress Abeer Sabry — Before &amp; After">الفنانة عبير صبري — قبل وبعد</div></a><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239980713" href="https://vimeo.com/1239980713" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Doctor Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239980713_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الدكتور" data-en="Doctor Promo">برومو الدكتور</div></a><a aria-label="Play medical video on Vimeo" class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239992747" href="https://vimeo.com/1239992747" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Saida Facelift Journey" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239992747_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="رحلة سعيدة مع شد الوجه" data-en="Saida Facelift Journey">رحلة سعيدة مع شد الوجه</div></a><a class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="xrCDbvWVgFw" href="https://youtube.com/shorts/xrCDbvWVgFw" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="xrCDbvWVgFw" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="بودكاست — 1" data-en="Podcast — 1">بودكاست — 1</div>
-</a>
-<a aria-label="Play fitness video: Best Back Workout" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="fitness" data-v="1" data-vimeo="1239995112" href="https://vimeo.com/1239995112" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="fitness_back_workout_thumbnail.webp"/></div><span class="rtag" data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="أقوى تمرين للظهر" data-en="The Ultimate Back Workout">أقوى تمرين للظهر</div></a>
-<a aria-label="Play medical video on Vimeo" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991549" href="https://vimeo.com/1239991549" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Patient Journey — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991549_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="رحلة المريضة — قبل وبعد" data-en="Patient Journey — Before &amp; After">رحلة المريضة — قبل وبعد</div></a><a class="reel-card t2 reveal d1 portfolio-item" data-format="reels" data-industry="medical" data-yt="YKl-jj4VbPg" href="https://youtu.be/YKl-jj4VbPg" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="YKl-jj4VbPg" loading="lazy">
+</a><a aria-label="Play medical video on Vimeo" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991549" href="https://vimeo.com/1239991549" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Patient Journey — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991549_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="رحلة المريضة — قبل وبعد" data-en="Patient Journey — Before &amp; After">رحلة المريضة — قبل وبعد</div></a><a class="reel-card t2 reveal d1 portfolio-item" data-format="reels" data-industry="medical" data-yt="YKl-jj4VbPg" href="https://youtu.be/YKl-jj4VbPg" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="YKl-jj4VbPg" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="جلو ليفت" data-en="Glow lift">جلو ليفت</div>
-</img></a><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991547" href="https://vimeo.com/1239991547" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991547_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الفنانة عبير صبري" data-en="Actress Abeer Sabry Promo">برومو الفنانة عبير صبري</div></a><a class="reel-card t2 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="olfIGfuljb0" href="https://youtube.com/shorts/olfIGfuljb0" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="olfIGfuljb0" loading="lazy">
+</a><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991547" href="https://vimeo.com/1239991547" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991547_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الفنانة عبير صبري" data-en="Actress Abeer Sabry Promo">برومو الفنانة عبير صبري</div></a><a class="reel-card t2 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="olfIGfuljb0" href="https://youtube.com/shorts/olfIGfuljb0" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="olfIGfuljb0" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="مواضيع تهمّك — 1" data-en="Topics that matter — 1">مواضيع تهمّك — 1</div>
-</img></a><a class="reel-card t6 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="SOVGDAiwUGM" href="https://youtube.com/shorts/SOVGDAiwUGM" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="SOVGDAiwUGM" loading="lazy">
+</a><a class="reel-card t6 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="SOVGDAiwUGM" href="https://youtube.com/shorts/SOVGDAiwUGM" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="SOVGDAiwUGM" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="ريكاب مشروع" data-en="Project recap">ريكاب مشروع</div>
-</img></a>
-<!-- Featured medical podcast clip (also retained in full podcast section) -->
-<a class="reel-card t2 reveal d3 portfolio-item" data-format="reels" data-industry="medical" data-yt="EQra0zSmLpw" href="https://youtube.com/shorts/EQra0zSmLpw" rel="noopener noreferrer" target="_blank">
+</a><a class="reel-card t2 reveal d3 portfolio-item" data-format="reels" data-industry="medical" data-yt="EQra0zSmLpw" href="https://youtube.com/shorts/EQra0zSmLpw" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="EQra0zSmLpw" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="بودكاست — 4" data-en="Podcast — 4">بودكاست — 4</div>
-</a>
-<a aria-label="Play medical video on Vimeo" class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239993468" href="https://vimeo.com/1239993468" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Saida Review — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239993468_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="مراجعة سعيدة — قبل وبعد" data-en="Saida Review — Before &amp; After">مراجعة سعيدة — قبل وبعد</div></a><a class="reel-card t4 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="9hXgrPNvCIk" href="https://youtu.be/9hXgrPNvCIk" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="9hXgrPNvCIk" loading="lazy">
+</a><a aria-label="Play medical video on Vimeo" class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239993468" href="https://vimeo.com/1239993468" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Saida Review — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239993468_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="مراجعة سعيدة — قبل وبعد" data-en="Saida Review — Before &amp; After">مراجعة سعيدة — قبل وبعد</div></a><a class="reel-card t4 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="9hXgrPNvCIk" href="https://youtu.be/9hXgrPNvCIk" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="9hXgrPNvCIk" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="كريستيانو" data-en="Cristiano">كريستيانو</div>
-</img></a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="WRGwLJ8_wmQ" href="https://youtube.com/shorts/WRGwLJ8_wmQ" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="WRGwLJ8_wmQ" loading="lazy">
+</a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="WRGwLJ8_wmQ" href="https://youtube.com/shorts/WRGwLJ8_wmQ" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="WRGwLJ8_wmQ" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="فيلر تحت العين" data-en="Under-eye filler">فيلر تحت العين</div>
-</img></a><a class="reel-card t4 reveal d1 portfolio-item" data-format="reels" data-industry="medical" data-yt="M197yZfNMiE" href="https://youtube.com/shorts/M197yZfNMiE" rel="noopener noreferrer" target="_blank">
+</a><a class="reel-card t4 reveal d1 portfolio-item" data-format="reels" data-industry="medical" data-yt="M197yZfNMiE" href="https://youtube.com/shorts/M197yZfNMiE" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="M197yZfNMiE" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
@@ -1108,15 +1089,12 @@ footer p{color:var(--text-2);font-size:.85rem}
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="سكين بوستر" data-en="Skin booster">سكين بوستر</div>
-</a>
-<!-- Featured medical podcast clip (also retained in full podcast section) -->
-<a class="reel-card t1 reveal d2 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="hQ8rUmpaxLM" href="https://youtube.com/shorts/hQ8rUmpaxLM" rel="noopener noreferrer" target="_blank">
+</a><a class="reel-card t1 reveal d2 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="hQ8rUmpaxLM" href="https://youtube.com/shorts/hQ8rUmpaxLM" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="hQ8rUmpaxLM" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="بودكاست — 8" data-en="Podcast — 8">بودكاست — 8</div>
-</a>
-<a class="reel-card t1 reveal d3 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="XTJQBDnncFI" href="https://youtube.com/shorts/XTJQBDnncFI" rel="noopener noreferrer" target="_blank">
+</a><a class="reel-card t1 reveal d3 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="XTJQBDnncFI" href="https://youtube.com/shorts/XTJQBDnncFI" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="XTJQBDnncFI" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
@@ -1126,46 +1104,26 @@ footer p{color:var(--text-2);font-size:.85rem}
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="مواضيع تهمّك — 3" data-en="Topics that matter — 3">مواضيع تهمّك — 3</div>
-</a><a class="reel-card t2 reveal d2 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="V82ml1q02Q0" href="https://youtube.com/shorts/V82ml1q02Q0" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="V82ml1q02Q0" loading="lazy">
+</a><a class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="DFqLNZ1Dnyc" href="https://youtube.com/shorts/DFqLNZ1Dnyc" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="DFqLNZ1Dnyc" loading="lazy"/>
+<span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="بودكاست — 11" data-en="Podcast — 11">بودكاست — 11</div>
+</a></div></div><div class="industry-portfolio-section" id="section-legal"><div class="work-sub reveal"><h3 data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</h3><div class="line"></div></div><div aria-label="Legal &amp; Law" class="reels-strip portfolio-group"><a class="reel-card t2 reveal d2 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="V82ml1q02Q0" href="https://youtube.com/shorts/V82ml1q02Q0" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="V82ml1q02Q0" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
-</img></a><a class="reel-card t2 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="WMoAvzHs0Xs" href="https://youtube.com/shorts/WMoAvzHs0Xs" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="WMoAvzHs0Xs" loading="lazy"/>
-<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="الراجل ومراته الشغالة" data-en="Should a wife work?">الراجل ومراته الشغالة</div>
 </a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="NFRcL-GPmrs" href="https://youtube.com/shorts/NFRcL-GPmrs" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="NFRcL-GPmrs" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="السكوت" data-en="Silence">السكوت</div>
-</a><a class="reel-card t1 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="eEi9DrKzGYg" href="https://youtube.com/shorts/eEi9DrKzGYg" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="eEi9DrKzGYg" loading="lazy"/>
-<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
 </a><a class="reel-card t1 reveal d2 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="vJqZ0E4mpNk" href="https://youtube.com/shorts/vJqZ0E4mpNk" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="vJqZ0E4mpNk" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="المال" data-en="Money">المال</div>
-</a><a class="reel-card t4 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="chpzS18oGwY" href="https://youtube.com/shorts/chpzS18oGwY" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="chpzS18oGwY" loading="lazy"/>
-<span class="rtag" data-ar="ذكاء اصطناعي" data-en="AI">ذكاء اصطناعي</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="محتوى بالذكاء الاصطناعي" data-en="AI-powered content">محتوى بالذكاء الاصطناعي</div>
-</a><a class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="cGeG3RczKEk" href="https://youtube.com/shorts/cGeG3RczKEk" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="cGeG3RczKEk" loading="lazy"/>
-<span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="الطموح" data-en="Ambition">الطموح</div>
-</a><a class="reel-card t5 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="jsNIfdwmiLo" href="https://youtube.com/shorts/jsNIfdwmiLo" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="jsNIfdwmiLo" loading="lazy"/>
-<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
 </a><a class="reel-card t6 reveal d2 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="TvqMW43_5EQ" href="https://youtube.com/shorts/TvqMW43_5EQ" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="TvqMW43_5EQ" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
@@ -1181,16 +1139,6 @@ footer p{color:var(--text-2);font-size:.85rem}
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
-</a><a class="reel-card t6 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="z90b60JCwIQ" href="https://youtube.com/shorts/z90b60JCwIQ" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="z90b60JCwIQ" loading="lazy"/>
-<span class="rtag" data-ar="كوميدي" data-en="Comedy">كوميدي</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="المرايا المضحّية" data-en="The funny mirror">المرايا المضحّية</div>
-</a><a class="reel-card t1 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="C9gizwExsE0" href="https://youtube.com/shorts/C9gizwExsE0" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="C9gizwExsE0" loading="lazy"/>
-<span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="الشباب محتاجين فرصة" data-en="Young people need a chance">الشباب محتاجين فرصة</div>
 </a><a class="reel-card t4 reveal d3 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="gZQYtvWtZ8k" href="https://youtube.com/shorts/gZQYtvWtZ8k" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="gZQYtvWtZ8k" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
@@ -1206,16 +1154,56 @@ footer p{color:var(--text-2);font-size:.85rem}
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="الشهادة الجامعية" data-en="The university degree">الشهادة الجامعية</div>
-</a><a class="reel-card t4 reveal d1 portfolio-item" data-format="reels" data-industry="creative" data-v="1" data-yt="5osODgizVlY" href="https://youtube.com/shorts/5osODgizVlY" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="5osODgizVlY" loading="lazy"/>
-<span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+</a></div></div><div class="industry-portfolio-section" id="section-business"><div class="work-sub reveal"><h3 data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</h3><div class="line"></div></div><div aria-label="Business &amp; Brands" class="reels-strip portfolio-group"><a class="reel-card t2 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="WMoAvzHs0Xs" href="https://youtube.com/shorts/WMoAvzHs0Xs" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="WMoAvzHs0Xs" loading="lazy"/>
+<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
+<div class="rtitle" data-ar="الراجل ومراته الشغالة" data-en="Should a wife work?">الراجل ومراته الشغالة</div>
+</a><a class="reel-card t1 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="eEi9DrKzGYg" href="https://youtube.com/shorts/eEi9DrKzGYg" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="eEi9DrKzGYg" loading="lazy"/>
+<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="عمرك ما هتكبر على السوشيال ميديا؟" data-en="You'll never grow on social media?">عمرك ما هتكبر على السوشيال ميديا؟</div>
+</a><a class="reel-card t4 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="chpzS18oGwY" href="https://youtube.com/shorts/chpzS18oGwY" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="chpzS18oGwY" loading="lazy"/>
+<span class="rtag" data-ar="ذكاء اصطناعي" data-en="AI">ذكاء اصطناعي</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="محتوى بالذكاء الاصطناعي" data-en="AI-powered content">محتوى بالذكاء الاصطناعي</div>
+</a><a class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="cGeG3RczKEk" href="https://youtube.com/shorts/cGeG3RczKEk" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="cGeG3RczKEk" loading="lazy"/>
+<span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="الطموح" data-en="Ambition">الطموح</div>
+</a><a class="reel-card t5 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="jsNIfdwmiLo" href="https://youtube.com/shorts/jsNIfdwmiLo" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="jsNIfdwmiLo" loading="lazy"/>
+<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="إعلان الكورس" data-en="Course ad">إعلان الكورس</div>
+</a><a class="reel-card t6 reveal d3 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="z90b60JCwIQ" href="https://youtube.com/shorts/z90b60JCwIQ" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="z90b60JCwIQ" loading="lazy"/>
+<span class="rtag" data-ar="كوميدي" data-en="Comedy">كوميدي</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="المرايا المضحّية" data-en="The funny mirror">المرايا المضحّية</div>
+</a><a class="reel-card t1 reveal d1 portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="C9gizwExsE0" href="https://youtube.com/shorts/C9gizwExsE0" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="C9gizwExsE0" loading="lazy"/>
+<span class="rtag" data-ar="تحفيزي" data-en="Motivational">تحفيزي</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="الشباب محتاجين فرصة" data-en="Young people need a chance">الشباب محتاجين فرصة</div>
 </a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="business" data-v="1" data-yt="rrXL8lvrhaQ" href="https://youtube.com/shorts/rrXL8lvrhaQ" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="rrXL8lvrhaQ" loading="lazy"/>
 <span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="لقطة قصيرة" data-en="Short scene">لقطة قصيرة</div>
+</a></div></div><div class="industry-portfolio-section" id="section-realestate"><div class="work-sub reveal"><h3 data-ar="عقارات" data-en="Real Estate">عقارات</h3><div class="line"></div></div><div aria-label="Real Estate" class="reels-strip portfolio-group"><a class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="realestate" data-yt="zvwnXdn4uEo" href="https://youtube.com/shorts/zvwnXdn4uEo" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="zvwnXdn4uEo" loading="lazy"/>
+<span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="تصوير عقارات — 7" data-en="Real Estate Reel — 7">تصوير عقارات — 7</div>
+</a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="realestate" data-yt="jF9QjKHwMK0" href="https://youtube.com/shorts/jF9QjKHwMK0" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="jF9QjKHwMK0" loading="lazy"/>
+<span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="تصوير عقارات — 8" data-en="Real Estate Reel — 8">تصوير عقارات — 8</div>
 </a><a class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="realestate" data-yt="NaPByrMGuIc" href="https://youtube.com/shorts/NaPByrMGuIc" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="NaPByrMGuIc" loading="lazy"/>
 <span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
@@ -1246,17 +1234,19 @@ footer p{color:var(--text-2);font-size:.85rem}
 <span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="تصوير عقارات — 6" data-en="Real Estate Reel — 6">تصوير عقارات — 6</div>
-</a>
-<!-- Featured medical podcast clip (also retained in full podcast section) -->
-<a class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="DFqLNZ1Dnyc" href="https://youtube.com/shorts/DFqLNZ1Dnyc" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="DFqLNZ1Dnyc" loading="lazy"/>
-<span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
+</a></div></div><div class="industry-portfolio-section" id="section-fitness"><div class="work-sub reveal"><h3 data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</h3><div class="line"></div></div><div aria-label="Fitness &amp; Sports" class="reels-strip portfolio-group"><a aria-label="Play fitness video: Best Back Workout" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="fitness" data-v="1" data-vimeo="1239995112" href="https://vimeo.com/1239995112" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="fitness_back_workout_thumbnail.webp"/></div><span class="rtag" data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="أقوى تمرين للظهر" data-en="The Ultimate Back Workout">أقوى تمرين للظهر</div></a></div></div><div class="industry-portfolio-section" id="section-creative"><div class="work-sub reveal"><h3 data-ar="أعمال إبداعية وأخرى" data-en="Creative &amp; Other">أعمال إبداعية وأخرى</h3><div class="line"></div></div><div aria-label="Creative &amp; Other" class="reels-strip portfolio-group"><a class="reel-card t4 reveal portfolio-item" data-format="reels" data-industry="creative" data-yt="KpPD4yY7EzM" href="https://youtube.com/shorts/KpPD4yY7EzM" rel="noopener noreferrer" target="_blank">
+<img alt="Hammad Bakery reel" class="rimg" data-yt-id="KpPD4yY7EzM" loading="lazy"/>
+<span class="rtag" data-ar="أعمال أخرى" data-en="Others">أعمال أخرى</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 11" data-en="Podcast — 11">بودكاست — 11</div>
-</a>
-</div>
+<div class="rtitle" data-ar="مخبوزات حماد" data-en="Hammad Bakery">مخبوزات حماد</div>
+</a><a class="reel-card t4 reveal d1 portfolio-item" data-format="reels" data-industry="creative" data-v="1" data-yt="5osODgizVlY" href="https://youtube.com/shorts/5osODgizVlY" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="5osODgizVlY" loading="lazy"/>
+<span class="rtag" data-ar="ريلز" data-en="Reel">ريلز</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="لايف ستايل" data-en="Lifestyle">لايف ستايل</div>
+</a></div></div>
 <!-- ===== 2) بودكاست ===== -->
-<div class="work-sub reveal">
+<div class="work-sub reveal" id="section-podcasts">
 <h3 data-ar="بودكاست" data-en="Podcast">بودكاست</h3>
 <div class="line"></div>
 </div>
@@ -1336,13 +1326,12 @@ footer p{color:var(--text-2);font-size:.85rem}
 </a>
 </div>
 <!-- ===== 2) فيديوهات يوتيوب وإعلانات (بالعرض) ===== -->
-<div class="work-sub reveal">
+<div class="work-sub reveal" id="section-youtube">
 <h3 data-ar="فيديوهات يوتيوب وإعلانات" data-en="YouTube videos &amp; commercials">فيديوهات يوتيوب وإعلانات</h3>
 <span class="stamp gold" data-ar="بالعرض" data-en="Long-form">بالعرض</span>
 <div class="line"></div>
 </div>
-<div class="work-grid portfolio-group">
-
+<div class="portfolio-group landscape-strip">
 <a class="work-card reveal d1 portfolio-item" data-format="youtube" data-industry="business" data-yt="_17-W8eVa1Y" href="https://youtu.be/_17-W8eVa1Y" rel="noopener noreferrer" target="_blank">
 <div class="work-thumb t2"><img alt="" class="wt" data-yt-id="_17-W8eVa1Y" loading="lazy"/><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div>
 <div class="work-info"><span class="tag" data-ar="إعلان" data-en="Commercial">إعلان</span><h3 data-ar="حكاية حلم — تانية ثانوي" data-en="A Dream's Tale — 2nd secondary">حكاية حلم — تانية ثانوي</h3><p data-ar="إعلان قصصي لـ د. محمد أيمن — تصوير ومونتاج وتلوين" data-en="Story-driven ad for Dr. Mohamed Ayman — shooting, editing &amp; grading">إعلان قصصي لـ د. محمد أيمن — تصوير ومونتاج وتلوين</p></div>
@@ -1365,7 +1354,7 @@ footer p{color:var(--text-2);font-size:.85rem}
 </a>
 </div>
 <!-- ===== 4) موشن جرافيك ===== -->
-<div class="work-sub reveal">
+<div class="work-sub reveal" id="section-motion">
 <h3 data-ar="موشن جرافيك" data-en="Motion graphics">موشن جرافيك</h3>
 <div class="line"></div>
 </div>
@@ -1397,11 +1386,11 @@ footer p{color:var(--text-2);font-size:.85rem}
 </a>
 </div>
 <!-- ===== 5) إيفنتات ومعارض ===== -->
-<div class="work-sub reveal">
+<div class="work-sub reveal" id="section-events">
 <h3 data-ar="إيفنتات ومعارض" data-en="Events &amp; exhibitions">إيفنتات ومعارض</h3>
 <div class="line"></div>
 </div>
-<div class="work-grid portfolio-group">
+<div class="portfolio-group landscape-strip">
 <a class="work-card reveal portfolio-item" data-format="events" data-industry="medical" data-yt="uleBqyUIyS0" href="https://youtu.be/uleBqyUIyS0" rel="noopener noreferrer" target="_blank">
 <div class="work-thumb t1"><img alt="" class="wt" data-yt-id="uleBqyUIyS0" loading="lazy"/><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div></div>
 <div class="work-info"><span class="tag" data-ar="إيفنت" data-en="Event">إيفنت</span><h3 data-ar="مسكوب" data-en="Maskoub">مسكوب</h3><p data-ar="تغطية إيفنت — تصوير ومونتاج" data-en="Event coverage — shooting &amp; editing">تغطية إيفنت — تصوير ومونتاج</p></div>
@@ -2662,40 +2651,8 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 /* ============ Init: الموقع أساسي إنجليزي — نطبّق اللغة بعد ما كل الدوال والمتغيرات اتعرّفت ============ */
 applyLang();
 
-/* ============ Industry and format portfolio filters (show all matching projects) ============ */
-(function(){
- const work=document.getElementById('work');
- const groups=[...work.querySelectorAll('.portfolio-group')];
- let industry='all',format='all';
- function render(){
-  let total=0;
-  groups.forEach(group=>{
-   const items=[...group.querySelectorAll('.portfolio-item')];
-   const matching=items.filter(item=>(industry==='all'||item.dataset.industry===industry)&&(format==='all'||item.dataset.format===format));
-   total+=matching.length;
-   items.forEach(item=>{
-    const hidden=!matching.includes(item);
-    item.classList.toggle('is-filtered-out',hidden);
-    item.classList.toggle('portfolio-hidden',hidden);
-   });
-   const hide=!matching.length;
-   group.classList.toggle('is-filtered-out',hide);
-   let prev=group.previousElementSibling;
-   while(prev&&prev.classList.contains('work-sub-note')){prev.classList.toggle('is-filtered-out',hide);prev=prev.previousElementSibling}
-   if(prev&&prev.classList.contains('work-sub'))prev.classList.toggle('is-filtered-out',hide);
-  });
-  const L=typeof lang==='undefined'||lang==='ar';
-  const status=document.getElementById('portfolio-status');
-  status.textContent=total?(L?'عدد المشاريع المطابقة: ':'Matching projects: ')+total:(L?'مفيش مشاريع منشورة في التصنيف ده لسه — تقدر تشوف باقي الأعمال.':'No published projects in this category yet — explore the other work.');
-  document.querySelectorAll('[data-filter-industry],[data-pick-industry]').forEach(btn=>{const active=(btn.dataset.filterIndustry??btn.dataset.pickIndustry)===industry;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
-  document.querySelectorAll('[data-filter-format]').forEach(btn=>{const active=btn.dataset.filterFormat===format;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
- }
- document.querySelectorAll('[data-filter-industry]').forEach(btn=>btn.addEventListener('click',()=>{industry=btn.dataset.filterIndustry;render()}));
- document.querySelectorAll('[data-filter-format]').forEach(btn=>btn.addEventListener('click',()=>{format=btn.dataset.filterFormat;render()}));
- document.querySelectorAll('[data-pick-industry]').forEach(btn=>btn.addEventListener('click',()=>{industry=btn.dataset.pickIndustry;format='all';render();work.scrollIntoView({behavior:'smooth',block:'start'})}));
- window.refreshPortfolioLanguage=render;
- render();
-})();
+
+window.refreshPortfolioLanguage=function(){};
 </script>
 </body>
 </html>
