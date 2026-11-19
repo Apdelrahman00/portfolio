@@ -4,16 +4,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>عبدالرحمن أيمن — بساعد رواد الأعمال يحوّلوا المحتوى لمصدر دخل</title>
+<title>Abdelrahman Ayman — Filmmaker &amp; Video Editor | Cinematic content for business</title>
 <meta content="عبدالرحمن أيمن — بساعد البيزنس ورواد الأعمال يكبروا ويزودوا دخلهم عن طريق صناعة المحتوى: استراتيجية، سكريبت، تصوير، مونتاج." name="description"/>
 <meta content="website" property="og:type"/>
-<meta content="Abdelrahman Ayman — I turn content into revenue" property="og:title"/>
-<meta content="I help entrepreneurs, doctors and coaches turn content into real revenue: strategy, scripts, shooting and editing." property="og:description"/>
-<meta content="abdelrahman-hero.jpg" property="og:image"/>
-<meta content="ar_EG" property="og:locale"/>
+<meta content="Abdelrahman Ayman — Filmmaker &amp; Video Editor" property="og:title"/>
+<meta content="Cinematic shooting &amp; editing for doctors, lawyers and brands in Cairo — from idea and script to the final cut. Book a free 15-minute call." property="og:description"/>
+<meta content="https://apdelrahmanayman.vercel.app/abdelrahman-hero.jpg" property="og:image"/>
+<meta content="https://apdelrahmanayman.vercel.app/" property="og:url"/>
+<link href="https://apdelrahmanayman.vercel.app/" rel="canonical"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="ar_EG" property="og:locale:alternate"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Abdelrahman Ayman — I turn content into revenue" name="twitter:title"/>
-<meta content="abdelrahman-hero.jpg" name="twitter:image"/>
+<meta content="Abdelrahman Ayman — Filmmaker &amp; Video Editor" name="twitter:title"/>
+<meta content="https://apdelrahmanayman.vercel.app/abdelrahman-hero.jpg" name="twitter:image"/>
 <meta content="#0b0a0a" name="theme-color"/>
 <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;rect width='64' height='64' rx='14' fill='%23C41E28'/&gt;&lt;text x='50%25' y='54%25' font-size='30' font-weight='bold' font-family='sans-serif' fill='white' text-anchor='middle' dominant-baseline='middle' font-style='italic'&gt;AA&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -915,6 +918,31 @@ footer p{color:var(--text-2);font-size:.85rem}
 .portfolio-item .inline-preview-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}
 .portfolio-item .inline-preview-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .portfolio-item.preview-active .play{opacity:0!important}
+
+/* ---------- الفيديو التعريفي ---------- */
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 32%;opacity:0;transition:opacity 1s ease}
+.hero-vid.on{opacity:1}
+.hero.playing .hero-overlay,.hero.playing .hero-content{opacity:0;pointer-events:none;transition:opacity .4s}
+.hero.playing .hero-bg{z-index:6;-webkit-mask-image:none;mask-image:none}
+.hero.playing .hero-bg img{opacity:0}
+.hero-sound{display:inline-flex;align-items:center;gap:10px;margin:22px auto 0;padding:12px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.45);backdrop-filter:blur(8px);color:#fff;font:inherit;font-weight:600;cursor:pointer;transition:all .3s}
+.hero-sound:hover{background:var(--red);border-color:var(--red)}
+.hero-sound .ic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--red);font-size:.75rem}
+.hero-sound[hidden]{display:none}
+/* ---------- كارت احجز مكالمة الثابت ---------- */
+.call-pill{position:fixed;bottom:26px;inset-inline-start:26px;z-index:199;display:flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;border-radius:999px;background:rgba(18,16,16,.92);border:1px solid rgba(196,30,40,.55);box-shadow:0 12px 34px rgba(0,0,0,.5);color:#fff;text-decoration:none;opacity:0;transform:translateY(20px);pointer-events:none;transition:all .4s var(--ease)}
+html[dir="rtl"] .call-pill{padding:8px 8px 8px 18px}
+.call-pill.on{opacity:1;transform:none;pointer-events:auto}
+.call-pill img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid var(--red)}
+.call-pill b{display:block;font-size:.9rem}
+.call-pill small{display:block;font-size:.72rem;color:#cfcac7}
+@media(max-width:600px){
+  .call-pill{bottom:18px;inset-inline-start:12px;padding:6px 14px 6px 6px;gap:8px}
+  html[dir="rtl"] .call-pill{padding:6px 6px 6px 14px}
+  .call-pill img{width:38px;height:38px}
+  .call-pill small{display:none}
+  .sprog{display:none}
+}
 </style>
 <style>
 /* Vimeo thumbnails: real video poster images loaded from Vimeo oEmbed, with fallback */
@@ -964,7 +992,7 @@ html{scroll-behavior:smooth}
 <a data-ar="إزاي بشتغل" data-en="How I work" href="#process">إزاي بشتغل</a>
 <a data-ar="الباقات" data-en="Packages" href="#services">الباقات</a>
 <a data-ar="أسئلة" data-en="FAQ" href="#faq">أسئلة</a>
-<a data-ar="احجز ميعاد" data-en="Book a Call" href="#book">احجز ميعاد</a>
+<a data-ar="احجز مكالمة" data-en="Book a call" href="#book">Book a call</a>
 </div>
 <div style="display:flex;gap:12px;align-items:center">
 <div class="lang-wrap">
@@ -987,6 +1015,8 @@ html{scroll-behavior:smooth}
          مهم: متفعّلهوش قبل ما ترفع الملف فعلاً — الصورة هتختفي خالص لو الملف مش موجود. -->
 <!-- <source media="(max-width:768px)" srcset="abdelrahman-hero-m.jpg"> -->
 <img alt="عبدالرحمن أيمن" onerror="this.onerror=null;this.src='abdelrahman-2.jpg'" src="abdelrahman-hero.jpg"/>
+<!-- 🎬 الفيديو التعريفي: حط الفيديو في نفس الفولدر باسم intro.mp4 (ويُفضّل intro-m.mp4 نسخة طولية للموبايل). لو الملف مش موجود، الصورة بتفضل زي ما هي. -->
+<video class="hero-vid" id="heroVid" muted loop playsinline preload="metadata" poster="abdelrahman-hero.jpg" aria-label="فيديو تعريفي — عبدالرحمن أيمن"></video>
 </div>
 <div class="hero-overlay"></div>
 <div class="hero-content">
@@ -995,9 +1025,10 @@ html{scroll-behavior:smooth}
 <span data-ar="صانع أفلام · مصوّر · مونتير" data-en="Filmmaker · Videographer · Video Editor">صانع أفلام · مصوّر · مونتير</span>
 </h1>
 <div class="hero-sub reveal d2" data-ar="محتوى سينمائي للمحترفين." data-en="Cinematic content for professionals.">محتوى سينمائي للمحترفين.</div>
+<button class="hero-sound" hidden id="heroSound" type="button"><span class="ic">▶</span><span data-ar="شغّل الفيديو بالصوت" data-en="Play with sound">شغّل الفيديو بالصوت</span></button>
 <div class="cta-row reveal d3">
 <a class="btn btn-primary btn-pulse" data-ar="شوف شغلي" data-en="See my work" href="#work">شوف شغلي</a>
-<a class="btn btn-ghost" data-ar="ابدأ مشروعك معايا" data-en="Start your project" href="#book">ابدأ مشروعك معايا</a>
+<a class="btn btn-ghost" data-ar="احجز مكالمة 15 دقيقة" data-en="Book a 15-min call" href="#book">احجز مكالمة 15 دقيقة</a>
 </div>
 <div class="reveal d4" style="margin-top:34px">
 <div class="scroll-hint" data-ar="انزل تحت" data-en="Scroll down" style="margin:0">انزل تحت</div>
@@ -1017,8 +1048,8 @@ html{scroll-behavior:smooth}
 <div>
 <span class="kicker reveal" data-ar="عني" data-en="About me">عني</span>
 <h2 class="title reveal d1" data-ar="شريك بيزنس... مش مجرد كاميرا" data-en="A business partner, not just a camera">شريك بيزنس... مش مجرد كاميرا</h2>
-<p class="sub reveal d2" data-ar="شغال في صناعة المحتوى والماركتينج من سنين، واشتغلت مع دكاترة وكوتشيز وصنّاع محتوى وبراندات. اللي بيميزني إني بفكر في البيزنس بتاعك قبل الكاميرا: مين جمهورك؟ إيه اللي يخليه يشتري؟ وبعدين نبني المحتوى اللي يوصلك للهدف ده — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين." data-en="I've been in content and marketing for years, working with doctors, coaches, creators and brands. What sets me apart: I think about your business before the camera — who's your audience? What makes them buy? Then we build the content that gets you there: from idea and script, to shooting and lighting, to editing and grading.">شغال في صناعة المحتوى والماركتينج من سنين، واشتغلت مع دكاترة وكوتشيز وصنّاع محتوى وبراندات. اللي بيميزني إني بفكر في البيزنس بتاعك قبل الكاميرا: مين جمهورك؟ إيه اللي يخليه يشتري؟ وبعدين نبني المحتوى اللي يوصلك للهدف ده — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين.</p>
-<div class="quote reveal d3" data-ar="«المحتوى مش فيديو حلو... المحتوى استثمار المفروض يرجعلك بعائد.»" data-en="“Content isn't a pretty video — it's an investment that should pay you back.”">«المحتوى مش فيديو حلو... المحتوى استثمار المفروض يرجعلك بعائد.»</div>
+<p class="sub reveal d2" data-ar="بقالي أكتر من 6 سنين بصوّر وبمنتج لدكاترة ومحامين وكوتشيز وبراندات. قبل ما أمسك الكاميرا بحب أفهم إنت بتكلم مين، وعايزه يعمل إيه بعد ما يتفرج. وبعدين الباقي عليا: الفكرة، والسكريبت، والتصوير، والمونتاج، والألوان." data-en="I've spent 6+ years filming and editing for doctors, lawyers, coaches and brands. Before I pick up a camera, I want to know who you're talking to and what you want them to do after watching. Then I take care of the rest: the idea, the script, the shoot, the edit and the color.">I've spent 6+ years filming and editing for doctors, lawyers, coaches and brands. Before I pick up a camera, I want to know who you're talking to and what you want them to do after watching. Then I take care of the rest: the idea, the script, the shoot, the edit and the color.</p>
+<div class="quote reveal d3" data-ar="«الهدف مش فيديو حلو. الهدف عميل يكلمك بعد ما يتفرج.»" data-en="“A nice video isn't the goal. A client who calls you after watching it is.”">“A nice video isn't the goal. A client who calls you after watching it is.”</div>
 <div class="chips reveal d4">
 <span class="chip hot" data-ar="استراتيجية محتوى" data-en="Content strategy">استراتيجية محتوى</span>
 <span class="chip" data-ar="كتابة سكريبتات" data-en="Scriptwriting">كتابة سكريبتات</span>
@@ -1033,21 +1064,46 @@ html{scroll-behavior:smooth}
 <!-- ==================== WORK ==================== -->
 <section id="work">
 <span class="kicker reveal" data-ar="البورتفوليو" data-en="Portfolio">البورتفوليو</span>
-<h2 class="title reveal d1" data-ar="شغل اتعمل بنيّة نتيجة" data-en="Work made to get results">شغل اتعمل بنيّة نتيجة</h2>
-<p class="sub reveal d2" data-ar="كل أعمالي قدامك، انزل بين المجالات واسحب علشان تتفرج على الفيديوهات." data-en="Explore all my work by category. Scroll down and swipe through each collection.">كل أعمالي قدامك، انزل بين المجالات واسحب علشان تتفرج على الفيديوهات.</p>
+<h2 class="title reveal d1" data-ar="شوف شغلي مع عملاء من نفس مجالك" data-en="See my work with clients in your field">See my work with clients in your field</h2>
+<p class="sub reveal d2" data-ar="دكتور؟ محامي؟ عندك براند؟ دوس على مجالك تحت." data-en="Doctor, lawyer or brand? Tap your field below.">Doctor, lawyer or brand? Tap your field below.</p>
 <!-- ===== 1) الريلز — القسم الأساسي ===== -->
 
 
-<nav aria-label="Portfolio sections" class="portfolio-jump"><a data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare" href="#section-medical">طبي وعيادات</a><a data-ar="محاماة وقانون" data-en="Legal &amp; Law" href="#section-legal">محاماة وقانون</a><a data-ar="بيزنس وبراندات" data-en="Business &amp; Brands" href="#section-business">بيزنس وبراندات</a><a data-ar="عقارات" data-en="Real Estate" href="#section-realestate">عقارات</a><a data-ar="جيم ورياضة" data-en="Fitness &amp; Sports" href="#section-fitness">جيم ورياضة</a><a data-ar="أعمال إبداعية وأخرى" data-en="Creative &amp; Other" href="#section-creative">أعمال إبداعية وأخرى</a><a data-ar="بودكاست" data-en="Podcasts" href="#section-podcasts">بودكاست</a><a data-ar="يوتيوب وإعلانات" data-en="YouTube &amp; Ads" href="#section-youtube">يوتيوب وإعلانات</a><a data-ar="موشن جرافيك" data-en="Motion Graphics" href="#section-motion">موشن جرافيك</a><a data-ar="إيفنتات" data-en="Events" href="#section-events">إيفنتات</a></nav><div class="industry-portfolio-section" id="section-medical"><div class="work-sub reveal"><h3 data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</h3><div class="line"></div></div><div aria-label="Medical &amp; Healthcare" class="reels-strip portfolio-group"><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239980713" href="https://vimeo.com/1239980713" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Doctor Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239980713_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الدكتور" data-en="Doctor Promo">برومو الدكتور</div></a><a aria-label="Play Actress Abeer Sabry Before and After video" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991550" href="https://vimeo.com/1239991550" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991550_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="الفنانة عبير صبري — قبل وبعد" data-en="Actress Abeer Sabry — Before &amp; After">الفنانة عبير صبري — قبل وبعد</div></a><a class="reel-card t4 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="9hXgrPNvCIk" href="https://youtu.be/9hXgrPNvCIk" rel="noopener noreferrer" target="_blank">
+<div class="industry-portfolio-section" id="section-featured"><div class="work-sub reveal"><h3 data-ar="أقوى الأعمال" data-en="Featured work">أقوى الأعمال</h3><div class="line"></div></div><div aria-label="Featured work" class="reels-strip"><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239980713" href="https://vimeo.com/1239980713" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Doctor Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239980713_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الدكتور" data-en="Doctor Promo">برومو الدكتور</div></a><a class="reel-card t2 reveal" data-format="reels" data-industry="legal" data-v="1" data-yt="V82ml1q02Q0" href="https://youtube.com/shorts/V82ml1q02Q0" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="V82ml1q02Q0" loading="lazy"/>
+<span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="القانون هو صديقك الوحيد" data-en="The law is your only friend">القانون هو صديقك الوحيد</div>
+</a><a aria-label="Play Actress Abeer Sabry Before and After video" class="reel-card t2 reveal" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991550" href="https://vimeo.com/1239991550" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991550_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="الفنانة عبير صبري — قبل وبعد" data-en="Actress Abeer Sabry — Before &amp; After">الفنانة عبير صبري — قبل وبعد</div></a><a class="reel-card t2 reveal" data-format="reels" data-industry="business" data-v="1" data-yt="WMoAvzHs0Xs" href="https://youtube.com/shorts/WMoAvzHs0Xs" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="WMoAvzHs0Xs" loading="lazy"/>
+<span class="rtag" data-ar="بيزنس وبراندات" data-en="Business &amp; Brands">بيزنس وبراندات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="الراجل ومراته الشغالة" data-en="Should a wife work?">الراجل ومراته الشغالة</div>
+</a><a class="reel-card t2 reveal" data-format="reels" data-industry="legal" data-v="1" data-yt="31iiZNvk7Vc" href="https://youtube.com/shorts/31iiZNvk7Vc" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="31iiZNvk7Vc" loading="lazy"/>
+<span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="المستثمر الألماني" data-en="The German investor">المستثمر الألماني</div>
+</a><a class="reel-card t4 reveal" data-format="reels" data-industry="medical" data-v="1" data-yt="DFqLNZ1Dnyc" href="https://youtube.com/shorts/DFqLNZ1Dnyc" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="DFqLNZ1Dnyc" loading="lazy"/>
+<span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="تكنيك الفيس ليفت" data-en="Facelift technique">تكنيك الفيس ليفت</div>
+</a><a class="reel-card t4 reveal" data-format="reels" data-industry="medical" data-yt="9hXgrPNvCIk" href="https://youtu.be/9hXgrPNvCIk" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="9hXgrPNvCIk" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="كريستيانو" data-en="Cristiano">كريستيانو</div>
+<div class="rtitle" data-ar="كريستيانو ونيمار… حقنوا بوتوكس؟" data-en="Did Cristiano &amp; Neymar get Botox?">كريستيانو ونيمار… حقنوا بوتوكس؟</div>
+</a></div></div><nav aria-label="Portfolio sections" class="portfolio-jump"><a data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare" href="#section-medical">طبي وعيادات</a><a data-ar="محاماة وقانون" data-en="Legal &amp; Law" href="#section-legal">محاماة وقانون</a><a data-ar="بيزنس وبراندات" data-en="Business &amp; Brands" href="#section-business">بيزنس وبراندات</a><a data-ar="عقارات" data-en="Real Estate" href="#section-realestate">عقارات</a><a data-ar="جيم ورياضة" data-en="Fitness &amp; Sports" href="#section-fitness">جيم ورياضة</a><a data-ar="بودكاست" data-en="Podcasts" href="#section-podcasts">بودكاست</a><a data-ar="يوتيوب وإعلانات" data-en="YouTube &amp; Ads" href="#section-youtube">يوتيوب وإعلانات</a><a data-ar="موشن جرافيك" data-en="Motion Graphics" href="#section-motion">موشن جرافيك</a><a data-ar="إيفنتات" data-en="Events" href="#section-events">إيفنتات</a></nav><div class="industry-portfolio-section" id="section-medical"><div class="work-sub reveal"><h3 data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</h3><div class="line"></div></div><div aria-label="Medical &amp; Healthcare" class="reels-strip portfolio-group"><a aria-label="Play medical video on Vimeo" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239980713" href="https://vimeo.com/1239980713" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Doctor Promo" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239980713_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="برومو الدكتور" data-en="Doctor Promo">برومو الدكتور</div></a><a aria-label="Play Actress Abeer Sabry Before and After video" class="reel-card t2 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-vimeo="1239991550" href="https://vimeo.com/1239991550" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="Actress Abeer Sabry — Before &amp; After" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="medical_1239991550_thumbnail.webp"/></div><span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="الفنانة عبير صبري — قبل وبعد" data-en="Actress Abeer Sabry — Before &amp; After">الفنانة عبير صبري — قبل وبعد</div></a><a class="reel-card t4 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-yt="9hXgrPNvCIk" href="https://youtu.be/9hXgrPNvCIk" rel="noopener noreferrer" target="_blank">
+<img alt="" class="rimg" data-yt-id="9hXgrPNvCIk" loading="lazy"/>
+<span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
+<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+<div class="rtitle" data-ar="كريستيانو ونيمار… حقنوا بوتوكس؟" data-en="Did Cristiano &amp; Neymar get Botox?">كريستيانو ونيمار… حقنوا بوتوكس؟</div>
 </a><a class="reel-card t5 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="xrCDbvWVgFw" href="https://youtube.com/shorts/xrCDbvWVgFw" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="xrCDbvWVgFw" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 1" data-en="Podcast — 1">بودكاست — 1</div>
+<div class="rtitle" data-ar="بودكاست طبي — 1" data-en="Medical podcast — 1">بودكاست طبي — 1</div>
 </a><a class="reel-card t2 reveal d4 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="olfIGfuljb0" href="https://youtube.com/shorts/olfIGfuljb0" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="olfIGfuljb0" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
@@ -1072,7 +1128,7 @@ html{scroll-behavior:smooth}
 <img alt="" class="rimg" data-yt-id="EQra0zSmLpw" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 4" data-en="Podcast — 4">بودكاست — 4</div>
+<div class="rtitle" data-ar="بودكاست طبي — 2" data-en="Medical podcast — 2">بودكاست طبي — 2</div>
 </a><a class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="WRGwLJ8_wmQ" href="https://youtube.com/shorts/WRGwLJ8_wmQ" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="WRGwLJ8_wmQ" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
@@ -1107,7 +1163,7 @@ html{scroll-behavior:smooth}
 <img alt="" class="rimg" data-yt-id="hQ8rUmpaxLM" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 8" data-en="Podcast — 8">بودكاست — 8</div>
+<div class="rtitle" data-ar="بودكاست طبي — 3" data-en="Medical podcast — 3">بودكاست طبي — 3</div>
 </a><a class="reel-card t1 reveal d3 portfolio-item" data-format="reels" data-industry="medical" data-v="1" data-yt="XTJQBDnncFI" href="https://youtube.com/shorts/XTJQBDnncFI" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="XTJQBDnncFI" loading="lazy"/>
 <span class="rtag" data-ar="طبي وعيادات" data-en="Medical &amp; Healthcare">طبي وعيادات</span>
@@ -1122,7 +1178,7 @@ html{scroll-behavior:smooth}
 <img alt="" class="rimg" data-yt-id="DFqLNZ1Dnyc" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست طبي" data-en="Medical Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 11" data-en="Podcast — 11">بودكاست — 11</div>
+<div class="rtitle" data-ar="تكنيك الفيس ليفت" data-en="Facelift technique">تكنيك الفيس ليفت</div>
 </a></div></div><div class="industry-portfolio-section" id="section-legal"><div class="work-sub reveal"><h3 data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</h3><div class="line"></div></div><div aria-label="Legal &amp; Law" class="reels-strip portfolio-group"><a class="reel-card t2 reveal d2 portfolio-item" data-format="reels" data-industry="legal" data-v="1" data-yt="V82ml1q02Q0" href="https://youtube.com/shorts/V82ml1q02Q0" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="V82ml1q02Q0" loading="lazy"/>
 <span class="rtag" data-ar="محاماة وقانون" data-en="Legal &amp; Law">محاماة وقانون</span>
@@ -1253,7 +1309,7 @@ html{scroll-behavior:smooth}
 <span class="rtag" data-ar="عقارات" data-en="Real Estate">عقارات</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
 <div class="rtitle" data-ar="تصوير عقارات — 6" data-en="Real Estate Reel — 6">تصوير عقارات — 6</div>
-</a></div></div><div class="industry-portfolio-section" id="section-fitness"><div class="work-sub reveal"><h3 data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</h3><div class="line"></div></div><div aria-label="Fitness &amp; Sports" class="reels-strip portfolio-group"><a aria-label="Play fitness video: Best Back Workout" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="fitness" data-v="1" data-vimeo="1239995112" href="https://vimeo.com/1239995112" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="fitness_back_workout_thumbnail.webp"/></div><span class="rtag" data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="أقوى تمرين للظهر" data-en="The Ultimate Back Workout">أقوى تمرين للظهر</div></a></div></div><div class="industry-portfolio-section" id="section-creative"><div class="work-sub reveal"><h3 data-ar="أعمال إبداعية وأخرى" data-en="Creative &amp; Other">أعمال إبداعية وأخرى</h3><div class="line"></div></div><div aria-label="Creative &amp; Other" class="reels-strip portfolio-group"></div></div>
+</a></div></div><div class="industry-portfolio-section" id="section-fitness"><div class="work-sub reveal"><h3 data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</h3><div class="line"></div></div><div aria-label="Fitness &amp; Sports" class="reels-strip portfolio-group"><a aria-label="Play fitness video: Best Back Workout" class="reel-card t3 reveal portfolio-item" data-format="reels" data-industry="fitness" data-v="1" data-vimeo="1239995112" href="https://vimeo.com/1239995112" rel="noopener noreferrer" target="_blank"><div aria-hidden="true" class="vimeo-thumb"><img alt="" class="vimeo-poster" decoding="async" loading="lazy" referrerpolicy="no-referrer" src="fitness_back_workout_thumbnail.webp"/></div><span class="rtag" data-ar="جيم ورياضة" data-en="Fitness &amp; Sports">جيم ورياضة</span><div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div><div class="rtitle" data-ar="أقوى تمرين للظهر" data-en="The Ultimate Back Workout">أقوى تمرين للظهر</div></a></div></div>
 <!-- ===== 2) بودكاست ===== -->
 <div class="work-sub reveal" id="section-podcasts">
 <h3 data-ar="بودكاست" data-en="Podcast">بودكاست</h3>
@@ -1261,77 +1317,53 @@ html{scroll-behavior:smooth}
 </div>
 <div class="work-sub-note reveal d1" data-ar="مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل" data-en="Podcast episode clips — full shooting, lighting &amp; editing">مقتطفات من حلقات بودكاست — تصوير وإضاءة ومونتاج كامل</div>
 <div class="reels-strip portfolio-group">
-<a class="reel-card t5 reveal portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="xrCDbvWVgFw" href="https://youtube.com/shorts/xrCDbvWVgFw" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="xrCDbvWVgFw" loading="lazy"/>
-<span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 1" data-en="Podcast — 1">بودكاست — 1</div>
-</a>
 <a class="reel-card t1 reveal d1 portfolio-item" data-format="podcasts" data-industry="medical" data-yt="uHuvcu9RTfE" href="https://youtube.com/shorts/uHuvcu9RTfE" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="uHuvcu9RTfE" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 2" data-en="Podcast — 2">بودكاست — 2</div>
+<div class="rtitle" data-ar="بودكاست — 1" data-en="Podcast — 1">بودكاست — 1</div>
 </a>
 <a class="reel-card t5 reveal d2 portfolio-item" data-format="podcasts" data-industry="medical" data-yt="Wj_Vcg_y2-o" href="https://youtube.com/shorts/Wj_Vcg_y2-o" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="Wj_Vcg_y2-o" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 3" data-en="Podcast — 3">بودكاست — 3</div>
-</a>
-<a class="reel-card t2 reveal d3 portfolio-item" data-format="podcasts" data-industry="medical" data-yt="EQra0zSmLpw" href="https://youtube.com/shorts/EQra0zSmLpw" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="EQra0zSmLpw" loading="lazy"/>
-<span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 4" data-en="Podcast — 4">بودكاست — 4</div>
+<div class="rtitle" data-ar="بودكاست — 2" data-en="Podcast — 2">بودكاست — 2</div>
 </a>
 <a class="reel-card t6 reveal d4 portfolio-item" data-format="podcasts" data-industry="medical" data-yt="J-aTELRVJnY" href="https://youtube.com/shorts/J-aTELRVJnY" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="J-aTELRVJnY" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 5" data-en="Podcast — 5">بودكاست — 5</div>
+<div class="rtitle" data-ar="بودكاست — 3" data-en="Podcast — 3">بودكاست — 3</div>
 </a>
 <a class="reel-card t3 reveal portfolio-item" data-format="podcasts" data-industry="medical" data-yt="YB0Tv6ZBTUY" href="https://youtube.com/shorts/YB0Tv6ZBTUY" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="YB0Tv6ZBTUY" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 6" data-en="Podcast — 6">بودكاست — 6</div>
+<div class="rtitle" data-ar="بودكاست — 4" data-en="Podcast — 4">بودكاست — 4</div>
 </a>
 <a class="reel-card t2 reveal d1 portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="Q-0P4oxqH_E" href="https://youtube.com/shorts/Q-0P4oxqH_E" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="Q-0P4oxqH_E" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 7" data-en="Podcast — 7">بودكاست — 7</div>
-</a>
-<a class="reel-card t1 reveal d2 portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="hQ8rUmpaxLM" href="https://youtube.com/shorts/hQ8rUmpaxLM" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="hQ8rUmpaxLM" loading="lazy"/>
-<span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 8" data-en="Podcast — 8">بودكاست — 8</div>
+<div class="rtitle" data-ar="بودكاست — 5" data-en="Podcast — 5">بودكاست — 5</div>
 </a>
 <a class="reel-card t6 reveal d3 portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="YsjNnJcSwKM" href="https://youtube.com/shorts/YsjNnJcSwKM" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="YsjNnJcSwKM" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 9" data-en="Podcast — 9">بودكاست — 9</div>
+<div class="rtitle" data-ar="بودكاست — 6" data-en="Podcast — 6">بودكاست — 6</div>
 </a>
 <a class="reel-card t3 reveal d4 portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="PqAN7_tMKKo" href="https://youtube.com/shorts/PqAN7_tMKKo" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="PqAN7_tMKKo" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 10" data-en="Podcast — 10">بودكاست — 10</div>
-</a>
-<a class="reel-card t4 reveal portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="DFqLNZ1Dnyc" href="https://youtube.com/shorts/DFqLNZ1Dnyc" rel="noopener noreferrer" target="_blank">
-<img alt="" class="rimg" data-yt-id="DFqLNZ1Dnyc" loading="lazy"/>
-<span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
-<div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 11" data-en="Podcast — 11">بودكاست — 11</div>
+<div class="rtitle" data-ar="بودكاست — 7" data-en="Podcast — 7">بودكاست — 7</div>
 </a>
 <a class="reel-card t5 reveal d1 portfolio-item" data-format="podcasts" data-industry="medical" data-v="1" data-yt="k09jf_XBxVY" href="https://youtube.com/shorts/k09jf_XBxVY" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="k09jf_XBxVY" loading="lazy"/>
 <span class="rtag" data-ar="بودكاست" data-en="Podcast">بودكاست</span>
 <div class="play"><svg viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-<div class="rtitle" data-ar="بودكاست — 12" data-en="Podcast — 12">بودكاست — 12</div>
+<div class="rtitle" data-ar="بودكاست — 8" data-en="Podcast — 8">بودكاست — 8</div>
 </a>
 </div>
 <!-- ===== 2) فيديوهات يوتيوب وإعلانات (بالعرض) ===== -->
@@ -1456,7 +1488,7 @@ html{scroll-behavior:smooth}
 <section id="bts">
 <span class="kicker reveal" data-ar="وراء الكاميرا" data-en="Behind the scenes">وراء الكاميرا</span>
 <h2 class="title reveal d1" data-ar="كواليس الشغل" data-en="Behind the scenes">كواليس الشغل</h2>
-<p class="sub reveal d2" data-ar="من جوه اللوكيشن: التصوير، الإضاءة، والمونتاج — اسحب واتفرّج، كل فيديو بيشتغل جوه الموقع" data-en="From inside the shoot: filming, lighting and editing — swipe and watch, each plays right here">من جوه اللوكيشن: التصوير، الإضاءة، والمونتاج — اسحب واتفرّج، كل فيديو بيشتغل جوه الموقع</p>
+<p class="sub reveal d2" data-ar="شوية من اللي بيحصل ورا الكاميرا. دوس على أي فيديو واتفرج." data-en="A look at how the work actually gets made. Tap any clip to watch.">A look at how the work actually gets made. Tap any clip to watch.</p>
 <div class="bts-strip">
 <a class="reel-card t1 reveal" data-v="1" data-yt="vJYAXDHQ2xQ" href="https://youtube.com/shorts/vJYAXDHQ2xQ" rel="noopener noreferrer" target="_blank">
 <img alt="" class="rimg" data-yt-id="vJYAXDHQ2xQ" loading="lazy"/>
@@ -1858,186 +1890,184 @@ html{scroll-behavior:smooth}
 </section>
 <!-- ==================== PAIN POINTS ==================== -->
 <section id="problem">
-<span class="kicker reveal" data-ar="مشكلتك الحقيقية" data-en="Your real problem">مشكلتك الحقيقية</span>
-<h2 class="title reveal d1" data-ar="ليه المحتوى مش بيجيبلك عملاء؟" data-en="Why isn't content bringing you clients?">ليه المحتوى مش بيجيبلك عملاء؟</h2>
-<p class="sub reveal d2" data-ar="لو لقيت نفسك في واحدة من دول، أنا موجود عشان أحلها معاك:" data-en="If you recognize yourself in any of these, I'm here to fix it with you:">لو لقيت نفسك في واحدة من دول، أنا موجود عشان أحلها معاك:</p>
+<span class="kicker reveal" data-ar="حاسس بده؟" data-en="Sound familiar?">Sound familiar?</span>
+<h2 class="title reveal d1" data-ar="بتنزل كتير والعملاء مش بيكلموك؟" data-en="Posting a lot, but clients aren't calling?">Posting a lot, but clients aren't calling?</h2>
+<p class="sub reveal d2" data-ar="أغلب اللي بكلمهم عندهم واحدة من المشاكل دي:" data-en="Most people I talk to have one of these four problems:">Most people I talk to have one of these four problems:</p>
 <div class="pain-grid">
 <div class="pain reveal">
 <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"></path></svg></div>
-<h3 data-ar="محتوى بيتعمل بدون خطة" data-en="Content made without a plan">محتوى بيتعمل بدون خطة</h3>
-<p data-ar="بتنزل فيديوهات كتير بس من غير استراتيجية، فالنتيجة مشاهدات بتروح وتيجي ومفيش عميل بيتحوّل." data-en="You post a lot but without strategy — views come and go, and nobody converts into a client.">بتنزل فيديوهات كتير بس من غير استراتيجية، فالنتيجة مشاهدات بتروح وتيجي ومفيش عميل بيتحوّل.</p>
+<h3 data-ar="بتنزل من غير خطة" data-en="No plan behind the posts">No plan behind the posts</h3>
+<p data-ar="بتنزل كتير، والمشاهدات بتيجي وتروح، ومحدش بيتحول لعميل." data-en="You post often, views come and go, and no one turns into a client.">You post often, views come and go, and no one turns into a client.</p>
 </div>
 <div class="pain reveal d1">
 <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"></path></svg></div>
-<h3 data-ar="مالكش بصمة تميّزك" data-en="You have no signature style">مالكش بصمة تميّزك</h3>
-<p data-ar="شكل المحتوى بتاعك زيه زي أي حد، فالعميل بيقارنك بالسعر مش بالقيمة، وبيروح لأرخص واحد." data-en="Your content looks like everyone else's, so clients compare you on price, not value — and pick the cheapest.">شكل المحتوى بتاعك زيه زي أي حد، فالعميل بيقارنك بالسعر مش بالقيمة، وبيروح لأرخص واحد.</p>
+<h3 data-ar="شكلك زي أي حد" data-en="You look like everyone else">You look like everyone else</h3>
+<p data-ar="فالناس بتقارنك بالسعر، وبتروح للأرخص." data-en="So people compare you on price and go with whoever's cheaper.">So people compare you on price and go with whoever's cheaper.</p>
 </div>
 <div class="pain reveal d2">
 <div class="ic"><svg viewbox="0 0 24 24"><path d="M12 8v4l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"></path></svg></div>
-<h3 data-ar="وقتك بيضيع في التنفيذ" data-en="Your time drowns in execution">وقتك بيضيع في التنفيذ</h3>
-<p data-ar="بتحاول تعمل كل حاجة بنفسك — فكرة وتصوير ومونتاج — فمش فاضي تركّز في البيزنس نفسه." data-en="You try to do it all yourself — idea, shooting, editing — so you have no time to actually run your business.">بتحاول تعمل كل حاجة بنفسك — فكرة وتصوير ومونتاج — فمش فاضي تركّز في البيزنس نفسه.</p>
+<h3 data-ar="بتعمل كل حاجة بنفسك" data-en="You're doing it all yourself">You're doing it all yourself</h3>
+<p data-ar="أفكار وتصوير ومونتاج، ومفيش وقت للبيزنس نفسه." data-en="Ideas, filming, editing… and no time left for the actual business.">Ideas, filming, editing… and no time left for the actual business.</p>
 </div>
 <div class="pain reveal">
 <div class="ic"><svg viewbox="0 0 24 24"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"></path></svg></div>
-<h3 data-ar="جودة مش على مستوى البراند" data-en="Quality below your brand">جودة مش على مستوى البراند</h3>
-<p data-ar="بتصرف على إعلانات وشغلك شكله عادي، فالانطباع الأول عن البراند بيبقى أضعف من المنافسين." data-en="You spend on ads but the work looks ordinary, so the first impression of your brand is weaker than competitors.">بتصرف على إعلانات وشغلك شكله عادي، فالانطباع الأول عن البراند بيبقى أضعف من المنافسين.</p>
+<h3 data-ar="الفيديوهات مش على مستواك" data-en="Your videos don't match your level">Your videos don't match your level</h3>
+<p data-ar="إنت شاطر في شغلك، بس الفيديو بيبيّنك عادي. وده أول حاجة الناس بتشوفها." data-en="You're great at what you do, but the videos make you look ordinary. And that's the first thing people see.">You're great at what you do, but the videos make you look ordinary. And that's the first thing people see.</p>
 </div>
 </div>
-<div class="pain-cta reveal" data-ar="«الحل مش إنك تنزل أكتر... الحل إنك تنزل صح.»" data-en="“The fix isn't posting more — it's posting right.”">«الحل مش إنك تنزل أكتر... الحل إنك تنزل صح.»</div>
+<div class="pain-cta reveal" data-ar="«إنت مش محتاج فيديوهات أكتر. محتاج فيديوهات أحسن.»" data-en="“You don't need more videos. You need better ones.”">“You don't need more videos. You need better ones.”</div>
 </section>
 <!-- ==================== PROCESS ==================== -->
 <section id="process">
 <span class="kicker reveal" data-ar="إزاي بشتغل" data-en="How I work">إزاي بشتغل</span>
-<h2 class="title reveal d1" data-ar="من الاستراتيجية... للنمو" data-en="From strategy to growth">من الاستراتيجية... للنمو</h2>
-<p class="sub reveal d2" data-ar="نظام كامل، مش خدمة واحدة. ده اللي بيحصل لما نشتغل مع بعض:" data-en="A complete system, not a single service. Here's what happens when we work together:">نظام كامل، مش خدمة واحدة. ده اللي بيحصل لما نشتغل مع بعض:</p>
+<h2 class="title reveal d1" data-ar="هنشتغل مع بعض إزاي" data-en="How we'll work together">How we'll work together</h2>
+<p class="sub reveal d2" data-ar="أربع خطوات بسيطة، من أول مكالمة لحد أول نتيجة:" data-en="Four simple steps, from our first call to your first results:">Four simple steps, from our first call to your first results:</p>
 <div class="process-grid">
 <div class="step reveal">
 <div class="n">01</div>
-<h3 data-ar="نفهم البيزنس" data-en="Understand the business">نفهم البيزنس</h3>
-<p data-ar="جلسة استراتيجية: مين جمهورك، إيه هدفك، وإيه اللي بيمنع المحتوى الحالي إنه يجيب نتيجة." data-en="Strategy session: your audience, your goal, and what's stopping your current content from converting.">جلسة استراتيجية: مين جمهورك، إيه هدفك، وإيه اللي بيمنع المحتوى الحالي إنه يجيب نتيجة.</p>
+<h3 data-ar="نتكلم" data-en="We talk">We talk</h3>
+<p data-ar="مكالمة قصيرة عن البيزنس بتاعك، وجمهورك، وعايز إيه من الفيديوهات." data-en="A short call about your business, your audience and what you want from your videos.">A short call about your business, your audience and what you want from your videos.</p>
 </div>
 <div class="step reveal d1">
 <div class="n">02</div>
-<h3 data-ar="نبني خطة المحتوى" data-en="Build the content plan">نبني خطة المحتوى</h3>
-<p data-ar="أفكار وسكريبتات مكتوبة تخاطب جمهورك — محتوى بيبيع مش بس بيتفرّج عليه." data-en="Ideas and written scripts that speak to your audience — content that sells, not just gets watched.">أفكار وسكريبتات مكتوبة تخاطب جمهورك — محتوى بيبيع مش بس بيتفرّج عليه.</p>
+<h3 data-ar="نخطط" data-en="We plan">We plan</h3>
+<p data-ar="برجعلك بأفكار وسكريبتات مكتوبة، وإنت توافق عليها قبل ما نصوّر أي حاجة." data-en="I come back with ideas and written scripts. You approve them before we film anything.">I come back with ideas and written scripts. You approve them before we film anything.</p>
 </div>
 <div class="step reveal d2">
 <div class="n">03</div>
-<h3 data-ar="ننفّذ باحترافية" data-en="Produce professionally">ننفّذ باحترافية</h3>
-<p data-ar="تصوير وإضاءة سينمائية، مونتاج وتلوين وموشن جرافيك — جودة تخلي البراند بتاعك مختلف." data-en="Cinematic shooting and lighting, editing, grading and motion graphics — quality that sets your brand apart.">تصوير وإضاءة سينمائية، مونتاج وتلوين وموشن جرافيك — جودة تخلي البراند بتاعك مختلف.</p>
+<h3 data-ar="نصوّر ونمنتج" data-en="We shoot &amp; edit">We shoot &amp; edit</h3>
+<p data-ar="الإضاءة والكاميرا والمونتاج والألوان والصوت عليا. وإنت بس تيجي وتبقى على طبيعتك." data-en="Lights, camera, editing, color and sound are on me. You just show up and be yourself.">Lights, camera, editing, color and sound are on me. You just show up and be yourself.</p>
 </div>
 <div class="step reveal d3">
 <div class="n">04</div>
-<h3 data-ar="نقيس ونكبر" data-en="Measure &amp; scale">نقيس ونكبر</h3>
-<p data-ar="نتابع الأداء ونطوّر — اللي بيشتغل نزوّده، واللي مش بيجيب نتيجة نغيّره." data-en="We track performance and iterate — double down on what works, change what doesn't.">نتابع الأداء ونطوّر — اللي بيشتغل نزوّده، واللي مش بيجيب نتيجة نغيّره.</p>
+<h3 data-ar="نطوّر" data-en="We improve">We improve</h3>
+<p data-ar="نشوف إيه اللي نجح، ونعمل منه أكتر الشهر الجاي." data-en="We look at what's working and do more of it next month.">We look at what's working and do more of it next month.</p>
 </div>
 </div>
 </section>
 <!-- ==================== SERVICES ==================== -->
 <section id="services">
 <span class="kicker reveal" data-ar="الباقات" data-en="Packages">الباقات</span>
-<h2 class="title reveal d1" data-ar="اختار مستوى الشراكة" data-en="Choose your level of partnership">اختار مستوى الشراكة</h2>
-<p class="sub reveal d2" data-ar="(عدّل الأسعار والتفاصيل حسب عروضك الحالية)" data-en="(Edit prices &amp; details to match your current offers)">(عدّل الأسعار والتفاصيل حسب عروضك الحالية)</p>
+<h2 class="title reveal d1" data-ar="اختار اللي يناسبك" data-en="Pick what fits you">Pick what fits you</h2>
+<p class="sub reveal d2" data-ar="كل مشروع مختلف، فالسعر بنتفق عليه في مكالمة 15 دقيقة مجانية. من غير أي التزام." data-en="Every project is different, so we agree on the price in a free 15-minute call. No commitment.">Every project is different, so we agree on the price in a free 15-minute call. No commitment.</p>
 <div class="plans">
 <div class="plan reveal">
-<h3 data-ar="إنتاج فيديو" data-en="Video production">إنتاج فيديو</h3>
-<div class="price" data-ar="حسب المشروع" data-en="Custom quote">حسب المشروع</div>
+<h3 data-ar="فيديو أو ريل واحد" data-en="A single video">A single video</h3>
+<div class="price" data-ar="السعر في المكالمة" data-en="Quote on the call">السعر في المكالمة</div>
 <ul>
 <li data-ar="تصوير وإضاءة احترافية" data-en="Professional shooting &amp; lighting">تصوير وإضاءة احترافية</li>
 <li data-ar="مونتاج وتلوين سينمائي" data-en="Editing &amp; cinematic grading">مونتاج وتلوين سينمائي</li>
 <li data-ar="تصميم صوت وموسيقى" data-en="Sound design &amp; music">تصميم صوت وموسيقى</li>
-<li data-ar="تعديلات حسب الاتفاق" data-en="Revisions as agreed">تعديلات حسب الاتفاق</li>
+<li data-ar="التعديلات معاك" data-en="Revisions included">Revisions included</li>
 </ul>
-<a class="btn btn-ghost" data-ar="اطلب الخدمة" data-en="Get started" href="#book">اطلب الخدمة</a>
+<a class="btn btn-ghost" data-ar="يلا نتكلم" data-en="Let's talk" href="#book">Let's talk</a>
 </div>
 <div class="plan featured reveal d1">
 <span class="badge" data-ar="الأكثر طلباً" data-en="Most popular">الأكثر طلباً</span>
-<h3 data-ar="شريك المحتوى الشهري" data-en="Monthly content partner">شريك المحتوى الشهري</h3>
-<div class="price" data-ar="حسب المشروع" data-en="Custom quote">حسب المشروع</div>
+<h3 data-ar="محتوى كل شهر" data-en="Monthly content">Monthly content</h3>
+<div class="price" data-ar="السعر في المكالمة" data-en="Quote on the call">السعر في المكالمة</div>
 <ul>
-<li data-ar="استراتيجية محتوى كاملة لبيزنسك" data-en="Full content strategy for your business">استراتيجية محتوى كاملة لبيزنسك</li>
-<li data-ar="أفكار وسكريبتات شهرية" data-en="Monthly ideas &amp; scripts">أفكار وسكريبتات شهرية</li>
-<li data-ar="تصوير + مونتاج عدد فيديوهات شهرياً" data-en="Monthly batch: shooting + editing">تصوير + مونتاج عدد فيديوهات شهرياً</li>
-<li data-ar="هوية بصرية موحدة لكل المحتوى" data-en="Consistent branding across all content">هوية بصرية موحدة لكل المحتوى</li>
-<li data-ar="متابعة الأداء وتطوير الخطة" data-en="Performance tracking &amp; plan iteration">متابعة الأداء وتطوير الخطة</li>
+<li data-ar="خطة محتوى للبيزنس بتاعك" data-en="A content plan for your business">A content plan for your business</li>
+<li data-ar="أفكار وسكريبتات كل شهر" data-en="Ideas &amp; scripts every month">Ideas &amp; scripts every month</li>
+<li data-ar="تصوير ومونتاج على دفعات" data-en="Shooting &amp; editing, done in batches">Shooting &amp; editing, done in batches</li>
+<li data-ar="شكل واحد ثابت لكل فيديوهاتك" data-en="One consistent look across all your videos">One consistent look across all your videos</li>
+<li data-ar="مراجعة كل شهر لإيه اللي شغال" data-en="A monthly check-in on what's working">A monthly check-in on what's working</li>
 </ul>
 <a class="btn btn-primary" data-ar="احجز مكالمة" data-en="Book a call" href="#book">احجز مكالمة</a>
 </div>
 <div class="plan reveal d2">
-<h3 data-ar="مشروع كامل (فيلم / إعلان)" data-en="Full project (film / ad)">مشروع كامل (فيلم / إعلان)</h3>
-<div class="price" data-ar="حسب المشروع" data-en="Custom quote">حسب المشروع</div>
+<h3 data-ar="إعلان أو فيلم كامل" data-en="A full ad or film">A full ad or film</h3>
+<div class="price" data-ar="السعر في المكالمة" data-en="Quote on the call">السعر في المكالمة</div>
 <ul>
-<li data-ar="فكرة وسيناريو من الصفر" data-en="Concept &amp; script from scratch">فكرة وسيناريو من الصفر</li>
-<li data-ar="إنتاج كامل من الألف للياء" data-en="Full production A to Z">إنتاج كامل من الألف للياء</li>
-<li data-ar="فريق تصوير عند الحاجة" data-en="Crew when needed">فريق تصوير عند الحاجة</li>
-<li data-ar="تسليم بجودة سينمائية" data-en="Cinematic-grade delivery">تسليم بجودة سينمائية</li>
+<li data-ar="الفكرة والسكريبت من الصفر" data-en="Idea &amp; script from scratch">Idea &amp; script from scratch</li>
+<li data-ar="كل حاجة من الأول للآخر" data-en="Everything, start to finish">Everything, start to finish</li>
+<li data-ar="فريق تصوير لو المشروع محتاج" data-en="A crew when the shoot needs one">A crew when the shoot needs one</li>
+<li data-ar="نسخة نهائية بجودة سينمائية" data-en="A cinema-quality final cut">A cinema-quality final cut</li>
 </ul>
-<a class="btn btn-ghost" data-ar="كلمني بالتفاصيل" data-en="Let's talk details" href="#book">كلمني بالتفاصيل</a>
+<a class="btn btn-ghost" data-ar="احكيلي عن المشروع" data-en="Tell me about it" href="#book">Tell me about it</a>
 </div>
 </div>
 </section>
 <!-- ==================== OUTCOME (النتيجة) ==================== -->
 <div class="outcome-wrap">
 <section id="outcome">
-<span class="kicker reveal" data-ar="النتيجة" data-en="The outcome">النتيجة</span>
-<h2 class="title reveal d1" data-ar="شكل بيزنسك بعد ما نشتغل مع بعض" data-en="Your business after we work together">شكل بيزنسك بعد ما نشتغل مع بعض</h2>
-<p class="sub reveal d2" data-ar="مش مجرد فيديوهات أحلى — نقلة حقيقية في طريقة ظهورك ونتايجك:" data-en="Not just prettier videos — a real shift in how you show up and what you get:">مش مجرد فيديوهات أحلى — نقلة حقيقية في طريقة ظهورك ونتايجك:</p>
+<span class="kicker reveal" data-ar="إيه اللي هيتغير" data-en="What changes">What changes</span>
+<h2 class="title reveal d1" data-ar="اللي هتلاحظه بعد كام شهر" data-en="What you'll notice after a few months">What you'll notice after a few months</h2>
+<p class="sub reveal d2" data-ar="ده اللي الفيديو الكويس بيعمله لأي بيزنس:" data-en="Here's what good video does for a business:">Here's what good video does for a business:</p>
 <div class="out-grid">
 <div class="out reveal">
 <div class="chk"><svg viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>
-<h3 data-ar="بصمة بصرية تميّزك" data-en="A signature look">بصمة بصرية تميّزك</h3>
-<p data-ar="محتوى ليه هوية ثابتة يخلي الناس تعرف شغلك من أول لقطة." data-en="Content with a consistent identity people recognize from the first shot.">محتوى ليه هوية ثابتة يخلي الناس تعرف شغلك من أول لقطة.</p>
+<h3 data-ar="الناس بتعرفك" data-en="People recognize you">People recognize you</h3>
+<p data-ar="فيديوهاتك ليها شكل واحد، فالناس تعرف إنها إنت قبل ما تشوف اسمك." data-en="Your videos have one look, so people know it's you before they see your name.">Your videos have one look, so people know it's you before they see your name.</p>
 </div>
 <div class="out reveal d1">
 <div class="chk"><svg viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>
-<h3 data-ar="عملاء بيجولك انت" data-en="Clients come to you">عملاء بيجولك انت</h3>
-<p data-ar="بدل ما تجري ورا الشغل، المحتوى بيبني ثقة تخلي العميل يطلبك بالاسم." data-en="Instead of chasing work, content builds trust so clients ask for you by name.">بدل ما تجري ورا الشغل، المحتوى بيبني ثقة تخلي العميل يطلبك بالاسم.</p>
+<h3 data-ar="العملاء بيكلموك هما" data-en="Clients reach out first">Clients reach out first</h3>
+<p data-ar="اللي بيتابعك فترة بيكلمك وهو واثق فيك أصلًا." data-en="People who've watched you for a while already trust you when they call.">People who've watched you for a while already trust you when they call.</p>
 </div>
 <div class="out reveal d2">
 <div class="chk"><svg viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>
-<h3 data-ar="وقت فاضي ليك" data-en="Time back for you">وقت فاضي ليك</h3>
-<p data-ar="أنا بشيل عنك عبء المحتوى بالكامل، وانت تركّز في اللي بيكبّر بيزنسك." data-en="I take the whole content load off you, so you focus on growing your business.">أنا بشيل عنك عبء المحتوى بالكامل، وانت تركّز في اللي بيكبّر بيزنسك.</p>
+<h3 data-ar="وقتك بيرجعلك" data-en="You get your time back">You get your time back</h3>
+<p data-ar="أنا بشيل موضوع الفيديو كله، وإنت تركّز في شغلك." data-en="I handle the whole video side, so you can focus on your work.">I handle the whole video side, so you can focus on your work.</p>
 </div>
 <div class="out reveal d3">
 <div class="chk"><svg viewbox="0 0 24 24"><path d="M20 6L9 17l-5-5"></path></svg></div>
-<h3 data-ar="سعر أعلى بثقة" data-en="Higher rates, confidently">سعر أعلى بثقة</h3>
-<p data-ar="لما شغلك يبان محترف، بتقدر ترفع أسعارك والعميل يدفع عن اقتناع." data-en="When your work looks premium, you can raise prices and clients pay gladly.">لما شغلك يبان محترف، بتقدر ترفع أسعارك والعميل يدفع عن اقتناع.</p>
+<h3 data-ar="تقدر تطلب سعرك" data-en="Easier to charge what you're worth">Easier to charge what you're worth</h3>
+<p data-ar="لما شكلك يبان مميز، الناس مبتجادلش كتير في السعر." data-en="When you look premium, people argue a lot less about price.">When you look premium, people argue a lot less about price.</p>
 </div>
 </div>
 </section>
 </div>
 <!-- ==================== FAQ ==================== -->
 <section id="faq">
-<span class="kicker reveal" data-ar="أسئلة قبل ما تبدأ" data-en="Questions before you start">أسئلة قبل ما تبدأ</span>
-<h2 class="title reveal d1" data-ar="اسأل براحتك" data-en="Ask away">اسأل براحتك</h2>
-<p class="sub reveal d2" data-ar="جمعت أكتر الأسئلة اللي بتتسأل قبل ما نشتغل مع بعض:" data-en="The most common questions I get before we work together:">جمعت أكتر الأسئلة اللي بتتسأل قبل ما نشتغل مع بعض:</p>
+<span class="kicker reveal" data-ar="أسئلة" data-en="Questions">Questions</span>
+<h2 class="title reveal d1" data-ar="عندك سؤال؟" data-en="Got questions?">Got questions?</h2>
+<p class="sub reveal d2" data-ar="دي الأسئلة اللي بتتسأل أكتر:" data-en="Here's what people usually ask me first:">Here's what people usually ask me first:</p>
 <div class="faq-list">
 <div class="faq-item reveal">
 <button class="faq-q" type="button"><span data-ar="بتشتغل مع أي نوع بيزنس؟" data-en="Do you work with any type of business?">بتشتغل مع أي نوع بيزنس؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="أشتغل أكتر مع الدكاترة والكوتشيز وصنّاع المحتوى والبراندات الشخصية، بس أي بيزنس عايز يستخدم المحتوى عشان يكبر ويبيع أقدر أساعده. أول خطوة دايماً مكالمة قصيرة نفهم فيها البيزنس بتاعك." data-en="I mostly work with doctors, coaches, creators and personal brands, but any business that wants to grow and sell through content is welcome. The first step is always a short call to understand your business.">أشتغل أكتر مع الدكاترة والكوتشيز وصنّاع المحتوى والبراندات الشخصية، بس أي بيزنس عايز يستخدم المحتوى عشان يكبر ويبيع أقدر أساعده. أول خطوة دايماً مكالمة قصيرة نفهم فيها البيزنس بتاعك.</p></div>
+<div class="faq-a"><p data-ar="غالبًا دكاترة ومحامين وكوتشيز وبراندات شخصية. بس لو عايز تكبّر البيزنس بتاعك بالفيديو، غالبًا هنتفاهم. وفي كل الحالات بنبدأ بمكالمة قصيرة." data-en="Mostly doctors, lawyers, coaches and personal brands. But if you want to grow your business with video, we'll probably get along. Either way, we start with a short call.">Mostly doctors, lawyers, coaches and personal brands. But if you want to grow your business with video, we'll probably get along. Either way, we start with a short call.</p></div>
 </div>
 <div class="faq-item reveal d1">
-<button class="faq-q" type="button"><span data-ar="الأسعار بتبدأ منين؟" data-en="Where do prices start?">الأسعار بتبدأ منين؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="السعر بيختلف حسب نوع الشغل وحجمه — ريل واحد غير باقة شهرية غير إنتاج إعلان كامل. بعد ما نتكلم في مكالمة التعارف بحدد لك عرض واضح يناسب هدفك وميزانيتك من غير مفاجآت." data-en="Pricing depends on the type and volume of work — a single reel differs from a monthly package or a full ad production. After our intro call I give you a clear quote matching your goal and budget, with no surprises.">السعر بيختلف حسب نوع الشغل وحجمه — ريل واحد غير باقة شهرية غير إنتاج إعلان كامل. بعد ما نتكلم في مكالمة التعارف بحدد لك عرض واضح يناسب هدفك وميزانيتك من غير مفاجآت.</p></div>
+<button class="faq-q" type="button"><span data-ar="التكلفة كام؟" data-en="How much does it cost?">How much does it cost?</span><span class="qic">+</span></button>
+<div class="faq-a"><p data-ar="على حسب اللي محتاجه. ريل واحد غير باقة شهرية غير إعلان كامل. بعد مكالمة 15 دقيقة ببعتلك سعر واضح، من غير مفاجآت." data-en="It depends on what you need. One reel is different from a monthly package or a full ad. After a 15-minute call, I send you a clear price with no surprises.">It depends on what you need. One reel is different from a monthly package or a full ad. After a 15-minute call, I send you a clear price with no surprises.</p></div>
 </div>
 <div class="faq-item reveal d2">
-<button class="faq-q" type="button"><span data-ar="أنا بعمل كل حاجة بنفسي ولا في فريق؟" data-en="Do you do everything yourself or with a team?">أنا بعمل كل حاجة بنفسي ولا في فريق؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="بشتغل One Man Crew في أغلب المشاريع — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين والـ Sound Design. ولو المشروع كبير ومحتاج فريق تصوير، بجهّزه عند الحاجة." data-en="I work as a one-man crew on most projects — from idea and script, to shooting and lighting, to editing, grading and sound design. For bigger projects that need a crew, I arrange one when needed.">بشتغل One Man Crew في أغلب المشاريع — من الفكرة والسكريبت، للتصوير والإضاءة، للمونتاج والتلوين والـ Sound Design. ولو المشروع كبير ومحتاج فريق تصوير، بجهّزه عند الحاجة.</p></div>
+<button class="faq-q" type="button"><span data-ar="بتشتغل لوحدك ولا معاك فريق؟" data-en="Do you work alone or with a team?">Do you work alone or with a team?</span><span class="qic">+</span></button>
+<div class="faq-a"><p data-ar="أغلب المشاريع بعملها لوحدي: السكريبت، والكاميرا، والإضاءة، والمونتاج، والألوان، والصوت. ولو التصوير كبير بجيب فريق." data-en="On most projects it's just me: script, camera, lights, edit, color and sound. For bigger shoots, I bring in a crew.">On most projects it's just me: script, camera, lights, edit, color and sound. For bigger shoots, I bring in a crew.</p></div>
 </div>
 <div class="faq-item reveal">
 <button class="faq-q" type="button"><span data-ar="لو مش عاجبني المونتاج بيحصل إيه؟" data-en="What if I don't like the edit?">لو مش عاجبني المونتاج بيحصل إيه؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="التعديلات جزء أساسي من الشغل. بنتفق من البداية على عدد جولات التعديل، وبراجع معاك أول نسخة لحد ما توصل للشكل اللي انت متخيله. هدفي إنك تبقى مبسوط بالنتيجة مش بس أسلّم وخلاص." data-en="Revisions are part of the deal. We agree upfront on revision rounds, and I refine the first cut with you until it matches your vision. My goal is that you're happy with the result, not just that I deliver.">التعديلات جزء أساسي من الشغل. بنتفق من البداية على عدد جولات التعديل، وبراجع معاك أول نسخة لحد ما توصل للشكل اللي انت متخيله. هدفي إنك تبقى مبسوط بالنتيجة مش بس أسلّم وخلاص.</p></div>
+<div class="faq-a"><p data-ar="بنعدّله. بنتفق على عدد التعديلات من الأول، وبفضل شغال عليه معاك لحد ما تبقى مبسوط." data-en="Then we fix it. We agree on revision rounds at the start, and I keep working on it with you until you're happy.">Then we fix it. We agree on revision rounds at the start, and I keep working on it with you until you're happy.</p></div>
 </div>
 <div class="faq-item reveal d1">
-<button class="faq-q" type="button"><span data-ar="مش عندي أفكار محتوى، تقدر تساعدني؟" data-en="I have no content ideas — can you help?">مش عندي أفكار محتوى، تقدر تساعدني؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="ده بالظبط دوري. أنا مش بس بنفّذ — بحط معاك استراتيجية وأفكار وسكريبتات تخاطب جمهورك وتحقق هدفك. انت بتيجي بالبيزنس وأنا بجيب المحتوى اللي يكبّره." data-en="That's exactly my role. I don't just execute — I build the strategy, ideas and scripts that speak to your audience and hit your goal. You bring the business, I bring the content that grows it.">ده بالظبط دوري. أنا مش بس بنفّذ — بحط معاك استراتيجية وأفكار وسكريبتات تخاطب جمهورك وتحقق هدفك. انت بتيجي بالبيزنس وأنا بجيب المحتوى اللي يكبّره.</p></div>
+<button class="faq-q" type="button"><span data-ar="معنديش أفكار محتوى. تقدر تساعدني؟" data-en="I don't have content ideas. Can you help?">I don't have content ideas. Can you help?</span><span class="qic">+</span></button>
+<div class="faq-a"><p data-ar="دي أكتر حتة بحبها. أنا بطلّع الأفكار وبكتب السكريبتات، وإنت تيجي بخبرتك بس." data-en="That's my favorite part. I come up with the ideas and write the scripts. You just bring your experience.">That's my favorite part. I come up with the ideas and write the scripts. You just bring your experience.</p></div>
 </div>
 <div class="faq-item reveal d2">
 <button class="faq-q" type="button"><span data-ar="بتشتغل مع عملاء بره مصر؟" data-en="Do you work with clients outside Egypt?">بتشتغل مع عملاء بره مصر؟</span><span class="qic">+</span></button>
-<div class="faq-a"><p data-ar="أيوة. المونتاج والاستراتيجية والموشن جرافيك بيتعملوا أونلاين من أي مكان — واشتغلت فعلاً مع عملاء بره مصر. التصوير الميداني بس هو اللي بيحتاج نكون في نفس المكان أو نرتب له." data-en="Yes. Editing, strategy and motion graphics happen online from anywhere — and I've worked with clients abroad. Only on-location shooting requires us to be in the same place or to arrange it.">أيوة. المونتاج والاستراتيجية والموشن جرافيك بيتعملوا أونلاين من أي مكان — واشتغلت فعلاً مع عملاء بره مصر. التصوير الميداني بس هو اللي بيحتاج نكون في نفس المكان أو نرتب له.</p></div>
+<div class="faq-a"><p data-ar="أيوه. المونتاج والسكريبتات والموشن بيتعملوا من أي مكان، واشتغلت مع عملاء بره مصر. التصوير بس هو اللي محتاج نكون في نفس المكان." data-en="Yes. Editing, scripts and motion graphics work from anywhere, and I've worked with clients abroad. Filming is the only part where we need to be in the same place.">Yes. Editing, scripts and motion graphics work from anywhere, and I've worked with clients abroad. Filming is the only part where we need to be in the same place.</p></div>
 </div>
 </div>
 </section>
 <!-- ==================== BOOKING ==================== -->
 <section id="book">
 <span class="kicker reveal" data-ar="احجز ميعاد" data-en="Book a call">احجز ميعاد</span>
-<h2 class="title reveal d1" data-ar="يلا نكبّر البيزنس بتاعك" data-en="Let's grow your business">يلا نكبّر البيزنس بتاعك</h2>
-<p class="sub reveal d2" data-ar="عميل جديد؟ املا برايف مشروعك في 4 خطوات سريعة وهرجعلك بخطة — أو كلمني مباشرة واتساب أو إيميل." data-en="New client? Fill your project brief in 4 quick steps and I'll get back with a plan — or reach me directly on WhatsApp or email.">عميل جديد؟ املا برايف مشروعك في 4 خطوات سريعة وهرجعلك بخطة — أو كلمني مباشرة واتساب أو إيميل.</p>
+<h2 class="title reveal d1" data-ar="يلا نتكلم عن مشروعك" data-en="Let's talk about your project">Let's talk about your project</h2>
+<p class="sub reveal d2" data-ar="املا برايف سريع من 4 خطوات وهرجعلك بخطة. بتحب الكلام أكتر؟ كلمني واتساب أو إيميل." data-en="Fill in a quick 4-step brief and I'll get back to you with a plan. Prefer to just chat? WhatsApp or email works too.">Fill in a quick 4-step brief and I'll get back to you with a plan. Prefer to just chat? WhatsApp or email works too.</p>
 <div class="book-wrap">
 <div class="book-cards">
 <a class="book-card reveal" href="https://wa.me/201012431207?text=%D8%A7%D9%87%D9%84%D8%A7%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B9%D8%A7%D9%83%20Content" rel="noopener noreferrer" target="_blank">
 <div class="ico wa"><svg viewbox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.2L2 22l4.9-1.6A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.35-2 1.4-.55.05-1.05.25-3.55-.75-3-1.2-4.9-4.25-5.05-4.45-.15-.2-1.2-1.6-1.2-3.05s.75-2.15 1-2.45c.25-.3.55-.35.75-.35h.55c.15 0 .4-.05.6.5.25.55.8 1.9.85 2.05.05.15.1.3 0 .5-.1.2-.15.3-.3.5s-.3.35-.45.5c-.15.15-.3.3-.15.6.15.3.75 1.2 1.6 1.95 1.1 1 2 1.3 2.3 1.45.3.15.5.1.65-.05.2-.15.75-.85.95-1.15.2-.3.4-.25.65-.15s1.65.8 1.95.9c.3.15.5.2.55.3.05.15.05.65-.2 1.3z"></path></svg></div>
-<div><b data-ar="واتساب مباشر" data-en="WhatsApp — instant">واتساب مباشر</b><small data-ar="أسرع طريقة — ابعت «Content» وهرد عليك" data-en="Fastest way — DM “Content” and I'll reply">أسرع طريقة — ابعت «Content» وهرد عليك</small></div>
+<div><b data-ar="واتساب مباشر" data-en="WhatsApp — instant">واتساب مباشر</b><small data-ar="أسرع طريقة: ابعت «Content» وهرد عليك" data-en="Fastest way: send “Content” and I'll reply">Fastest way: send “Content” and I'll reply</small></div>
 </a>
 <a class="book-card reveal d1" href="mailto:apderahman00@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%AD%D8%AC%D8%B2%20%D9%85%D9%8A%D8%B9%D8%A7%D8%AF">
 <div class="ico em"><svg viewbox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path></svg></div>
 <div><b data-ar="إيميل" data-en="Email">إيميل</b><small>apderahman00@gmail.com</small></div>
 </a>
-<!-- لو عندك Calendly حط اللينك بتاعك هنا -->
-<!-- ⚠️ لما تعمل حساب Calendly، بدّل اللينك ده بلينكك -->
-<a class="book-card reveal d2" href="https://wa.me/201012431207?text=%D8%A7%D9%87%D9%84%D8%A7%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D8%AA%D8%B9%D8%A7%D8%B1%D9%81" rel="noopener noreferrer" target="_blank">
+<a class="book-card reveal d2" href="#briefForm" id="calCard">
 <div class="ico ca"><svg viewbox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5z"></path></svg></div>
-<div><b data-ar="احجز من الكالندر" data-en="Book via calendar">احجز من الكالندر</b><small data-ar="اختار اليوم والساعة اللي تناسبك" data-en="Pick the day &amp; time that suits you">اختار اليوم والساعة اللي تناسبك</small></div>
+<div><b data-ar="احجز مكالمة 15 دقيقة" data-en="Book a 15-min call">احجز مكالمة 15 دقيقة</b><small data-ar="مجانية — اختار اليوم والساعة ونحدد فيها مشروعك" data-en="Free — pick a day &amp; time and we scope your project">مجانية — اختار اليوم والساعة ونحدد فيها مشروعك</small></div>
 </a>
 </div>
 <form class="book-form reveal d2" id="briefForm">
@@ -2054,7 +2084,7 @@ html{scroll-behavior:smooth}
 <div class="wiz-panel act">
 <label data-ar="اسمك" data-en="Your name">اسمك</label>
 <input data-ar-ph="اسمك إيه؟" data-en-ph="Your name" id="bName" placeholder="اسمك إيه؟" type="text"/>
-<div class="wiz-err" data-ar="محتاج اسمك عشان نكمل" data-en="I need your name to continue" id="errName">محتاج اسمك عشان نكمل</div>
+<div class="wiz-err" data-ar="قولّي اسمك عشان نكمّل" data-en="What should I call you?" id="errName">What should I call you?</div>
 <label data-ar="اسم الشركة / البراند" data-en="Company / brand name">اسم الشركة / البراند</label>
 <input data-ar-ph="اسم البيزنس أو البراند الشخصي" data-en-ph="Business or personal brand name" id="bBrand" placeholder="اسم البيزنس أو البراند الشخصي" type="text"/>
 <label data-ar="نوع البيزنس" data-en="Business type">نوع البيزنس</label>
@@ -2181,6 +2211,8 @@ html{scroll-behavior:smooth}
 <div class="track"><div class="fill" id="sprogFill"></div><span class="dot" id="sprogDot"></span></div>
 <span class="lbl" id="sprogLbl">SCROLL</span>
 </div>
+<!-- ==================== كارت احجز مكالمة الثابت ==================== -->
+<a class="call-pill" href="#book" id="callPill"><img alt="" onerror="this.onerror=null;this.src='abdelrahman-about.jpg'" src="avatar.jpg"/><span><b data-ar="احجز مكالمة 15 دقيقة" data-en="Book a 15-min call">احجز مكالمة 15 دقيقة</b><small data-ar="مجانية — نحدد فيها مشروعك" data-en="Free — we scope your project">مجانية — نحدد فيها مشروعك</small></span></a>
 <!-- ==================== FLOATING WHATSAPP ==================== -->
 <a class="wa-float" href="https://wa.me/201012431207?text=%D8%A7%D9%87%D9%84%D8%A7%20%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%A7%D9%84%D8%A8%D9%88%D8%B1%D8%AA%D9%81%D9%88%D9%84%D9%8A%D9%88%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%A8%D8%AF%D8%A3%20%D9%85%D8%B9%D8%A7%D9%83" rel="noopener noreferrer" target="_blank" title="WhatsApp">
 <span class="wa-tip" data-ar="كلمني على واتساب" data-en="Chat on WhatsApp">كلمني على واتساب</span>
@@ -2195,7 +2227,7 @@ html{scroll-behavior:smooth}
 /* ============ Language toggle ============ */
 const langBtn=document.getElementById('langBtn');
 const langLabel=document.getElementById('langLabel');
-let lang='en';
+let lang=(function(){try{return localStorage.getItem('aa_lang')||'en'}catch(e){return 'en'}})();
 function applyLang(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
@@ -2204,7 +2236,7 @@ function applyLang(){
   document.querySelectorAll('[data-ar-ph]').forEach(el=>{
     el.placeholder=lang==='ar'?el.dataset.arPh:el.dataset.enPh;
   });
-  document.title=lang==='ar'?'عبدالرحمن أيمن — بساعد رواد الأعمال يحوّلوا المحتوى لمصدر دخل':'Abdelrahman Ayman — I turn content into revenue';
+  document.title=lang==='ar'?'عبدالرحمن أيمن — مصوّر ومونتير | محتوى سينمائي للبيزنس':'Abdelrahman Ayman — Filmmaker & Video Editor | Cinematic content for business';
   if(typeof wizShow==='function')wizShow(wizCur);
   if(typeof window.refreshPortfolioLanguage==='function')window.refreshPortfolioLanguage();
 }
@@ -2212,7 +2244,7 @@ langBtn.addEventListener('click',()=>{
   dismissLangHint();
   document.body.style.opacity='0';
   document.body.style.transition='opacity .25s';
-  setTimeout(()=>{lang=lang==='ar'?'en':'ar';applyLang();document.body.style.opacity='1';},250);
+  setTimeout(()=>{lang=lang==='ar'?'en':'ar';try{localStorage.setItem('aa_lang',lang)}catch(e){}applyLang();document.body.style.opacity='1';},250);
 });
 
 /* تلميح على زرار اللغة يوضح إمكانية التبديل للعربي */
@@ -2608,5 +2640,35 @@ applyLang();
 
 window.refreshPortfolioLanguage=function(){};
 </script>
+<script>
+/* ============ الفيديو التعريفي في الهيرو ============ */
+(function(){
+  const v=document.getElementById('heroVid'),btn=document.getElementById('heroSound');
+  if(!v)return;
+  const src=(matchMedia('(max-width:768px)').matches?['intro-m.mp4','intro.mp4']:['intro.mp4']);
+  let k=0;
+  function tryNext(){ if(k>=src.length){v.remove();return;} v.src=src[k++]; v.load(); }
+  v.addEventListener('error',tryNext);
+  v.addEventListener('loadeddata',()=>{ v.classList.add('on'); v.play().catch(()=>{}); if(btn)btn.hidden=false; },{once:true});
+  tryNext();
+  const hero=document.querySelector('.hero');
+  function back(){ hero.classList.remove('playing'); v.controls=false; v.muted=true; v.loop=true; v.play().catch(()=>{}); if(btn)btn.hidden=false; }
+  if(btn)btn.addEventListener('click',()=>{ hero.classList.add('playing'); v.muted=false; v.loop=false; v.currentTime=0; v.controls=true; v.play().catch(()=>{}); btn.hidden=true; });
+  v.addEventListener('ended',back); v.addEventListener('pause',()=>{ if(hero.classList.contains('playing')&&!v.ended) back(); });
+})();
+/* ============ كارت "احجز مكالمة" الثابت ============ */
+(function(){
+  const pill=document.getElementById('callPill'),book=document.getElementById('book');
+  if(!pill||!book)return;
+  let inBook=false;
+  new IntersectionObserver(e=>{inBook=e[0].isIntersecting;upd();},{threshold:.15}).observe(book);
+  function upd(){pill.classList.toggle('on',scrollY>innerHeight*.7&&!inBook);}
+  addEventListener('scroll',upd,{passive:true}); upd();
+})();
+/* ============ أقل ميعاد للمكالمة = النهارده ============ */
+(function(){const d=document.getElementById('bDate');if(!d)return;const n=new Date(Date.now()+60*60*1000);n.setMinutes(0,0,0);const z=x=>String(x).padStart(2,'0');d.min=n.getFullYear()+'-'+z(n.getMonth()+1)+'-'+z(n.getDate())+'T'+z(n.getHours())+':00';d.step=900;})();
+</script>
+<!-- Vercel Web Analytics: فعّلها من Vercel → المشروع → Analytics → Enable. لحد ما تتفعل السطر ده مش بيعمل حاجة. -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
